@@ -26,15 +26,15 @@ class Index extends Component{
                 <NavBar
                     style={{background:'#222222'}}
                     mode="dark"
-                    leftContent="Back"
-                    rightContent={[
-                        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-                        <Icon key="1" type="ellipsis" />,
-                    ]}
-                >NavBar</NavBar>
-                {/*<NoticeBar style={{lineHeight:24,height:24}} marqueeProps={{ loop: true, style: { padding: '0 7.5px' } }}>*/}
-                    {/*相信自己，我能行！！！！*/}
-                {/*</NoticeBar>*/}
+                    // leftContent="Back"
+                    // rightContent={[
+                    //     <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+                    //     <Icon key="1" type="ellipsis" />,
+                    // ]}
+                >记忆大师</NavBar>
+                <NoticeBar marqueeProps={{ loop: true, style: { padding: '0 7.5px' } }}>
+                    Nothing is impossible to a willing heart
+                </NoticeBar>
                 <div>
                     <Route path="/study" component={Study} />
                     <Route path="/review" component={Review} />

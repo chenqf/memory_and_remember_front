@@ -21,7 +21,6 @@ class Login extends React.Component {
         if (redirectToReferrer) {
             return <Redirect to={from} />;
         }
-
         return (
             <div>
                 <p>You must log in to view the page at {from.pathname}</p>
