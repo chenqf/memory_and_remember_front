@@ -39,14 +39,21 @@ axios.interceptors.response.use(function (response) {
 });
 
 export default {
-    post(url,params = {}){
-        return new Promise((resolve,reject)=>{
-            return axios.post(url, params).then((data)=>{
+    post(url,params = {},callback,errorCallback){
+        if(typeof params === 'function'){
+            callback = params;
+            errorCallback = callback;
+            params = {};
+        }
+        return  new Promise((resolve,reject)=>{
+            axios.post(url, params).then((data)=>{
                 resolve(data)
+            }).catch((error)=>{
+                reject(error);
             })
-        }).catch(function (error) {
-            Toast.fail(error.message, 1);
-        })
+        }).then(callback,function (error) {
+            return errorCallback ? errorCallback(error) :  Toast.fail(error.message,1.5);
+        });
     },
     get(url,params = {}){
         return new Promise((resolve,reject)=>{
