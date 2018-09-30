@@ -23,16 +23,20 @@ class WordItem extends Component{
         return (
             <div className="word-item">
                 <span className="word-text">{wordInfo.text}</span>
-                <Flex className="phonetic">
-                    <Flex.Item onClick={()=>this.playAudio(1)}>
-                        英&nbsp;<span>[{wordInfo.ukPhonetic}]</span>
-                        <a className="voice"/>
-                    </Flex.Item>
-                    <Flex.Item onClick={()=>this.playAudio(2)}>
-                        美&nbsp;<span>[{wordInfo.usPhonetic}]</span>
-                        <a className="voice"/>
-                    </Flex.Item>
-                </Flex>
+                {
+                    wordInfo.ukPhonetic || wordInfo.usPhonetic ?
+                        <Flex className="phonetic">
+                            <Flex.Item onClick={()=>this.playAudio(1)}>
+                                英&nbsp;<span>[{wordInfo.ukPhonetic}]</span>
+                                <a className="voice"/>
+                            </Flex.Item>
+                            <Flex.Item onClick={()=>this.playAudio(2)}>
+                                美&nbsp;<span>[{wordInfo.usPhonetic}]</span>
+                                <a className="voice"/>
+                            </Flex.Item>
+                        </Flex>:
+                        null
+                }
                 <div>
                     {
                         explains.map((item,index)=><div className="explains-item" key={index}>{item}</div>)

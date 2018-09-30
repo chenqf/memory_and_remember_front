@@ -25,13 +25,18 @@ class Study extends Component{
     }
     searchWordHandler(q){
         http.post('/word/search', {q},(data)=> {
+            let oldData = this.state.wordInfo;
+            if(oldData.new){
+                this.state.items.unshift(oldData);
+            }
             this.setState({
-                wordInfo:data
+                wordInfo:data,
+                totalCount:this.state.items.length
             });
         })
     }
     componentWillMount(){
-        http.post('/word/queryByPreDate',(data)=> {
+        http.post('/word/queryByPreDate',{order:'DESC'},(data)=> {
             this.setState({
                 items:data.items,
                 totalCount:data.totalCount
@@ -62,7 +67,6 @@ class Study extends Component{
                             <Card.Header
                                 title="基本释义"
                                 thumb="//shared.ydstatic.com/dict/youdaowap/icon/cidian34.png"
-                                extra={wordInfo.text}
                             />
                             <Card.Body style={{minHeight:0}}>
                                 <WordItem wordInfo={wordInfo}/>

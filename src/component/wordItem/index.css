@@ -1,4 +1,8 @@
 
+.word-item{
+    padding-bottom: 10px;
+    border-bottom: 1PX solid #ddd;
+}
 
 .word-item .voice{
     display: inline-block;
