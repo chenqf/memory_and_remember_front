@@ -2,6 +2,7 @@
 
 import React,{Component} from 'react';
 import {TabBar,NavBar,Icon,NoticeBar} from 'antd-mobile';
+import FontAwesome from 'react-fontawesome';
 import { withCookies, Cookies } from 'react-cookie';
 import {
     HashRouter as Router,
@@ -18,7 +19,9 @@ import Review from '../review/index'
 class Index extends Component{
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            selectedTab:''
+        };
     }
     render(){
         return (
@@ -45,84 +48,58 @@ class Index extends Component{
                 <footer style={ {position: 'fixed', width: '100%', bottom: 0}}>
                     <TabBar
                         unselectedTintColor="#949494"
-                        tintColor="#33A3F4"
+                        tintColor="#00b500"
                         barTintColor="white"
                     >
                         <TabBar.Item
-                            title="Life"
-                            key="Life"
-                            icon={<div style={{
-                                width: '22px',
-                                height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
-                            />
-                            }
-                            selectedIcon={<div style={{
-                                width: '22px',
-                                height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
-                            />
-                            }
-                            badge={1}
+                            title="学习"
+                            key="study"
+                            icon={<i className="fa fa-book fa-2x"/>}
+                            selectedIcon={<i className="fa fa-book fa-2x" style={{color:'#00b500'}}/> }
+                            // badge={1}
+                            selected={this.state.selectedTab === 'study'}
                             onPress={() => {
+                                this.setState({selectedTab:'study'});
                                 this.props.history.replace('/study')
                             }}
                             data-seed="logId"
                         >
                         </TabBar.Item>
                         <TabBar.Item
-                            icon={
-                                <div style={{
-                                    width: '22px',
-                                    height: '22px',
-                                    background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat' }}
-                                />
-                            }
-                            selectedIcon={
-                                <div style={{
-                                    width: '22px',
-                                    height: '22px',
-                                    background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat' }}
-                                />
-                            }
-                            title="Koubei"
+                            icon={<i className="fa fa-bell-o fa-2x"/>}
+                            selectedIcon={<i className="fa fa-bell fa-2x" style={{color:'#00b500'}}/> }
+                            title="复习"
                             key="Koubei"
-                            badge={'new'}
+                            // badge={'new'}
+                            selected={this.state.selectedTab === 'review'}
                             onPress={() => {
+                                this.setState({selectedTab:'review'});
                                 this.props.history.replace('/review')
                             }}
                             data-seed="logId1"
                         >
                         </TabBar.Item>
                         <TabBar.Item
-                            icon={
-                                <div style={{
-                                    width: '22px',
-                                    height: '22px',
-                                    background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat' }}
-                                />
-                            }
-                            selectedIcon={
-                                <div style={{
-                                    width: '22px',
-                                    height: '22px',
-                                    background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }}
-                                />
-                            }
-                            title="Friend"
-                            key="Friend"
-                            dot
+                            icon={<i className="fa fa-pencil-square fa-2x"/>}
+                            selectedIcon={<i className="fa fa-pencil-square fa-2x" style={{color:'#00b500'}}/> }
+                            title="测验"
+                            key="test"
+                            // dot
+                            selected={this.state.selectedTab === 'test'}
                             onPress={() => {
+                                this.setState({selectedTab:'test'});
                                 this.props.history.replace('/test')
                             }}
                         >
                         </TabBar.Item>
                         <TabBar.Item
-                            icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-                            selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-                            title="My"
+                            icon={<i className="fa fa-user fa-2x"/>}
+                            selectedIcon={<i className="fa fa-user fa-2x" style={{color:'#00b500'}}/> }
+                            title="我"
                             key="my"
+                            selected={this.state.selectedTab === 'my'}
                             onPress={() => {
+                                this.setState({selectedTab:'my'});
                                 this.props.history.replace('/mine')
                             }}
                         >
