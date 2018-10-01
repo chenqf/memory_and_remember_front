@@ -4,7 +4,7 @@ import React,{Component} from 'react';
 import {TabBar,NavBar,Icon,NoticeBar} from 'antd-mobile';
 import { withCookies, Cookies } from 'react-cookie';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Route,
     Link,
     Redirect,
