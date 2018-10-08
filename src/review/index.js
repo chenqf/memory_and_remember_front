@@ -1,6 +1,6 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
-import { Tabs, WhiteSpace } from 'antd-mobile';
+import { Tabs, WhiteSpace ,WingBlank} from 'antd-mobile';
 import http from '../http';
 import WordList from "../component/wordList/index";
 class Review extends React.Component {
@@ -37,11 +37,21 @@ class Review extends React.Component {
         return (
             <div>
                 <WhiteSpace />
-                <Tabs onTabClick={this.changeTabClick.bind(this)} tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
-                    <div style={{ minHeight: '150px', backgroundColor: '#fff' }}>
-                        <WordList items={this.state.items}/>
-                    </div>
-                </Tabs>
+                <WingBlank>
+                    <Tabs onTabClick={this.changeTabClick.bind(this)} tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
+                        <div style={{ minHeight: '150px', backgroundColor: '#fff' ,paddingLeft:15,paddingRight:15}}>
+                            <WhiteSpace />
+                            {
+                                this.state.items.length
+                                    ?
+                                    <WordList items={this.state.items}/>
+                                    :
+                                    <div style={{textAlign:'center',paddingTop:40}}>暂无需要复习的内容</div>
+                            }
+                            <WhiteSpace />
+                        </div>
+                    </Tabs>
+                </WingBlank>
                 <WhiteSpace />
             </div>
         );

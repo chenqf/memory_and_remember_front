@@ -2,6 +2,24 @@
 .word-item{
     padding-bottom: 10px;
     border-bottom: 1PX solid #ddd;
+    position: relative;
+}
+
+.word-item .word-text{
+    display: flex;
+    line-height: 36px;
+}
+.word-item .word-text .word-content{
+    flex: 1;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 36px;
+}
+.word-item .word-text .word-time{
+    flex: 1;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .word-item .voice{
@@ -13,12 +31,6 @@
     background-image: url(//shared.ydstatic.com/dict/youdaowap/icon/dict_pronounce-_icon_normal.png);
     background-size: 24px 24px;
     vertical-align: middle;
-}
-
-.word-item .word-text{
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 36px;
 }
 
 .word-item .explains-item{

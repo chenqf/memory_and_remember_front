@@ -1,0 +1,28 @@
+
+
+.login{
+    padding:0 20px;
+    background: #fff;
+    min-height: 150px;
+}
+.login-item{
+    display: flex;
+    margin-top: 10px;
+}
+
+.login-item span{
+    width: 50px;
+    font-size: 16px;
+    padding-right: 10px;
+    display: inline-block;
+    text-align: right;
+    padding-top:10px;
+}
+
+.login-item input{
+    vertical-align: middle;
+
+    flex:1;
+    padding: 10px 10px;
+    outline: 0;
+}
