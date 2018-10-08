@@ -51,7 +51,7 @@ class Review extends React.Component {
             <div>
                 <WhiteSpace />
                 <WingBlank>
-                    <Tabs onTabClick={this.changeTabClick.bind(this)} tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
+                    <Tabs onTabClick={this.changeTabClick.bind(this)} tabs={tabs}  swipeable={false} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
                         <div style={{ minHeight: '150px', backgroundColor: '#fff' ,paddingLeft:15,paddingRight:15}}>
                             <WhiteSpace />
                             {
