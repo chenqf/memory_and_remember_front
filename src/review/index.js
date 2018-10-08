@@ -12,10 +12,10 @@ class Review extends React.Component {
         };
     }
     componentWillMount(){
-        http.post('/word/queryReviewNum',(data)=> {
+        http.post('/word/queryReview',({items})=> {
             this.setState({
-                allItems:data.items,
-                items:data.items[0]
+                allItems:items,
+                items:items[0]
             });
         })
     }
@@ -38,7 +38,7 @@ class Review extends React.Component {
             <div>
                 <WhiteSpace />
                 <Tabs onTabClick={this.changeTabClick.bind(this)} tabs={tabs} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+                    <div style={{ minHeight: '150px', backgroundColor: '#fff' }}>
                         <WordList items={this.state.items}/>
                     </div>
                 </Tabs>
