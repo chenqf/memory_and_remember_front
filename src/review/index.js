@@ -14,24 +14,37 @@ class Review extends React.Component {
     componentWillMount(){
         http.post('/word/queryReview',({items})=> {
             this.setState({
-                allItems:items,
-                items:items[0]
+                allItems:items
+            });
+        });
+        http.post('/word/queryAll',({items})=> {
+            this.setState({
+                allDataItems:items,
+                items
             });
         })
     }
     changeTabClick(tab,index){
-        this.setState({
-            items:this.state.allItems[index]
-        })
+        if(index){
+            this.setState({
+                items:this.state.allItems[index - 1]
+            })
+        }else{
+            this.setState({
+                items:this.state.allDataItems
+            })
+        }
+
     }
     render() {
         const tabs = [
-            { title: '1st Day' },
-            { title: '2nd Day' },
-            { title: '4rd Day' },
-            { title: '7th Day' },
-            { title: '15th Day' },
-            { title: '30th Day' }
+            { title: '总复习' },
+            { title: '第一天' },
+            { title: '第二天' },
+            { title: '第四天' },
+            { title: '第七天' },
+            { title: '第十五天' },
+            { title: '第三十天' }
         ];
 
         return (

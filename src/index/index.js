@@ -1,7 +1,7 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 
 import React,{Component} from 'react';
-import {TabBar,NavBar,Icon,NoticeBar} from 'antd-mobile';
+import {TabBar,NavBar,Icon,NoticeBar,Popover} from 'antd-mobile';
 import FontAwesome from 'react-fontawesome';
 import { withCookies, Cookies } from 'react-cookie';
 import {
@@ -15,14 +15,40 @@ import Mine from '../mine/index'
 import Study from '../study/index'
 import Test from '../test/index'
 import Review from '../review/index'
+import './index.css'
+const Item = Popover.Item;
 
 class Index extends Component{
     constructor(props){
         super(props);
         this.state = {
+            startTime:0,
+            visible:false,
             selectedTab:''
         };
     }
+    handleVisibleChange = (visible) => {
+        this.setState({
+            visible,
+        });
+    };
+    onSelect = (opt) => {
+        if(opt.props.value === 'start'){
+            this.setState({
+                visible:false,
+                startTime:Date.now()
+            })
+        }else{
+            let startTime = this.state.startTime;
+            let now = Date.now();
+            this.setState({
+                visible:false,
+                startTime:0
+            });
+            let time = now - startTime;
+
+        }
+    };
     render(){
         return (
             <div>
@@ -30,10 +56,34 @@ class Index extends Component{
                     style={{background:'#222222'}}
                     mode="dark"
                     // leftContent="Back"
-                    // rightContent={[
-                    //     <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-                    //     <Icon key="1" type="ellipsis" />,
-                    // ]}
+                    /*rightContent={
+                        <Popover
+                                 overlayClassName="index-page"
+                                 overlayStyle={{ background:'#222',color: '#000' }}
+                                 visible={this.state.visible}
+                                 overlay={[
+                                     (<Item key="0" value="start" icon={<i className="fa fa-hourglass-start"/>} data-seed="logId">开始学习</Item>),
+                                     (<Item key="1" value="end" icon={<i className="fa fa-hourglass-end"/>} data-seed="logId">结束学习</Item>),
+                                 ]}
+                                 align={{
+                                     overflow: { adjustY: 0, adjustX: 0 },
+                                     offset: [-10, 0],
+                                 }}
+                                 onVisibleChange={this.handleVisibleChange}
+                                 onSelect={this.onSelect}
+                        >
+                            <div style={{
+                                height: '100%',
+                                padding: '0 15px',
+                                marginRight: '-15px',
+                                display: 'flex',
+                                alignItems: 'center',
+                            }}
+                            >
+                                <Icon type="ellipsis" />
+                            </div>
+                        </Popover>
+                    }*/
                 >记忆大师</NavBar>
                 <NoticeBar marqueeProps={{ loop: true, style: { padding: '0 7.5px' } }}>
                     Nothing is impossible to a willing heart
