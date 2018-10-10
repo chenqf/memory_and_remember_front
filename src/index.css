@@ -3,3 +3,45 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.blue{
+   color:#1a88ea;
+}
+
+.green{
+  color:#00b500;
+}
+
+.black{
+  color:#222222
+}
+.white{
+  color:#fff;
+}
+.grey{
+  color:#949494;
+}
+
+.bordert{border-top:1px solid #ddd;}
+.borderr{border-right:1px solid #ddd;}
+.borderb{border-bottom:1px solid #ddd;}
+.borderl{border-left:1px solid #ddd;}
+
+.left{
+  float: left;
+}
+.right{
+  float:right;
+}
+
+.p1{padding: 1px;}
+.p2{padding: 2px;}
+.p3{padding: 3px;}
+.p4{padding: 4px;}
+.p5{padding: 5px;}
+
+.pl1{padding-left: 1px;}
+.pl2{padding-left: 2px;}
+.pl3{padding-left: 3px;}
+.pl4{padding-left: 4px;}
+.pl5{padding-left: 5px;}

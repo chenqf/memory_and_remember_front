@@ -1,12 +1,12 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
-import {Card,WhiteSpace,WingBlank,SearchBar,List} from 'antd-mobile'
+import {Card,WhiteSpace,WingBlank,SearchBar} from 'antd-mobile'
 import http from '../http';
 import './index.css'
 import WordItem from "../component/wordItem/index";
 import WordList from "../component/wordList/index";
+import RemarkWrapper from "../component/remark/index";
 const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
-const Item = List.Item;
 let moneyKeyboardWrapProps;
 if (isIPhone) {
     moneyKeyboardWrapProps = {
@@ -20,6 +20,7 @@ class Study extends Component{
         this.state = {
             wordInfo:{},
             items:[],
+            remark:[],
             totalCount:0
         };
     }
@@ -42,6 +43,11 @@ class Study extends Component{
                 totalCount:data.totalCount
             });
         })
+        http.post('/remark/query',{pre:0},(data)=> {
+            this.setState({
+                remark:data.items
+            });
+        })
     }
     render(){
         let wordInfo = this.state.wordInfo;
@@ -50,8 +56,18 @@ class Study extends Component{
                 <WhiteSpace size="lg"/>
                 <Card>
                     <Card.Header
-                        title="单词检索"
-                        thumb="//shared.ydstatic.com/dict/youdaowap/icon/cidian34.png"
+                        title={<span className="p5">今日备注</span>}
+                        thumb={<i className="blue fa fa-tags fa-lg"/>}
+                    />
+                    <Card.Body className="study-remark">
+                        <RemarkWrapper list={this.state.remark} add/>
+                    </Card.Body>
+                </Card>
+                <WhiteSpace size="lg"/>
+                <Card>
+                    <Card.Header
+                        title={<span className="p5">单词搜索</span>}
+                        thumb={<i className="blue fa fa-search-plus fa-lg"/>}
                         // extra={<span>this is extra</span>}
                     />
                     <Card.Body>
@@ -65,8 +81,8 @@ class Study extends Component{
                     wordInfo.text ?
                         <Card style={{marginTop:15}}>
                             <Card.Header
-                                title="基本释义"
-                                thumb="//shared.ydstatic.com/dict/youdaowap/icon/cidian34.png"
+                                title={<span className="p5">基本释义</span>}
+                                thumb={<i className="blue fa fa-star-o fa-lg"/>}
                             />
                             <Card.Body style={{minHeight:0}}>
                                 <WordItem wordInfo={wordInfo}/>
@@ -79,8 +95,8 @@ class Study extends Component{
                     this.state.totalCount ?
                         <Card style={{marginTop:15}}>
                             <Card.Header
-                                title={`今日成果`}
-                                thumb="//shared.ydstatic.com/dict/youdaowap/icon/cidian34.png"
+                                title={<span className="p5">今日成果</span>}
+                                thumb={<i className="blue fa fa-columns fa-lg"/>}
                                 extra={this.state.totalCount}
                             />
                             <Card.Body style={{minHeight:0}}>
