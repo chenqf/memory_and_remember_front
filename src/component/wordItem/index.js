@@ -23,7 +23,8 @@ class WordItem extends Component{
     constructor(props){
         super(props);
         this.state = {
-            showModal:false
+            showModal:false,
+            showDeleteModal:false,
         };
     }
     playAudio(type){
@@ -68,6 +69,14 @@ class WordItem extends Component{
         if (!pNode) {
             e.preventDefault();
         }
+    };
+    onDeleteSubmitModal(item){
+        let wordId = item.id;
+        http.post('/word/delete', {wordId},()=> {
+            this.setState({
+                showDeleteModal:false
+            })
+        })
     }
     render(){
         let wordInfo = this.props.wordInfo;
@@ -117,9 +126,11 @@ class WordItem extends Component{
                     visible={this.state.showModal}
                     transparent
                     maskClosable={false}
-                    onClose={this.onCloseModal.bind(this,wordInfo)}
                     title="请选择时间"
-                    footer={[{ text: 'Ok', onPress: this.onCloseModal.bind(this,wordInfo)}]}
+                    footer={[
+                        { text: 'Cancel', onPress: ()=>{this.setState({showModal:false})}},
+                        { text: 'Ok', onPress: this.onCloseModal.bind(this,wordInfo)},
+                    ]}
                     wrapProps={{ onTouchStart: this.onWrapTouchStart }}
                 >
                     <div style={{ height: 100, overflow: 'scroll' }}>
@@ -127,6 +138,26 @@ class WordItem extends Component{
                     </div>
                 </Modal>
 
+
+                <Modal
+                    visible={this.state.showDeleteModal}
+                    transparent
+                    maskClosable={false}
+                    title="提示"
+                    footer={[
+                        { text: 'Cancel', onPress: ()=>{this.setState({showDeleteModal:false})}},
+                        { text: 'Ok', onPress: this.onDeleteSubmitModal.bind(this,wordInfo)},
+                    ]}
+                    wrapProps={{ onTouchStart: this.onWrapTouchStart }}
+                >
+                    确认删除么
+                </Modal>
+
+
+
+                <div className="word-delete" onClick={()=>{this.setState({showDeleteModal:true})}}>
+                    <i class="fa fa-trash-o" aria-hidden="true"/>
+                </div>
             </div>
         )
     }

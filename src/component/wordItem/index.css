@@ -55,3 +55,9 @@
 .word-item .phonetic{
     font-weight: 700;
 }
+
+.word-item .word-delete{
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
