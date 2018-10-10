@@ -88,14 +88,14 @@ class Index extends Component{
                 <NoticeBar marqueeProps={{ loop: true, style: { padding: '0 7.5px' } }}>
                     Nothing is impossible to a willing heart
                 </NoticeBar>
-                <div>
+                <div style={{paddingBottom:50}}>
                     <Route path="/study" component={Study} />
                     <Route path="/review" component={Review} />
                     <Route path="/test" component={Test} />
                     <Route path="/mine" component={Mine} />
                 </div>
 
-                <footer style={ {position: 'fixed', width: '100%', bottom: 0}}>
+                <footer style={ {position: 'fixed', width: '100%', bottom: 0,zIndex:99999999}}>
                     <TabBar
                         unselectedTintColor="#949494"
                         tintColor="#00b500"

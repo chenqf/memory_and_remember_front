@@ -42,10 +42,10 @@ class Study extends Component{
                 items:data.items,
                 totalCount:data.totalCount
             });
-        })
-        http.post('/remark/query',{pre:0},(data)=> {
+        });
+        http.post('/remark/queryByPreDate',{pre:0},({items})=> {
             this.setState({
-                remark:data.items
+                remark:items
             });
         })
     }
@@ -60,7 +60,7 @@ class Study extends Component{
                         thumb={<i className="blue fa fa-tags fa-lg"/>}
                     />
                     <Card.Body className="study-remark">
-                        <RemarkWrapper list={this.state.remark} add/>
+                        <RemarkWrapper items={this.state.remark} add/>
                     </Card.Body>
                 </Card>
                 <WhiteSpace size="lg"/>

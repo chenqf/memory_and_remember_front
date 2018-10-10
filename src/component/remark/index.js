@@ -23,9 +23,9 @@ class Remark extends Component {
     }
     render() {
         return (
-            <div className="remark">
+            <div className={this.props.className ? `${this.props.className } remark`:'remark' }>
                 {
-                    this.props.list.map((item,index)=>
+                    this.props.items.map((item,index)=>
                         <Flex align="around" className="remark-item" key={index}>
                             <Flex.Item>{item.content}</Flex.Item>
                             {/*<i className="right fa fa-trash-o"/>*/}
