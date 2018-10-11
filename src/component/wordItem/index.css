@@ -18,7 +18,6 @@
 }
 
 .word-item .word-text .phonetic{
-    flex:1;
     font-weight: 500;
     color:#222;
     font-size: 14px;
@@ -27,17 +26,6 @@
 .word-item .word-time{
     font-size: 12px;
     float: right;
-}
-
-.word-item .voice{
-    display: inline-block;
-    text-indent: -9999px;
-    font-size: 0;
-    width: 24px;
-    height: 24px;
-    background-image: url(//shared.ydstatic.com/dict/youdaowap/icon/dict_pronounce-_icon_normal.png);
-    background-size: 24px 24px;
-    vertical-align: middle;
 }
 
 .word-item .explains-item{
@@ -59,6 +47,43 @@
 }
 .word-item .wfs-item:first-child{
     margin-top:5px;
+}
+
+
+.word-page .am-popover-inner-wrapper{
+    background: rgb(64, 64, 64);
+}
+.word-page .am-popover-arrow{
+    background: rgb(64, 64, 64);
+}
+.am-popover .am-popover-item.am-popover-item-active {
+    background: rgb(64, 64, 64);
+}
+
+.word-page .am-popover-item-content{
+    color: #fff;
+    font-size:12px;
+    display: inline-block;
+}
+
+.word-page,.word-page .am-popover-inner{
+    border-radius: 6px;
+}
+.word-page .am-popover-item-icon i{
+    color: #fff;
+}
+.word-page .am-popover-inner .am-popover-inner-wrapper .am-popover-item.am-popover-item-active{
+    background: #666;
+}
+.word-page .am-popover-inner .am-popover-inner-wrapper .am-popover-item{
+    box-sizing: border-box;
+}
+.word-page .am-popover-inner .am-popover-inner-wrapper .am-popover-item .am-popover-item-container:before{
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    background: #666 !important;
 }
 
 

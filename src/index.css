@@ -44,6 +44,25 @@ body {
   float:right;
 }
 
+.flex1{
+  flex: 1;
+}
+.flex2{
+  flex: 2;
+}
+.flex3{
+  flex: 3;
+}
+.tc{
+  text-align: center;
+}
+.tr{
+  text-align: right;
+}
+.tl{
+  text-align: left;
+}
+
 .p1{padding: 1px;}
 .p2{padding: 2px;}
 .p3{padding: 3px;}
@@ -55,6 +74,12 @@ body {
 .pl3{padding-left: 3px;}
 .pl4{padding-left: 4px;}
 .pl5{padding-left: 5px;}
+
+.pt1{padding-top: 1px;}
+.pt2{padding-top: 2px;}
+.pt3{padding-top: 3px;}
+.pt4{padding-top: 4px;}
+.pt5{padding-top: 5px;}
 
 
 .hide{

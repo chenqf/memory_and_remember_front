@@ -5,10 +5,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/component/wordItem/index.css" afterPath="$PROJECT_DIR$/src/component/wordItem/index.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/component/wordItem/index.js" afterPath="$PROJECT_DIR$/src/component/wordItem/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/component/wordList/index.css" afterPath="$PROJECT_DIR$/src/component/wordList/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/component/wordList/index.js" afterPath="$PROJECT_DIR$/src/component/wordList/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.css" afterPath="$PROJECT_DIR$/src/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/index.js" afterPath="$PROJECT_DIR$/src/test/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index/index.css" afterPath="$PROJECT_DIR$/src/index/index.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,7 +70,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.60441077">
+    <splitter split-orientation="horizontal" split-proportion="0.7698139">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
@@ -124,32 +122,43 @@
           <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/component/wordList/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="37" lean-forward="true" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+                <state relative-caret-position="264">
+                  <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/component/wordItem/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="294">
-                  <caret line="110" column="45" lean-forward="false" selection-start-line="110" selection-start-column="45" selection-end-line="110" selection-end-column="45" />
+                <state relative-caret-position="148">
+                  <caret line="122" column="28" lean-forward="true" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
                   <folding>
                     <element signature="e#39#77#0" expanded="true" />
-                    <element signature="e#4767#4947#0" expanded="false" />
-                    <element signature="e#4989#5366#0" expanded="false" />
+                    <element signature="e#5146#5326#0" expanded="false" />
+                    <element signature="e#5368#5745#0" expanded="false" />
+                    <element signature="e#5787#6032#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/index/index.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="505">
+                  <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/component/wordItem/index.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="119">
-                  <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+                <state relative-caret-position="110">
+                  <caret line="62" column="36" lean-forward="true" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
                   <folding />
                 </state>
               </provider>
@@ -168,8 +177,8 @@
           <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/index.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="552">
-                  <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+                <state relative-caret-position="444">
+                  <caret line="58" column="3" lean-forward="false" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="3" />
                   <folding />
                 </state>
               </provider>
@@ -182,8 +191,8 @@
           <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/component/wordItem/index.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="378">
-                  <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+                <state relative-caret-position="213">
+                  <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -203,10 +212,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onCloseModal</find>
-      <find>changeTabClick</find>
-      <find>swipeable</find>
-      <find>actions</find>
       <find>delete</find>
       <find>fa</find>
       <find>pp.css</find>
@@ -233,11 +238,16 @@
       <find>phoneticFlg</find>
       <find>playAudio</find>
       <find>word-delete</find>
+      <find>.index-page</find>
+      <find>.index-page .am-popover-inner-wrapper</find>
+      <find>index-page</find>
+      <find>test</find>
     </findStrings>
     <replaceStrings>
       <replace>word-item</replace>
       <replace>&quot;</replace>
       <replace>HashRouter as Router</replace>
+      <replace>word-page</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -267,7 +277,6 @@
         <option value="$PROJECT_DIR$/src/http.js" />
         <option value="$PROJECT_DIR$/src/mine/index.css" />
         <option value="$PROJECT_DIR$/src/mine/index.js" />
-        <option value="$PROJECT_DIR$/src/index/index.css" />
         <option value="$PROJECT_DIR$/src/component/remark/index.css" />
         <option value="$PROJECT_DIR$/src/index/index.js" />
         <option value="$PROJECT_DIR$/src/study/index.css" />
@@ -278,9 +287,10 @@
         <option value="$PROJECT_DIR$/src/test/index.js" />
         <option value="$PROJECT_DIR$/src/component/wordList/index.js" />
         <option value="$PROJECT_DIR$/src/component/wordList/index.css" />
-        <option value="$PROJECT_DIR$/src/component/wordItem/index.css" />
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/component/wordItem/index.js" />
+        <option value="$PROJECT_DIR$/src/index/index.css" />
+        <option value="$PROJECT_DIR$/src/component/wordItem/index.css" />
       </list>
     </option>
   </component>
@@ -885,7 +895,7 @@
       <workItem from="1538351154593" duration="13469000" />
       <workItem from="1539048549984" duration="32000" />
       <workItem from="1539134897124" duration="22540000" />
-      <workItem from="1539218860826" duration="10936000" />
+      <workItem from="1539218860826" duration="15002000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1538134378277</created>
@@ -1020,11 +1030,18 @@
       <option name="project" value="LOCAL" />
       <updated>1539246350492</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="ui 调整">
+      <created>1539252644095</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1539252644095</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113614000" />
+    <option name="totallyTimeSpent" value="117680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1918" height="1038" extended-state="0" />
@@ -1049,7 +1066,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16628702" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.285877" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.309795" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21905275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1108,7 +1125,8 @@
     <MESSAGE value="add delete word" />
     <MESSAGE value="add remark" />
     <MESSAGE value="add test" />
-    <option name="LAST_COMMIT_MESSAGE" value="add test" />
+    <MESSAGE value="ui 调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="ui 调整" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1329,14 +1347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1443,14 +1453,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/wordList/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="37" lean-forward="true" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/component/wordList/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
@@ -1485,31 +1487,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/component/wordItem/index.css">
+    <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <state relative-caret-position="444">
+          <caret line="58" column="3" lean-forward="false" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
+    <entry file="file://$PROJECT_DIR$/src/component/wordList/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+        <state relative-caret-position="264">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/wordItem/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="110" column="45" lean-forward="false" selection-start-line="110" selection-start-column="45" selection-end-line="110" selection-end-column="45" />
+        <state relative-caret-position="148">
+          <caret line="122" column="28" lean-forward="true" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
           <folding>
             <element signature="e#39#77#0" expanded="true" />
-            <element signature="e#4767#4947#0" expanded="false" />
-            <element signature="e#4989#5366#0" expanded="false" />
+            <element signature="e#5146#5326#0" expanded="false" />
+            <element signature="e#5368#5745#0" expanded="false" />
+            <element signature="e#5787#6032#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/wordItem/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="62" column="36" lean-forward="true" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

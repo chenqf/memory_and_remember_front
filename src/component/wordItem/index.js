@@ -96,6 +96,8 @@ class WordItem extends Component{
             this.setState((prevState, props) => ({
                 phoneticFlg: !prevState.phoneticFlg
             }));
+        }else if(value === 'date'){
+            this.editTime(this.props.wordInfo)
         }
     };
     render(){
@@ -105,6 +107,7 @@ class WordItem extends Component{
         return (
             <div className="word-item">
                 <div className="word-text">
+                    {/*文本*/}
                     <span className="word-content">{wordInfo.text}</span> &nbsp;&nbsp;&nbsp;&nbsp;
                     {/*音标*/}
                     <div className="phonetic" onClick={()=>this.playAudio(this.state.phoneticFlg)}>
@@ -115,24 +118,28 @@ class WordItem extends Component{
                             &nbsp;
                         </span>
                         <span>[ {this.state.phoneticFlg ? wordInfo.usPhonetic : wordInfo.ukPhonetic} ]</span>
-                        <a className="voice"/>
+                        <i className="fa fa-volume-up blue fs14 pl5"/>
                     </div>
-                    <Popover
-                        overlayClassName="index-page"
-                        overlayStyle={{ background:'#222',color: '#000' }}
-                        visible={this.state.visible}
-                        overlay={[
-                            (<Item key="0" value="delete" icon={<i className="fa fa-trash-o"/>} data-seed="logId">删除</Item>),
-                            (<Item key="1" value="change" icon={<i className="fa fa-hourglass-end"/>} data-seed="logId">英美切换</Item>),
-                        ]}
-                        align={{
-                            offset: [6, -5],
-                        }}
-                        onVisibleChange={this.handleVisibleChange}
-                        onSelect={this.onSelect}
-                    >
-                        <i className="fa fa-ellipsis-h right"/>
-                    </Popover>
+                    {/*提示*/}
+                    <div className="flex1 tr">
+                        <Popover
+                            overlayClassName="word-page"
+                            overlayStyle={{ background:'#222',color: '#000' }}
+                            visible={this.state.visible}
+                            overlay={[
+                                (<Item key="0" value="delete" icon={<i className="fa fa-trash-o"/>} >删除</Item>),
+                                (<Item key="1" value="change" icon={<i className="fa fa-exchange"/>} >英美切换</Item>),
+                                (<Item key="2" value="date" icon={<i className="fa fa-calendar"/>} >修改时间</Item>),
+                            ]}
+                            align={{
+                                offset: [6, 0],
+                            }}
+                            onVisibleChange={this.handleVisibleChange}
+                            onSelect={this.onSelect}
+                        >
+                            <i className="fa fa-ellipsis-h fs14 pt3"/>
+                        </Popover>
+                    </div>
                 </div>
 
                 {/*解释*/}
@@ -154,7 +161,7 @@ class WordItem extends Component{
                 </div>
                 {/*日期*/}
                 <span className={`word-time ${this.props.test ? 'hide':''}`}>
-                    <span onClick={()=>this.editTime(wordInfo)} style={{padding:5}}>
+                    <span style={{padding:5}}>
                         {moment(new Date(wordInfo.createTime)).format('YYYY-MM-DD')}
                     </span>
                 </span>
