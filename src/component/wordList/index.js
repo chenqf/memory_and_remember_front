@@ -13,7 +13,7 @@ class WordList extends Component{
             <div>
                 {
                     this.props.items.map((item)=>{
-                        return <WordItem key={item.id} wordInfo={item}/>
+                        return <WordItem test={this.props.test} key={item.id} wordInfo={item}/>
                     })
                 }
             </div>

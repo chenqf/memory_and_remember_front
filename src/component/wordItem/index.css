@@ -3,23 +3,30 @@
     padding-bottom: 10px;
     border-bottom: 1PX solid #ddd;
     position: relative;
+    overflow: hidden;
 }
 
 .word-item .word-text{
     display: flex;
-    line-height: 36px;
+    line-height: 22px;
+    margin-top: 5px;
 }
 .word-item .word-text .word-content{
-    flex: 1;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 36px;
-}
-.word-item .word-text .word-time{
-    flex: 1;
-    text-align: right;
+    color:#222;
     font-size: 14px;
+    font-weight: 700;
+}
+
+.word-item .word-text .phonetic{
+    flex:1;
     font-weight: 500;
+    color:#222;
+    font-size: 14px;
+}
+
+.word-item .word-time{
+    font-size: 12px;
+    float: right;
 }
 
 .word-item .voice{
@@ -34,30 +41,25 @@
 }
 
 .word-item .explains-item{
-    line-height: 24px;
+    line-height: 22px;
+    font-size: 14px;
 }
 .word-item .explains-item:first-child{
-    margin-top:10px;
+    margin-top:5px;
 }
 
 .word-item .wfs-item{
     color:#847965;
-    line-height: 24px;
+    line-height: 22px;
+    font-size: 14px;
 }
 .word-item .wfs-item span:first-child{
     display: inline-block;
     width: 70px;
 }
 .word-item .wfs-item:first-child{
-    margin-top:10px;
+    margin-top:5px;
 }
 
-.word-item .phonetic{
-    font-weight: 700;
-}
 
-.word-item .word-delete{
-    position: absolute;
-    bottom: 10px;
-    right: 0;
-}
+

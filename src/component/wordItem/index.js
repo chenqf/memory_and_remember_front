@@ -1,10 +1,11 @@
 // @flow Created by 陈其丰 on 2018/9/30.
 
 import React,{Component} from 'react';
-import {Flex ,Toast ,Modal} from 'antd-mobile'
+import {Flex ,Toast ,Modal,Popover,Icon} from 'antd-mobile'
 import moment from 'moment';
 import http from '../../http';
 import './index.css'
+const Item = Popover.Item;
 
 
 function closest(el, selector) {
@@ -23,11 +24,14 @@ class WordItem extends Component{
     constructor(props){
         super(props);
         this.state = {
+            visible:false,
+            phoneticFlg:true,// 英 false 美 true
             showModal:false,
             showDeleteModal:false,
         };
     }
-    playAudio(type){
+    playAudio(flg){
+        let type = flg ? 2 : 1; // 英 1 false 美 2 true
         let audio = document.createElement("audio");
         audio.src = `http://dict.youdao.com/dictvoice?audio=${this.props.wordInfo.text}&type=${type}`;//路径
         audio.onerror = function () {
@@ -78,6 +82,22 @@ class WordItem extends Component{
             })
         })
     }
+    handleVisibleChange = (visible) => {
+        this.setState({
+            visible,
+        });
+    };
+    onSelect = (opt) => {
+        let value = opt.props.value;
+        this.setState({visible:false});
+        if(value === 'delete'){
+            this.setState({showDeleteModal:true})
+        }else if(value === 'change'){
+            this.setState((prevState, props) => ({
+                phoneticFlg: !prevState.phoneticFlg
+            }));
+        }
+    };
     render(){
         let wordInfo = this.props.wordInfo;
         let explains = JSON.parse(wordInfo.explains || '[]');
@@ -85,32 +105,43 @@ class WordItem extends Component{
         return (
             <div className="word-item">
                 <div className="word-text">
-                    <span className="word-content">{wordInfo.text}</span>
-                    <span className="word-time">
-                        <span onClick={()=>this.editTime(wordInfo)} style={{padding:5}}>
-                            {moment(new Date(wordInfo.createTime)).format('YYYY-MM-DD')}
+                    <span className="word-content">{wordInfo.text}</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                    {/*音标*/}
+                    <div className="phonetic" onClick={()=>this.playAudio(this.state.phoneticFlg)}>
+                        <span className="fs12">
+                            {
+                                this.state.phoneticFlg ? '美' : '英'
+                            }
+                            &nbsp;
                         </span>
-                    </span>
+                        <span>[ {this.state.phoneticFlg ? wordInfo.usPhonetic : wordInfo.ukPhonetic} ]</span>
+                        <a className="voice"/>
+                    </div>
+                    <Popover
+                        overlayClassName="index-page"
+                        overlayStyle={{ background:'#222',color: '#000' }}
+                        visible={this.state.visible}
+                        overlay={[
+                            (<Item key="0" value="delete" icon={<i className="fa fa-trash-o"/>} data-seed="logId">删除</Item>),
+                            (<Item key="1" value="change" icon={<i className="fa fa-hourglass-end"/>} data-seed="logId">英美切换</Item>),
+                        ]}
+                        align={{
+                            offset: [6, -5],
+                        }}
+                        onVisibleChange={this.handleVisibleChange}
+                        onSelect={this.onSelect}
+                    >
+                        <i className="fa fa-ellipsis-h right"/>
+                    </Popover>
                 </div>
-                {
-                    wordInfo.ukPhonetic || wordInfo.usPhonetic ?
-                        <Flex className="phonetic">
-                            <Flex.Item onClick={()=>this.playAudio(1)}>
-                                英&nbsp;<span>[{wordInfo.ukPhonetic}]</span>
-                                <a className="voice"/>
-                            </Flex.Item>
-                            <Flex.Item onClick={()=>this.playAudio(2)}>
-                                美&nbsp;<span>[{wordInfo.usPhonetic}]</span>
-                                <a className="voice"/>
-                            </Flex.Item>
-                        </Flex>:
-                        null
-                }
+
+                {/*解释*/}
                 <div>
                     {
                         explains.map((item,index)=><div className="explains-item" key={index}>{item}</div>)
                     }
                 </div>
+                {/*变形*/}
                 <div>
                     {
                         wfs.map((item,index)=>{
@@ -121,6 +152,13 @@ class WordItem extends Component{
                         })
                     }
                 </div>
+                {/*日期*/}
+                <span className={`word-time ${this.props.test ? 'hide':''}`}>
+                    <span onClick={()=>this.editTime(wordInfo)} style={{padding:5}}>
+                        {moment(new Date(wordInfo.createTime)).format('YYYY-MM-DD')}
+                    </span>
+                </span>
+
 
                 <Modal
                     visible={this.state.showModal}
@@ -153,11 +191,6 @@ class WordItem extends Component{
                     确认删除么
                 </Modal>
 
-
-
-                <div className="word-delete" onClick={()=>{this.setState({showDeleteModal:true})}}>
-                    <i class="fa fa-trash-o" aria-hidden="true"/>
-                </div>
             </div>
         )
     }

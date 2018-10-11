@@ -25,6 +25,13 @@ body {
   color:#949494;
 }
 
+.fs12{
+  font-size: 12px;
+}
+.fs14{
+  font-size: 14px;
+}
+
 .bordert{border-top:1px solid #ddd;}
 .borderr{border-right:1px solid #ddd;}
 .borderb{border-bottom:1px solid #ddd;}
@@ -48,3 +55,8 @@ body {
 .pl3{padding-left: 3px;}
 .pl4{padding-left: 4px;}
 .pl5{padding-left: 5px;}
+
+
+.hide{
+  display: none;
+}
