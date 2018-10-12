@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+@import "variable";
+
+
+
+/* flex item */
+@for $index from 1 through 5 {
+  .flex-#{$index} { flex: $index; }
+}
+
+
+@each $key, $value-list in $base-map {
+  @each $value in $value-list {
+    $value-index:str_index($value,'-');
+    $key-index:str_index($key,'-');
+    $class-name:null;
+    @if $key-index{
+      $key1:#{str-slice($key,1,$key-index - 1)};
+      $key2:#{str-slice($key,$key-index + 1,$key-index + 1)};
+      $class-name:#{$key1}-#{$key2};
+    }@else{
+      $class-name:#{$key};
+    }
+    @if $value-index{
+      .#{$class-name}-#{str-slice($value,1,1)}-#{str-slice($value,$value-index+1,$value-index + 1)} {
+        #{$key}: $value;
+      }
+    }@else{
+      .#{$class-name}-#{str-slice($value,1,1)} {
+        #{$key}: $value;
+      }
+    }
+
+  }
+}
+
+
+
+
+.z-index-light{
+  z-index:100;
+}
