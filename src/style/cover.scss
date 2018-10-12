@@ -1,0 +1,64 @@
+@charset "utf-8";
+@import "variable";
+
+/*小浮窗*/
+.am-popover{
+  border-radius: 6px;
+  .am-popover-content{
+    .am-popover-arrow{
+      background: rgb(64, 64, 64);
+    }
+    .am-popover-inner{
+      border-radius: 6px;
+      .am-popover-inner-wrapper {
+        background: rgb(64, 64, 64);
+        .am-popover-item.am-popover-item-active{
+          background: #666;
+        }
+        .am-popover-item{
+          box-sizing: border-box;
+          .am-popover-item-container{
+            .am-popover-item-icon{
+              i{
+                color: #fff;
+              }
+            }
+            .am-popover-item-content{
+              color: #fff;
+              font-size:12px;
+              display: inline-block;
+            }
+          }
+          &:before{
+            content: ' ';
+            position: absolute;
+            bottom: 0;
+            height: 1px;
+            background: #666 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.am-pagination {
+  .am-pagination-wrap{
+    font-size: 14px;
+  }
+  .am-button{
+    font-size: 14px;
+    height: auto;
+    line-height:36px;
+    &.am-button-disabled{
+      color: rgba(0, 0, 0, 0.6);
+      opacity: 0.8;
+    }
+    &:before{
+      border:1px solid $line-grey!important;
+    }
+  }
+}
+
+
+

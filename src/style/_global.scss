@@ -30,11 +30,13 @@
 
 @media only screen and (min-width: 640px){
   html{
-    font-size: 64px!important;
+    font-size: 64px;
   }
   body{
+    padding: 0;
+    font-family: sans-serif;
     width: 640px;
-    margin:0 auto;
+    margin:0 auto!important;
   }
 }
 
@@ -45,6 +47,8 @@
   }
   body{
     @include phone-width;
-    overflow: visible;
+    margin:0 auto !important;
+    padding: 0;
+    font-family: sans-serif;
   }
 }

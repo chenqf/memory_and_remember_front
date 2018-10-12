@@ -7,19 +7,27 @@ $base-map: (
     display:(block, inline, table, flex,inline-block, inline-table,inline-flex,none)
 );
 
+
+
+
 /*用于文字*/
 $black:#333;
+$green:#00b500;
+$blue:#1a88ea;
 $golden:#cead68;
+$darkYellow:#847965;
 $red: #de181b;
 $grey: #666;
-$grey-light: #999;
+$light: #999;
+$white:#fff;
+
+
 
 
 /*用于背景*/
 $bg-grey: #f3f5f7;
 $bg-blue-light:#3a95ff;
 $bg-blue:#1c51f1;
-
 
 
 /*用于边线*/

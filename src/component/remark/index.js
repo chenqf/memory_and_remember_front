@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {  TextareaItem ,Flex,Button } from "antd-mobile";
 import http from '../../library/http';
-import './index.css'
+import './index.scss'
 
 class Remark extends Component {
 
@@ -34,7 +34,7 @@ class Remark extends Component {
                 }
                 {
                     this.props.add ?
-                        <Flex align="start" className="borderb">
+                        <Flex align="start" className="border-b">
                             <Flex.Item>
                                 <TextareaItem
                                     className="remark"

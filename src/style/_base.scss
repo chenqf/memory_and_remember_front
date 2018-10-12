@@ -3,11 +3,75 @@
 @import "variable";
 
 
+.black{
+  color:$black;
+}
+.green{
+  color:$green;
+}
+.blue{
+  color:$blue;
+}
+.golden{
+  color:$golden;
+}
+.red{
+  color:$red;
+}
+.grey{
+  color:$grey;
+}
+.light{
+  color:$light;
+}
+.white{
+  color:$white;
+}
+//TODO 等待废弃
+.darkBlue{
+  color:#1d679b
+}
+//TODO 等待废弃
+.hide{
+  display: none;
+}
+
+
+
+.border-t{border-top:1px solid $line-light;}
+.border-r{border-right:1px solid $line-light;}
+.border-b{border-bottom:1px solid $line-light;}
+.border-l{border-left:1px solid $line-light;}
+
+
+
 
 /* flex item */
 @for $index from 1 through 5 {
   .flex-#{$index} { flex: $index; }
 }
+
+/* padding margin px*/
+@for $index from 1 through 20 {
+  .p#{$index} { padding: $index * 1px; }
+  .pt#{$index} { padding-top: $index * 1px; }
+  .pr#{$index} { padding-right: $index * 1px; }
+  .pb#{$index} { padding-bottom: $index * 1px; }
+  .pl#{$index} { padding-left: $index * 1px; }
+
+  .m#{$index} { margin: $index * 1px; }
+  .mt#{$index} { margin-top: $index * 1px; }
+  .mr#{$index} { margin-right: $index * 1px; }
+  .mb#{$index} { margin-bottom: $index * 1px; }
+  .ml#{$index} { margin-left: $index * 1px; }
+}
+
+/*字号*/
+@for $index from 12 through 20 {
+  .font-s#{$index} { font-size: $index * 1px; }
+}
+
+
 
 
 @each $key, $value-list in $base-map {
@@ -31,13 +95,5 @@
         #{$key}: $value;
       }
     }
-
   }
-}
-
-
-
-
-.z-index-light{
-  z-index:100;
 }

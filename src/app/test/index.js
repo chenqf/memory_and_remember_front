@@ -2,7 +2,7 @@
 import React,{Component} from 'react';
 import {Card,WhiteSpace,WingBlank} from 'antd-mobile'
 import http from '../../library/http';
-import './index.css'
+import './index.scss'
 import WordList from "../../component/wordList/index";
 
 

@@ -2,7 +2,7 @@
 import React,{Component} from 'react';
 import {WingBlank,WhiteSpace ,Button,Toast} from 'antd-mobile';
 import http from '../../library/http';
-import './index.css';
+import './index.scss';
 
 class Login extends Component{
     constructor(props){

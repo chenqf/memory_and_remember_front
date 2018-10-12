@@ -1,0 +1,58 @@
+@import "../../style/variable";
+@import "../../style/mixin";
+
+.word-item{
+    padding-bottom: 10px;
+    border-bottom: 1PX solid #ddd;
+    position: relative;
+    overflow: hidden;
+}
+
+.word-text{
+    display: flex;
+    line-height: 22px;
+    margin-top: 5px;
+}
+.word-content{
+    color:#222;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.phonetic{
+    font-weight: 500;
+    color:#222;
+    font-size: 14px;
+}
+
+.word-time{
+    margin-top: 3px;
+    font-size: 12px;
+    float: right;
+}
+
+.explains-item{
+    line-height: 22px;
+    font-size: 14px;
+    transition: height 2s;
+    &:first-child{
+        margin-top:5px;
+    }
+}
+.wfs-item{
+    color:$darkYellow;
+    line-height: 22px;
+    font-size: 14px;
+    span:first-child{
+        display: inline-block;
+        width: 70px;
+    }
+    &:first-child{
+        margin-top:5px;
+    }
+}
+
+
+
+
+

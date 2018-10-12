@@ -4,7 +4,7 @@ import React,{Component} from 'react';
 import {Flex ,Toast ,Modal,Popover,Icon} from 'antd-mobile'
 import moment from 'moment';
 import http from '../../library/http';
-import './index.css'
+import './index.scss'
 const Item = Popover.Item;
 
 
@@ -25,6 +25,7 @@ class WordItem extends Component{
         super(props);
         this.state = {
             visible:false,
+            ellipsis:true,
             phoneticFlg:true,// 英 false 美 true
             showModal:false,
             showDeleteModal:false,
@@ -111,20 +112,18 @@ class WordItem extends Component{
                     <span className="word-content">{wordInfo.text}</span> &nbsp;&nbsp;&nbsp;&nbsp;
                     {/*音标*/}
                     <div className="phonetic" onClick={()=>this.playAudio(this.state.phoneticFlg)}>
-                        <span className="fs12">
+                        <span className="font-s12">
                             {
                                 this.state.phoneticFlg ? '美' : '英'
                             }
                             &nbsp;
                         </span>
                         <span>[ {this.state.phoneticFlg ? wordInfo.usPhonetic : wordInfo.ukPhonetic} ]</span>
-                        <i className="fa fa-volume-up blue fs14 pl5"/>
+                        <i className="fa fa-volume-up blue font-s14 pl5"/>
                     </div>
                     {/*提示*/}
-                    <div className="flex1 tr">
+                    <div className="flex-1 text-a-r">
                         <Popover
-                            overlayClassName="word-page"
-                            overlayStyle={{ background:'#222',color: '#000' }}
                             visible={this.state.visible}
                             overlay={[
                                 (<Item key="0" value="delete" icon={<i className="fa fa-trash-o"/>} >删除</Item>),
@@ -137,15 +136,15 @@ class WordItem extends Component{
                             onVisibleChange={this.handleVisibleChange}
                             onSelect={this.onSelect}
                         >
-                            <i className="fa fa-ellipsis-h fs14 pt3"/>
+                            <i className="fa fa-ellipsis-h font-s14 pt3"/>
                         </Popover>
                     </div>
                 </div>
 
                 {/*解释*/}
-                <div>
+                <div onClick={()=>this.setState(prevState=>({ellipsis:!prevState.ellipsis}))} >
                     {
-                        explains.map((item,index)=><div className="explains-item" key={index}>{item}</div>)
+                        explains.map((item,index)=><div className={`${this.state.ellipsis ? 'ellipsis':''} explains-item`} key={index}>{item}</div>)
                     }
                 </div>
                 {/*变形*/}

@@ -1,7 +1,7 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 
 import React,{Component} from 'react';
-import {TabBar,NavBar,Icon,NoticeBar,Popover} from 'antd-mobile';
+import {TabBar,NavBar,NoticeBar,Popover} from 'antd-mobile';
 import FontAwesome from 'react-fontawesome';
 import { withCookies, Cookies } from 'react-cookie';
 import {
@@ -15,8 +15,7 @@ import Mine from '../mine/index'
 import Study from '../study/index'
 import Test from '../test/index'
 import Review from '../review/index'
-import './index.css'
-const Item = Popover.Item;
+import './index.scss'
 
 class Index extends Component{
     constructor(props){
@@ -95,7 +94,7 @@ class Index extends Component{
                     <Route path="/mine" component={Mine} />
                 </div>
 
-                <footer style={ {position: 'fixed', width: '100%', bottom: 0,zIndex:99999999}}>
+                <footer className="index-footer">
                     <TabBar
                         unselectedTintColor="#949494"
                         tintColor="#00b500"

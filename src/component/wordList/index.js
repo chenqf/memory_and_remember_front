@@ -2,7 +2,6 @@
 
 import React,{Component} from 'react';
 import WordItem from '../wordItem/index';
-import './index.css'
 class WordList extends Component{
     constructor(props){
         super(props);
