@@ -10,7 +10,7 @@ import { CookiesProvider } from 'react-cookie';
 import Index from './index/index'
 import Login from './user/login'
 import PrivateRoute from './privateRoute';
-import './http';
+import '../library/http';
 
 
 

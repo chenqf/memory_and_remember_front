@@ -1,7 +1,7 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
 import {WingBlank,WhiteSpace ,Button,Toast} from 'antd-mobile';
-import http from '../http';
+import http from '../../library/http';
 import './index.css';
 
 class Login extends Component{

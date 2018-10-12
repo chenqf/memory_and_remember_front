@@ -1,9 +1,9 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
 import { Tabs, WhiteSpace ,WingBlank,Badge,Pagination,Toast} from 'antd-mobile';
-import http from '../http';
-import WordList from "../component/wordList/index";
-import Remark from "../component/remark/index";
+import http from '../../library/http';
+import WordList from "../../component/wordList/index";
+import Remark from "../../component/remark/index";
 class Review extends Component {
     constructor(props){
         super(props);

@@ -4,7 +4,7 @@
 import {Toast} from 'antd-mobile';
 import axios from 'axios';
 import Qs from 'qs';
-import setting from './config';
+import setting from '../config/index';
 function getToken() {
     let tokenStr = document.cookie.split(/\s*;\s*/).filter((item)=>!item.indexOf('token'))[0]
     if(tokenStr){

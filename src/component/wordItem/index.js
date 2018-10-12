@@ -3,7 +3,7 @@
 import React,{Component} from 'react';
 import {Flex ,Toast ,Modal,Popover,Icon} from 'antd-mobile'
 import moment from 'moment';
-import http from '../../http';
+import http from '../../library/http';
 import './index.css'
 const Item = Popover.Item;
 
