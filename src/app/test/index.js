@@ -16,7 +16,7 @@ class Test extends Component{
         };
     }
     getData(){
-        http.post('/word/queryRandom',{count:this.state.count},(data)=> {
+        http.post('/word/queryRandom',{hold:true,count:this.state.count},(data)=> {
             this.setState({
                 items:data.items
             });

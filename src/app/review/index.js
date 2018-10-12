@@ -28,9 +28,8 @@ class Review extends Component {
     getAllData(page){
         let {pageCount} = this.state;
         let startNum = (page - 1) * pageCount;
-        http.post('/word/queryAll',{startNum,pageCount},({items,count:allCount})=> {
-            Toast.hide();
-            window.scrollTo(0,0)
+        http.post('/word/queryAll',{hold:true,startNum,pageCount},({items,count:allCount})=> {
+            window.scrollTo(0,0);
             this.setState({
                 allCount,
                 over:true,
@@ -41,7 +40,6 @@ class Review extends Component {
     }
     paginationChange(page){
         this.setState({currentPage:page});
-        Toast.loading('加载中...', 0);
         this.getAllData(page)
     }
     componentWillMount(){

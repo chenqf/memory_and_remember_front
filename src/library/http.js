@@ -45,9 +45,24 @@ export default {
             errorCallback = callback;
             params = {};
         }
+        let hold = params.hold;
+        delete params.hold;
+        let time = Date.now() + 1200;
+        if(hold){
+            Toast.loading('加载中...', 0);
+        }
         return  new Promise((resolve,reject)=>{
             axios.post(url, params).then((data)=>{
-                resolve(data)
+                let now = Date.now();
+                if(now > time || !hold){
+                    resolve(data)
+                    Toast.hide();
+                }else{
+                    setTimeout(()=>{
+                        resolve(data)
+                        Toast.hide();
+                    },time - now);
+                }
             }).catch((error)=>{
                 reject(error);
             })
