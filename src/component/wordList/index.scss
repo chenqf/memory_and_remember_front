@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+@import "../../style/variable";
+
+
+.word-list{
+  position: relative;
+}
+
+.word-list-header{
+  min-height: 44px;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 8px 0;
+  letter-spacing: .5px;
+  border-bottom: 1px solid $line-light;
+  display: flex;
+  span{
+    flex: 1;
+    color:#1d679b;
+    text-align: right;
+    &:first-child{
+      text-align: left;
+    }
+  }
+}

@@ -87,7 +87,7 @@ class Review extends Component {
     }
     render() {
         const tabs = [
-            { title: <Badge text={String(this.state.allCount)}>总复习</Badge> ,key:'all'},
+            { title: '总复习' ,key:'all'},
             { title: '第一天',key:'one',pre:1 },
             { title: '第二天' ,key:'two',pre:2},
             { title: '第四天' ,key:'four',pre:4},
@@ -104,9 +104,11 @@ class Review extends Component {
                     <Tabs onTabClick={this.changeTabClick.bind(this)} tabs={tabs}  swipeable={false} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
                         <div style={{ minHeight: '150px', backgroundColor: '#fff' ,paddingLeft:15,paddingRight:15}}>
                             <WhiteSpace />
+                            {/*当前备注内容*/}
                             {
                                 this.state.remark.length ? <Remark className="darkBlue" items={this.state.remark}/> : null
                             }
+
                             {
                                 this.state.type === 'all'
                                     ?
@@ -114,7 +116,7 @@ class Review extends Component {
                                         this.state.items.length ?
                                         (
                                             <React.Fragment>
-                                                <WordList items={this.state.items}/>
+                                                <WordList count={this.state.allCount} items={this.state.items}/>
                                                 <WhiteSpace />
                                                 <Pagination
                                                     onChange={this.paginationChange.bind(this)}
@@ -128,6 +130,7 @@ class Review extends Component {
                                     :
                                     this.state.items.length ? <WordList items={this.state.items}/> : null
                             }
+                            {/*缺省情况*/}
                             {
                                 !this.state.items.length && !this.state.remark.length && this.state.over
                                     ?
