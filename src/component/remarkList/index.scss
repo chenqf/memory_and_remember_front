@@ -1,0 +1,12 @@
+@import "../../style/variable";
+
+.remark-list-item{
+    //color:$darkBlue;
+    box-sizing: border-box;
+    border-bottom:1px solid #ddd;
+    min-height: 44px;
+    font-size:14px;
+    line-height: 22px;
+    padding:8px 0;
+    letter-spacing: .5px;
+}

@@ -1,88 +1,101 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
-import { Tabs, WhiteSpace ,WingBlank,Badge,Pagination,Toast} from 'antd-mobile';
+import { Tabs, WhiteSpace ,WingBlank,Toast,SegmentedControl} from 'antd-mobile';
 import http from '../../library/http';
 import WordList from "../../component/wordList/index";
-import Remark from "../../component/remark/index";
+import RemarkList from "../../component/remarkList/index";
 class Review extends Component {
     constructor(props){
         super(props);
         this.state = {
-            currentPage:1,
-            pageCount:10,
-            allCount:'',
-            type:'all',
-            allItems:[],
+            over:false,
+            tabType:'all',
             items:[],
             remark:[],
-            over:false,
-            all:{},
-            one:{},
-            two:{},
-            four:{},
-            seven:{},
-            fifteen:{},
-            thirty:{}
+            all:{selectedIndex:0},
+            one:{selectedIndex:0},
+            two:{selectedIndex:0},
+            four:{selectedIndex:0},
+            seven:{selectedIndex:0},
+            fifteen:{selectedIndex:0},
+            thirty:{selectedIndex:0}
         };
     }
-    getAllData(page){
-        let {pageCount} = this.state;
-        let startNum = (page - 1) * pageCount;
-        http.post('/word/queryAll',{hold:true,startNum,pageCount},({items,count:allCount})=> {
-            window.scrollTo(0,0);
+    getWordAllReview(){
+        return http.post('/word/queryAllReview',({items})=> {
+            return items;
+        })
+    }
+    getRemarkAllReview(){
+        return http.post('/remark/queryAllReview',({items})=> {
+            return items
+        })
+    }
+    componentWillMount(){
+        // Toast.loading('加载中...', 0);
+        Promise.all([
+            this.getWordAllReview(),
+            this.getRemarkAllReview()
+        ]).then(([items,remark]) =>{
+            // Toast.hide();
             this.setState({
-                allCount,
                 over:true,
-                all:items,
-                items
+                all:{
+                    selectedIndex:this.state['all'].selectedIndex,
+                    items,
+                    remark
+                },
+                items,
+                remark
             });
         })
     }
-    paginationChange(page){
-        this.setState({currentPage:page});
-        this.getAllData(page)
-    }
-    componentWillMount(){
-        this.getAllData(1);
+    onSelectChange(e){
+        let index = e.nativeEvent.selectedSegmentIndex;
+        this.setState((prevState, props) => {
+            return {
+                [prevState.tabType]:{
+                    items:prevState[prevState.tabType].items,
+                    remark:prevState[prevState.tabType].remark,
+                    selectedIndex:index
+                }
+            }
+        });
     }
     changeTabClick(tab){
         this.setState({
             items:[],
             remark:[]
         });
-        if(tab.key === 'all'){
+        let key = tab.key;
+        if(this.state[key].items || this.state[key].remark){
             this.setState({
-                type:'all',
-                items:this.state.all
+                tabType:key,
+                items:this.state[key].items,
+                remark:this.state[key].remark
             })
         }else{
-            let key = tab.key;
-            if(this.state[key].items || this.state[key].remark){
+            this.setState({
+                tabType:key,
+                over:false
+            });
+            // Toast.loading('加载中...', 0);
+            Promise.all([
+                http.post('/word/queryByPreDate',{pre:tab.pre}),
+                http.post('/remark/queryByPreDate',{pre:tab.pre})
+            ]).then(([{items},{items:remark}])=>{
+                // Toast.hide();
                 this.setState({
-                    type:key,
-                    items:this.state[key].items,
-                    remark:this.state[key].remark
-                })
-            }else{
-                this.setState({
-                    type:key,
-                    over:false
-                });
-                Promise.all([
-                    http.post('/word/queryByPreDate',{pre:tab.pre}),
-                    http.post('/remark/queryByPreDate',{pre:tab.pre})
-                ]).then(([{items},{items:remark}])=>{
-                    this.setState({
-                        over:true,
-                        [key]:{
-                            items,
-                            remark
-                        },
+                    over:true,
+                    [key]:{
                         items,
-                        remark
-                    });
+                        remark,
+                        selectedIndex:this.state[key].selectedIndex
+                    },
+                    items,
+                    remark
                 });
-            }
+            });
         }
     }
     render() {
@@ -95,8 +108,10 @@ class Review extends Component {
             { title: '第十五天' ,key:'fifteen',pre:15},
             { title: '第三十天' ,key:'thirty',pre:30}
         ];
-        let total = Math.ceil(this.state.allCount / this.state.pageCount),
-            current = this.state.currentPage;
+        let hasWord = !!this.state.items.length;
+        let hasRemark = !!this.state.remark.length;
+        let isWord = this.state[this.state.tabType].selectedIndex === 1;
+        let isRemark = this.state[this.state.tabType].selectedIndex === 0;
         return (
             <div>
                 <WhiteSpace />
@@ -104,39 +119,21 @@ class Review extends Component {
                     <Tabs onTabClick={this.changeTabClick.bind(this)} tabs={tabs}  swipeable={false} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
                         <div style={{ minHeight: '150px', backgroundColor: '#fff' ,paddingLeft:15,paddingRight:15}}>
                             <WhiteSpace />
-                            {/*当前备注内容*/}
                             {
-                                this.state.remark.length ? <Remark className="darkBlue" items={this.state.remark}/> : null
-                            }
-
-                            {
-                                this.state.type === 'all'
-                                    ?
-                                    (
-                                        this.state.items.length ?
-                                        (
-                                            <React.Fragment>
-                                                <WordList count={this.state.allCount} items={this.state.items}/>
-                                                <WhiteSpace />
-                                                <Pagination
-                                                    onChange={this.paginationChange.bind(this)}
-                                                    className="custom-pagination-with-icon"
-                                                    total={total}
-                                                    current={current}
-                                                />
-                                            </React.Fragment>
-                                        ) : null
-                                    )
+                                (hasWord || hasRemark) ?
+                                    <React.Fragment>
+                                        <SegmentedControl onChange={this.onSelectChange.bind(this)} values={['备注', '单词']} selectedIndex={this.state[this.state.tabType].selectedIndex}/>
+                                        <WhiteSpace />
+                                        <WhiteSpace />
+                                        {isRemark? <RemarkList items={this.state.remark}/> : null}
+                                        {isWord ? <WordList items={this.state.items}/> : null}
+                                    </React.Fragment>
                                     :
-                                    this.state.items.length ? <WordList items={this.state.items}/> : null
-                            }
-                            {/*缺省情况*/}
-                            {
-                                !this.state.items.length && !this.state.remark.length && this.state.over
-                                    ?
-                                    <div style={{textAlign:'center',paddingTop:40}}>暂无需要复习的内容</div>
-                                    :
-                                    null
+                                    <div style={{textAlign:'center',paddingTop:40}}>
+                                        {
+                                            this.state.over ? '暂无需要复习的内容' : null
+                                        }
+                                    </div>
                             }
                             <WhiteSpace />
                         </div>

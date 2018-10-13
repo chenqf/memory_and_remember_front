@@ -5,12 +5,7 @@ import {Toast} from 'antd-mobile';
 import axios from 'axios';
 import Qs from 'qs';
 import setting from '../config/index';
-function getToken() {
-    let tokenStr = document.cookie.split(/\s*;\s*/).filter((item)=>!item.indexOf('token'))[0]
-    if(tokenStr){
-        return tokenStr.match(/token=(.*)/)[1];
-    }
-}
+
 axios.interceptors.request.use(function (config) {
     // let token = getToken();
     // 在发送请求之前做些什么
