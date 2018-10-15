@@ -3,6 +3,7 @@
 import React,{Component} from 'react';
 import {Flex ,Toast ,Modal,Popover,Icon} from 'antd-mobile'
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import http from '../../library/http';
 import './index.scss'
 const Item = Popover.Item;
@@ -101,6 +102,17 @@ class WordItem extends Component{
             this.editTime(this.props.wordInfo)
         }
     };
+    changeLevel(){
+        let level = this.props.wordInfo.level === 0 ? 1 : 0;
+        let id = this.props.wordInfo.userWordId;
+        http.post('/word/updateLevel', {level,id},()=> {
+            if(level === 1){
+                Toast.success('标记为疑难词汇~',1.5)
+            }else{
+                Toast.success('标记为普通词汇~',1.5)
+            }
+        })
+    }
     render(){
         let wordInfo = this.props.wordInfo;
         let explains = JSON.parse(wordInfo.explains || '[]');
@@ -109,17 +121,29 @@ class WordItem extends Component{
             <div className="word-item">
                 <div className="word-text">
                     {/*文本*/}
-                    <span className="word-content">{wordInfo.text}</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span className={`word-content ${this.props.contentBlur ? 'blur':''}`}>{wordInfo.text}</span> &nbsp;&nbsp;&nbsp;&nbsp;
                     {/*音标*/}
-                    <div className="phonetic" onClick={()=>this.playAudio(this.state.phoneticFlg)}>
-                        <span className="font-s12">
-                            {
-                                this.state.phoneticFlg ? '美' : '英'
-                            }
-                            &nbsp;
+                    <div className={`phonetic`} onClick={()=>this.playAudio(this.state.phoneticFlg)}>
+                        <span className={`${this.props.phoneticBlur ? 'blur':''}`}>
+                            <span className="font-s12">
+                                {
+                                    this.state.phoneticFlg ? '美' : '英'
+                                }
+                                    &nbsp;
+                            </span>
+                            <span>[ {this.state.phoneticFlg ? wordInfo.usPhonetic : wordInfo.ukPhonetic} ]</span>
                         </span>
-                        <span>[ {this.state.phoneticFlg ? wordInfo.usPhonetic : wordInfo.ukPhonetic} ]</span>
                         <i className="fa fa-volume-up blue font-s14 pl5"/>
+                    </div>
+                    {/*level 小图标*/}
+                    <div className="word-level" onClick={this.changeLevel.bind(this)}>
+                        {
+                            this.state.level === 0
+                                ?
+                                <i className="fa fa-star yellow font-s14 pl10 ml10"/>
+                                :
+                                <i className="fa fa-star-o yellow font-s14 pl5 ml10"/>
+                        }
                     </div>
                     {/*提示*/}
                     <div className="flex-1 text-a-r">
@@ -141,22 +165,24 @@ class WordItem extends Component{
                     </div>
                 </div>
 
-                {/*解释*/}
-                <div onClick={()=>this.setState(prevState=>({ellipsis:!prevState.ellipsis}))} >
-                    {
-                        explains.map((item,index)=><div className={`${this.state.ellipsis ? 'ellipsis':''} explains-item`} key={index}>{item}</div>)
-                    }
-                </div>
-                {/*变形*/}
-                <div>
-                    {
-                        wfs.map((item,index)=>{
-                            return <div className="wfs-item" key={index}>
-                                <span>{item.wf.name}</span>
-                                <span>{item.wf.value}</span>
-                            </div>
-                        })
-                    }
+                <div className={`${this.props.explainsBlur ? 'blur':''}`}>
+                    {/*解释*/}
+                    <div onClick={()=>this.setState(prevState=>({ellipsis:!prevState.ellipsis}))} >
+                        {
+                            explains.map((item,index)=><div className={`${this.state.ellipsis ? 'ellipsis':''} explains-item`} key={index}>{item}</div>)
+                        }
+                    </div>
+                    {/*变形*/}
+                    <div>
+                        {
+                            wfs.map((item,index)=>{
+                                return <div className="wfs-item" key={index}>
+                                    <span>{item.wf.name}</span>
+                                    <span>{item.wf.value}</span>
+                                </div>
+                            })
+                        }
+                    </div>
                 </div>
                 {/*日期*/}
                 <span className={`word-time ${this.props.test ? 'hide':''}`}>
@@ -201,4 +227,13 @@ class WordItem extends Component{
         )
     }
 }
+
+WordItem.propTypes = {
+    wordInfo:PropTypes.object,
+    contentBlur:PropTypes.bool,
+    phoneticBlur:PropTypes.bool,
+    explainsBlur:PropTypes.bool,
+};
+
+
 export default WordItem;

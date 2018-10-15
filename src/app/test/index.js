@@ -12,7 +12,7 @@ class Test extends Component{
         super(props);
         this.state = {
             items:[],
-            count:5
+            count:10
         };
     }
     getData(){

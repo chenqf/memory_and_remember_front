@@ -3,6 +3,11 @@
 @import "variable";
 
 
+.blur{
+  filter: blur(2px);
+}
+
+
 .black{
   color:$black;
 }
@@ -14,6 +19,9 @@
 }
 .golden{
   color:$golden;
+}
+.yellow{
+  color:$yellow;
 }
 .red{
   color:$red;
@@ -51,7 +59,7 @@
 }
 
 /* padding margin px*/
-@for $index from 1 through 20 {
+@for $index from 1 through 30 {
   .p#{$index} { padding: $index * 1px; }
   .pt#{$index} { padding-top: $index * 1px; }
   .pr#{$index} { padding-right: $index * 1px; }

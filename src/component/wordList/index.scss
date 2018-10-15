@@ -7,20 +7,58 @@
   position: relative;
 }
 
+.word-list-check{
+  .am-list-item{
+    padding-left:0;
+    min-height:unset;
+    &.am-list-item-active {
+      background-color: transparent;
+    }
+    .am-list-thumb:first-child {
+      margin-right: 5px;
+    }
+    .am-list-line .am-list-content {
+      font-size: 14px;
+      color: $grey;
+    }
+    .am-checkbox-inner{
+      &:after{
+        top: 1px;
+        right: 4px;
+        z-index: 999;
+        width: 4px;
+        height: 8px;
+      }
+    }
+  }
+  .am-checkbox{
+    width: 16px;
+    height: 16px;
+  }
+  .am-checkbox-inner{
+    width: 16px;
+    height: 16px;
+  }
+}
+
 .word-list-header{
-  min-height: 44px;
   font-size: 14px;
-  line-height: 22px;
+  line-height: 20px;
   padding: 8px 0;
   letter-spacing: .5px;
   border-bottom: 1px solid $line-light;
   display: flex;
-  span{
-    flex: 1;
-    color:#1d679b;
-    text-align: right;
-    &:first-child{
-      text-align: left;
-    }
-  }
+}
+
+.word-list-badge {
+  flex: 1;
+  color:#1d679b;
+  text-align: right;
+}
+
+
+.word-list-text{
+  flex: 1;
+  color:#1d679b;
+  text-align: left;
 }
