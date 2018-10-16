@@ -7,7 +7,9 @@ import './index.scss';
 class Login extends Component{
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            count:0
+        };
     }
     submit(){
         let user = document.getElementById('username').value,
@@ -16,11 +18,19 @@ class Login extends Component{
             Toast.success('登录成功', 2, ()=>{})
         })
     }
+    componentDidMount(){
+        http.post('/word/queryAllCount',({count})=>{
+            this.setState({
+                count
+            })
+        })
+    }
     render(){
         return (
             <WingBlank>
                 <WhiteSpace/>
                 <div className="login">
+                    单词总数：{this.state.count}
                     <WhiteSpace/>
                     <WhiteSpace/>
                     <WhiteSpace/>
