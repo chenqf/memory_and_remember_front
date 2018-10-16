@@ -47,7 +47,7 @@ class WordList extends Component{
                             contentBlur={this.state.contentBlur}
                             phoneticBlur={this.state.phoneticBlur}
                             explainsBlur={this.state.explainsBlur}
-                            test={this.props.test}
+                            date={this.props.date}
                             key={item.id}
                             wordInfo={item}
                         />
@@ -59,9 +59,13 @@ class WordList extends Component{
 }
 
 WordList.propTypes = {
+    date:PropTypes.bool,
     items:PropTypes.Array,
     count:PropTypes.number
 };
+WordList.defaultProps = {
+    date:true
+}
 
 
 

@@ -38,7 +38,7 @@ class Test extends Component{
                         extra={<i onClick={this.refresh.bind(this)} className="grey fa fa-refresh fa-lg"/>}
                     />
                     <Card.Body style={{minHeight:0}}>
-                        <WordList test items={this.state.items}/>
+                        <WordList date={false} items={this.state.items}/>
                     </Card.Body>
                 </Card>
             </WingBlank>

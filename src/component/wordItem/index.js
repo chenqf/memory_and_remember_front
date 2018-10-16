@@ -117,6 +117,7 @@ class WordItem extends Component{
         let wordInfo = this.props.wordInfo;
         let explains = JSON.parse(wordInfo.explains || '[]');
         let wfs = JSON.parse(wordInfo.wfs || '[]');
+        let date = this.props.date;
         return (
             <div className="word-item">
                 <div className="word-text">
@@ -136,13 +137,13 @@ class WordItem extends Component{
                         <i className="fa fa-volume-up blue font-s14 pl5"/>
                     </div>
                     {/*level 小图标*/}
-                    <div className="word-level" onClick={this.changeLevel.bind(this)}>
+                    <div className="word-level ml5" onClick={this.changeLevel.bind(this)}>
                         {
                             this.state.level === 0
                                 ?
-                                <i className="fa fa-star yellow font-s14 pl10 ml10"/>
+                                <i className="fa fa-star yellow font-s14 pl15"/>
                                 :
-                                <i className="fa fa-star-o yellow font-s14 pl5 ml10"/>
+                                <i className="fa fa-star-o yellow font-s14 pl5"/>
                         }
                     </div>
                     {/*提示*/}
@@ -185,13 +186,17 @@ class WordItem extends Component{
                     </div>
                 </div>
                 {/*日期*/}
-                <span className={`word-time ${this.props.test ? 'hide':''}`}>
-                    <span style={{padding:5}}>
-                        {moment(new Date(wordInfo.createTime)).format('YYYY-MM-DD')}
-                    </span>
-                </span>
-
-
+                {
+                    date ?
+                        (
+                            <span className={`word-time`}>
+                                <span className="p5">
+                                    {moment(new Date(wordInfo.createTime)).format('YYYY-MM-DD')}
+                                </span>
+                            </span>
+                        ) :
+                        null
+                }
                 <Modal
                     visible={this.state.showModal}
                     transparent
@@ -229,10 +234,15 @@ class WordItem extends Component{
 }
 
 WordItem.propTypes = {
+    date:PropTypes.bool,
     wordInfo:PropTypes.object,
     contentBlur:PropTypes.bool,
     phoneticBlur:PropTypes.bool,
     explainsBlur:PropTypes.bool,
+};
+
+WordItem.defaultProps = {
+    date:true
 };
 
 
