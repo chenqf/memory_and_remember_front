@@ -139,11 +139,11 @@ class WordItem extends Component{
                     {/*level 小图标*/}
                     <div className="word-level ml5" onClick={this.changeLevel.bind(this)}>
                         {
-                            this.state.level === 0
+                            wordInfo.level === 0
                                 ?
-                                <i className="fa fa-star yellow font-s14 pl15"/>
+                                <i className="fa fa-star-o yellow font-s14 pl15"/>
                                 :
-                                <i className="fa fa-star-o yellow font-s14 pl5"/>
+                                <i className="fa fa-star yellow font-s14 pl5"/>
                         }
                     </div>
                     {/*提示*/}
