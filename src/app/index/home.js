@@ -160,4 +160,4 @@ class Home extends Component{
     }
 }
 
-export default withCookies(Home);
+export default withRouter(withCookies(Home));
