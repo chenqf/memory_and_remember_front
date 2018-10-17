@@ -1,36 +1,43 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
 import {WingBlank,WhiteSpace ,Button,Toast} from 'antd-mobile';
-import http from '../../library/http';
+import http from '../../../library/http';
+import auth from '../../../library/auth';
 import './index.scss';
-
+import {
+    HashRouter as Router,
+    Route,
+    Link,
+    Redirect,
+    withRouter
+} from "react-router-dom";
 class Login extends Component{
     constructor(props){
         super(props);
+        let isLogin = auth.isLogin;
         this.state = {
-            count:0
-        };
+            isLogin
+        }
     }
     submit(){
         let user = document.getElementById('username').value,
             password = document.getElementById('password').value;
         http.post('/user/login',{name:user,password}).then(()=>{
-            Toast.success('登录成功', 2, ()=>{})
-        })
-    }
-    componentDidMount(){
-        http.post('/word/queryAllCount').then(({count})=>{
-            this.setState({
-                count
-            })
-        })
+            Toast.success('登录成功', 2, ()=>{});
+            auth.changeLogin(true);
+            this.setState({ isLogin: true });
+        }).catch(()=>{})
     }
     render(){
+        const { isLogin } = this.state;
+        const {from} = this.props.location.state || {pathname:"/index/study"};
+        if(isLogin){
+            return <Redirect to={from} />;
+        }
         return (
             <WingBlank>
                 <WhiteSpace/>
                 <div className="login">
-                    单词总数：{this.state.count}
                     <WhiteSpace/>
                     <WhiteSpace/>
                     <WhiteSpace/>

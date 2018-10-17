@@ -22,12 +22,12 @@ class Review extends Component {
         };
     }
     getWordAllReview(){
-        return http.post('/word/queryAllReview',({items})=> {
+        return http.post('/word/queryAllReview').then(({items})=> {
             return items;
         })
     }
     getRemarkAllReview(){
-        return http.post('/remark/queryAllReview',({items})=> {
+        return http.post('/remark/queryAllReview').then(({items})=> {
             return items
         })
     }

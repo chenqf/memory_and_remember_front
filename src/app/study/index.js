@@ -25,7 +25,7 @@ class Study extends Component{
         };
     }
     searchWordHandler(q){
-        http.post('/word/search', {q},(data)=> {
+        http.post('/word/search', {q}).then((data)=> {
             let oldData = this.state.wordInfo;
             if(oldData.new){
                 this.state.items.unshift(oldData);
@@ -37,13 +37,13 @@ class Study extends Component{
         })
     }
     componentWillMount(){
-        http.post('/word/queryByPreDate',{order:'DESC'},(data)=> {
+        http.post('/word/queryByPreDate',{order:'DESC'}).then((data)=> {
             this.setState({
                 items:data.items,
                 totalCount:data.totalCount
             });
         });
-        http.post('/remark/queryByPreDate',{pre:0},({items})=> {
+        http.post('/remark/queryByPreDate',{pre:0}).then(({items})=> {
             this.setState({
                 remark:items
             });

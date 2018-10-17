@@ -34,12 +34,7 @@ axios.interceptors.response.use(function (response) {
 });
 
 export default {
-    post(url,params = {},callback,errorCallback){
-        if(typeof params === 'function'){
-            callback = params;
-            errorCallback = callback;
-            params = {};
-        }
+    post(url,params = {}){
         let hold = params.hold;
         delete params.hold;
         let time = Date.now() + 1200;
@@ -59,11 +54,10 @@ export default {
                     },time - now);
                 }
             }).catch((error)=>{
+                Toast.fail(error.message,1.5);
                 reject(error);
             })
-        }).then(callback,function (error) {
-            return errorCallback ? errorCallback(error) :  Toast.fail(error.message,1.5);
-        });
+        })
     },
     get(url,params = {}){
         return new Promise((resolve,reject)=>{

@@ -51,7 +51,7 @@ class WordItem extends Component{
     onCloseModal(item){
         let createTime = this.state.tempDateTime;
         let id = item.userWordId;
-        http.post('/word/updateCreateTime', {id,createTime},()=> {
+        http.post('/word/updateCreateTime', {id,createTime}).then(()=> {
             // this.props.createTime = createTime;
             this.setState({
                 showModal:false
@@ -78,7 +78,7 @@ class WordItem extends Component{
     };
     onDeleteSubmitModal(item){
         let wordId = item.id;
-        http.post('/word/delete', {wordId},()=> {
+        http.post('/word/delete', {wordId}).then(()=> {
             this.setState({
                 showDeleteModal:false
             })
@@ -105,7 +105,7 @@ class WordItem extends Component{
     changeLevel(){
         let level = this.props.wordInfo.level === 0 ? 1 : 0;
         let id = this.props.wordInfo.userWordId;
-        http.post('/word/updateLevel', {level,id},()=> {
+        http.post('/word/updateLevel', {level,id}).then(()=> {
             if(level === 1){
                 Toast.success('标记为疑难词汇~',1.5)
             }else{
