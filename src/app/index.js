@@ -10,6 +10,7 @@ import { CookiesProvider } from 'react-cookie';
 import Index from './index/index'
 import Login from './user/login'
 import PrivateRoute from './privateRoute';
+import ErrorBoundary from './errorBoundary';
 import '../library/http';
 
 
@@ -18,10 +19,10 @@ import '../library/http';
 const App = () => (
     <CookiesProvider>
         <Router>
-            <div>
+            <ErrorBoundary>
                 <Route exact path="/login" component={Login} />
                 <PrivateRoute path="/" component={Index} />
-            </div>
+            </ErrorBoundary>
         </Router>
     </CookiesProvider>
 );
