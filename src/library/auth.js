@@ -7,7 +7,6 @@ export default {
         this.isCheck = flg;
     },
     changeLogin(flg){
-        console.log('auth 模块 将 登录状态变更为 ' + flg);
         this.isLogin = flg;
     }
 }

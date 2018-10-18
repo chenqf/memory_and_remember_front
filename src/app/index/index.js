@@ -26,7 +26,6 @@ class Index extends Component{
             return ;
         }
         http.post('/user/check').then((data)=>{
-            console.log('index check 正常态')
             auth.changeCheck(true);
             auth.changeLogin(true);
             this.setState({
@@ -34,7 +33,6 @@ class Index extends Component{
                 isLogin:true,
             })
         }).catch((err)=>{
-            console.log('index check 异常态')
             auth.changeCheck(true);
             auth.changeLogin(false);
             this.setState({
@@ -49,7 +47,6 @@ class Index extends Component{
             return null;
         }
         if(!isLogin){
-            console.log('check not login ', this.props.location);
             return (
                 <Redirect
                     to={{
@@ -59,7 +56,6 @@ class Index extends Component{
                 />
             )
         }
-        console.log('check is login ', this.props.location);
         return <Home/>
     }
 }

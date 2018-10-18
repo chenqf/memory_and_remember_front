@@ -10,7 +10,6 @@ class PrivateRoute extends Component{
     render(){
         let { component: Component, ...rest } = this.props;
         let {isLogin} = auth;
-        console.log('private router 中 auth 中的 isLogin： ' + isLogin);
         if(!isLogin){
             return (
                 <Route {...rest}

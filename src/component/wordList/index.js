@@ -10,9 +10,9 @@ class WordList extends Component{
     constructor(props){
         super(props);
         this.state = {
-            contentBlur:true, // 模糊 单词
-            phoneticBlur:false, // 模糊 音标
-            explainsBlur:false, // 模糊 解释
+            contentBlur:this.props.contentBlur, // 模糊 单词
+            phoneticBlur:this.props.phoneticBlur, // 模糊 音标
+            explainsBlur:this.props.explainsBlur, // 模糊 解释
         };
     }
     render(){
@@ -60,11 +60,17 @@ class WordList extends Component{
 
 WordList.propTypes = {
     date:PropTypes.bool,
+    contentBlur:PropTypes.bool,
+    phoneticBlur:PropTypes.bool,
+    explainsBlur:PropTypes.bool,
     items:PropTypes.Array,
     count:PropTypes.number
 };
 WordList.defaultProps = {
-    date:true
+    date:true,
+    contentBlur:false, // 模糊 单词
+    phoneticBlur:false, // 模糊 音标
+    explainsBlur:false, // 模糊 解释
 }
 
 
