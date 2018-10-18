@@ -5,6 +5,7 @@ import {Toast} from 'antd-mobile';
 import axios from 'axios';
 import Qs from 'qs';
 import setting from '../config/index';
+import auth from './auth';
 
 axios.interceptors.request.use(function (config) {
     // let token = getToken();
@@ -22,9 +23,13 @@ axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
     let data = response.data;
+    let code = data.code;
     if(data.success){
         return data.data;
     }else{
+        if(code === 888){
+            auth.changeLogin(true);
+        }
         // 对响应错误做点什么
         return Promise.reject(new Error(data.message));
     }

@@ -11,6 +11,7 @@ import {
     Redirect,
     withRouter
 } from "react-router-dom";
+import PrivateRoute from '../privateRoute';
 import Mine from '../mine/index'
 import Study from '../study/index'
 import Test from '../test/index'
@@ -88,10 +89,10 @@ class Home extends Component{
                     Nothing is impossible to a willing heart
                 </NoticeBar>
                 <div style={{paddingBottom:50}}>
-                    <Route path="/index/study" component={Study} />
-                    <Route path="/index/review" component={Review} />
-                    <Route path="/index/test" component={Test} />
-                    <Route path="/index/mine" component={Mine} />
+                    <PrivateRoute path="/index/study" component={Study} />
+                    <PrivateRoute path="/index/review" component={Review} />
+                    <PrivateRoute path="/index/test" component={Test} />
+                    <PrivateRoute path="/index/mine" component={Mine} />
                 </div>
 
                 <footer className="index-footer">

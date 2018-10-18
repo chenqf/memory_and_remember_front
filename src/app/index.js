@@ -10,7 +10,6 @@ import {
 import { CookiesProvider } from 'react-cookie';
 import Index from './index/index';
 import Login from './user/login/index';
-import PrivateRoute from './privateRoute';
 import ErrorBoundary from './errorBoundary';
 import '../library/http';
 
