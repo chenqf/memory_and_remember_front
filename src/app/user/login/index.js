@@ -1,6 +1,7 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
 import {WingBlank,WhiteSpace ,Button,Toast,TabBar,NavBar} from 'antd-mobile';
+import Header from '../../../component/header/index';
 import http from '../../../library/http';
 import auth from '../../../library/auth';
 import './index.scss';
@@ -51,7 +52,7 @@ class Login extends Component{
         }
         return (
             <div className="login-page">
-                <NavBar style={{background:'#222222'}} mode="dark" >登录</NavBar>
+                <Header title="登录"/>
                 <WingBlank>
                     <WhiteSpace/>
                     <WhiteSpace/>

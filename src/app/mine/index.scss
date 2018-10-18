@@ -1,27 +1,39 @@
+@import "../../style/variable";
 
-
-.login{
-    padding:0 20px;
-    background: #fff;
-    min-height: 150px;
+.mine-title{
+    font-size: 14px;
+    color: $grey;
 }
 
-.login-item{
+.mine-header{
+    background: $darkBlue;
+    opacity: .8;
+    color: $white;
+    font-size: 12px;
     display: flex;
-    margin-top: 10px;
+    padding:8px 0;
     span{
-        width: 50px;
-        font-size: 16px;
-        padding-right: 10px;
-        display: inline-block;
-        text-align: right;
-        padding-top:10px;
-    }
-    input{
-        vertical-align: middle;
-
         flex:1;
-        padding: 10px 10px;
-        outline: 0;
+        padding: 5px 20px;
+        &:first-child{
+            border-right: 1px solid $white;
+        }
+    }
+}
+
+.mine-icon{
+    display: block;
+    border-radius: 50%;
+    width: 40%;
+    padding-top: 40%;
+    background: $blue;
+    position: relative;
+    font-size:30px;
+    i{
+        color: $white;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
     }
 }
