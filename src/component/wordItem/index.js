@@ -122,28 +122,15 @@ class WordItem extends Component{
             <div className="word-item">
                 <div className="word-text">
                     {/*文本*/}
-                    <span className={`word-content ${this.props.contentBlur ? 'blur':''}`}>{wordInfo.text}</span> &nbsp;&nbsp;&nbsp;&nbsp;
-                    {/*音标*/}
-                    <div className={`phonetic`} onClick={()=>this.playAudio(this.state.phoneticFlg)}>
-                        <span className={`${this.props.phoneticBlur ? 'blur':''}`}>
-                            <span className="font-s12">
-                                {
-                                    this.state.phoneticFlg ? '美' : '英'
-                                }
-                                    &nbsp;
-                            </span>
-                            <span>[ {this.state.phoneticFlg ? wordInfo.usPhonetic : wordInfo.ukPhonetic} ]</span>
-                        </span>
-                        <i className="fa fa-volume-up blue font-s14 pl5"/>
-                    </div>
+                    <span className={`word-content ${this.props.contentBlur ? 'blur':''}`}>{wordInfo.text}</span>
                     {/*level 小图标*/}
-                    <div className="word-level ml5" onClick={this.changeLevel.bind(this)}>
+                    <div className="word-level" onClick={this.changeLevel.bind(this)}>
                         {
                             wordInfo.level === 0
                                 ?
-                                <i className="fa fa-star-o yellow font-s14 pl15"/>
+                                <i className="fa fa-star-o yellow font-s14 pl15 pr10"/>
                                 :
-                                <i className="fa fa-star yellow font-s14 pl5"/>
+                                <i className="fa fa-star yellow font-s14 pl5 pr10"/>
                         }
                     </div>
                     {/*提示*/}
@@ -165,7 +152,20 @@ class WordItem extends Component{
                         </Popover>
                     </div>
                 </div>
-
+                {/*音标*/}
+                <div className={`phonetic`} onClick={()=>this.playAudio(this.state.phoneticFlg)}>
+                        <span className={`${this.props.phoneticBlur ? 'blur':''}`}>
+                            <span className="font-s12">
+                                {
+                                    this.state.phoneticFlg ? '美' : '英'
+                                }
+                                &nbsp;
+                            </span>
+                            <span>[ {this.state.phoneticFlg ? wordInfo.usPhonetic : wordInfo.ukPhonetic} ]</span>
+                        </span>
+                    <i className="fa fa-volume-up blue font-s14 pl5"/>
+                </div>
+                {/*词义简析*/}
                 <div className={`${this.props.explainsBlur ? 'blur':''}`}>
                     {/*解释*/}
                     <div onClick={()=>this.setState(prevState=>({ellipsis:!prevState.ellipsis}))} >
