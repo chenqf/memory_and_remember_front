@@ -69,7 +69,7 @@ class Login extends Component{
                     <WhiteSpace/>
                     <WhiteSpace/>
                     <WhiteSpace/>
-                    <Button type="primary" className={this.state.name && this.state.password ? '' : 'login-opacity'} onClick={this.submit.bind(this)}>开始旅程</Button>
+                    <Button type="primary" className={this.state.name && this.state.password ? '' : 'opacity-5'} onClick={this.submit.bind(this)}>开始旅程</Button>
                 </WingBlank>
             </div>
 

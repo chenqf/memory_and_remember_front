@@ -86,6 +86,11 @@
   .flex-#{$index} { flex: $index; }
 }
 
+/* opacity */
+@for $index from 1 through 10 {
+  .opacity-#{$index} { opacity: $index/10; }
+}
+
 /* padding margin px*/
 @for $index from 1 through 30 {
   .p#{$index} { padding: $index * 1px; }
