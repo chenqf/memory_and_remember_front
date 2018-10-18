@@ -26,6 +26,7 @@ class Index extends Component{
             return ;
         }
         http.post('/user/check').then((data)=>{
+            console.log('index check 正常态')
             auth.changeCheck(true);
             auth.changeLogin(true);
             this.setState({
@@ -33,6 +34,7 @@ class Index extends Component{
                 isLogin:true,
             })
         }).catch((err)=>{
+            console.log('index check 异常态')
             auth.changeCheck(true);
             auth.changeLogin(false);
             this.setState({

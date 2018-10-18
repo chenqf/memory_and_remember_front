@@ -24,6 +24,7 @@ class Login extends Component{
             password = document.getElementById('password').value;
         http.post('/user/login',{name:user,password}).then(()=>{
             Toast.success('登录成功', 2, ()=>{});
+            console.log('login 登录成功 变更 auth')
             auth.changeLogin(true);
             this.setState({ isLogin: true });
         }).catch(()=>{})

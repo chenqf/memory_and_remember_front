@@ -28,7 +28,7 @@ axios.interceptors.response.use(function (response) {
         return data.data;
     }else{
         if(code === 888){
-            auth.changeLogin(true);
+            auth.changeLogin(false);
         }
         // 对响应错误做点什么
         return Promise.reject(new Error(data.message));
