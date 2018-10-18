@@ -11,6 +11,7 @@ import { CookiesProvider } from 'react-cookie';
 import Index from './index/index';
 import Login from './user/login/index';
 import ErrorBoundary from './errorBoundary';
+import 'react-fontawesome';
 import '../library/http';
 
 

@@ -1,9 +1,11 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
-import {WingBlank,WhiteSpace ,Button,Toast} from 'antd-mobile';
+import {WingBlank,WhiteSpace ,Button,Toast,TabBar,NavBar} from 'antd-mobile';
 import http from '../../../library/http';
 import auth from '../../../library/auth';
 import './index.scss';
+
+
 import {
     HashRouter as Router,
     Route,
@@ -16,17 +18,29 @@ class Login extends Component{
         super(props);
         let isLogin = auth.isLogin;
         this.state = {
-            isLogin
+            isLogin,
+            name:'',
+            password:''
         }
     }
     submit(){
-        let user = document.getElementById('username').value,
-            password = document.getElementById('password').value;
-        http.post('/user/login',{name:user,password}).then(()=>{
+        let {name,password} = this.state;
+        if(!name || !password){
+            return ;
+        }
+        http.post('/user/login',{name,password}).then(()=>{
             Toast.success('登录成功', 2, ()=>{});
             auth.changeLogin(true);
             this.setState({ isLogin: true });
         }).catch(()=>{})
+    }
+    inputChange(event){
+        let el = event.target,
+            name = el.name,
+            value = el.value;
+        this.setState({
+            [name]:value
+        })
     }
     render(){
         const { isLogin } = this.state;
@@ -36,29 +50,29 @@ class Login extends Component{
             return <Redirect to={from} />;
         }
         return (
-            <WingBlank>
-                <WhiteSpace/>
-                <div className="login">
+            <div className="login-page">
+                <NavBar style={{background:'#222222'}} mode="dark" >登录</NavBar>
+                <WingBlank>
                     <WhiteSpace/>
                     <WhiteSpace/>
                     <WhiteSpace/>
-                    <div className="login-item">
-                        <span>用户名</span>
-                        <input id="username" placeholder="您的用户名"/>
+                    <WhiteSpace/>
+                    {/*用于组织默认填充---start*/}
+                    <input type="password" style={{position: 'absolute', top: '-999px'}}/>
+                    {/*用于组织默认填充---end*/}
+                    <div className="username-page">
+                        <input value={this.state.name} onChange={this.inputChange.bind(this)} id="name" name="name" placeholder="您的用户名"/>
                     </div>
-                    <div className="login-item">
-                        <span>密码</span>
-                        <input id="password" type="password" placeholder="您的密码"/>
+                    <div className="password-page">
+                        <input value={this.state.password} onChange={this.inputChange.bind(this)} id="password" name="password" type="password" placeholder="您的密码"/>
                     </div>
                     <WhiteSpace/>
                     <WhiteSpace/>
                     <WhiteSpace/>
-                    <Button  type="primary" onClick={this.submit.bind(this)}>登录</Button><WhiteSpace />
-                </div>
-                <WhiteSpace/>
-                <WhiteSpace/>
-                <WhiteSpace/>
-            </WingBlank>
+                    <Button type="primary" className={this.state.name && this.state.password ? '' : 'login-opacity'} onClick={this.submit.bind(this)}>开始旅程</Button>
+                </WingBlank>
+            </div>
+
         )
     }
 }

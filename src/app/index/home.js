@@ -2,7 +2,6 @@
 
 import React,{Component} from 'react';
 import {TabBar,NavBar,NoticeBar,Popover} from 'antd-mobile';
-import FontAwesome from 'react-fontawesome';
 import { withCookies, Cookies } from 'react-cookie';
 import {
     HashRouter as Router,

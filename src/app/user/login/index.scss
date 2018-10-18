@@ -1,27 +1,30 @@
+@import "../../../style/variable";
 
-
-.login{
-    padding:0 20px;
-    background: #fff;
-    min-height: 150px;
+.login-page{
+    height: 100%;
+    overflow: hidden;
+    background-color: $white;
 }
 
-.login-item{
-    display: flex;
-    margin-top: 10px;
-    span{
-        width: 50px;
-        font-size: 16px;
-        padding-right: 10px;
-        display: inline-block;
-        text-align: right;
-        padding-top:10px;
-    }
+.username-page,.password-page{
+    font-size: 14px;
+    padding:12px 10px;
     input{
-        vertical-align: middle;
-
-        flex:1;
-        padding: 10px 10px;
+        border: 0;
         outline: 0;
+        width: 100%;
     }
+}
+.username-page{
+    border: 1px solid $line-light;
+    border-radius: 6px 6px 0 0 ;
+}
+.password-page{
+    border: 1px solid $line-light;
+    border-top: 0;
+    border-radius: 0 0 6px 6px ;
+}
+
+.login-opacity{
+    opacity: .5;
 }

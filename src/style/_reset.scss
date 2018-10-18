@@ -94,3 +94,8 @@ body{
   font-size: 14px;
   //line-height: 1.4;
 }
+
+// 组织chrome 浏览器 input 默认背景色（黄色）
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
