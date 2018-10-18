@@ -47,7 +47,7 @@ class Index extends Component{
             return null;
         }
         if(!isLogin){
-            console.log('not login ', this.props.location);
+            console.log('check not login ', this.props.location);
             return (
                 <Redirect
                     to={{
@@ -57,6 +57,7 @@ class Index extends Component{
                 />
             )
         }
+        console.log('check is login ', this.props.location);
         return <Home/>
     }
 }

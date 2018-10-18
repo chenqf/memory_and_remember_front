@@ -30,7 +30,8 @@ class Login extends Component{
     }
     render(){
         const { isLogin } = this.state;
-        const {from} = this.props.location.state || {pathname:"/index/study"};
+        const {from} = this.props.location.state || {from:{pathname:"/index/study"}};
+
         if(isLogin){
             return <Redirect to={from} />;
         }
