@@ -23,8 +23,12 @@ class WordList extends Component{
             return null;
         }
         if(count === 0 && over){
-            //TODO 暂无数据
-            return <div>暂无数据</div>
+            return (
+                <div className="word-list-empty">
+                    <img src="//image1.51tiangou.com/tgou2/img2/blank/blankNew/blankOrderList3.png"/>
+                    <p>暂时没有需要复习的单词哦~</p>
+                </div>
+            )
         }
         let {date,pagination,pageCount,onChange,page} = this.props;
         let {contentBlur,phoneticBlur,explainsBlur} = this.state;
