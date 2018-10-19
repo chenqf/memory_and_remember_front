@@ -1,18 +1,31 @@
 // @flow Created by 陈其丰 on 2018/10/18.
 import React,{Component} from 'react';
 import {NavBar} from 'antd-mobile';
+import PropTypes from 'prop-types';
+import {
+    HashRouter as Router,
+    Route,
+    Link,
+    Switch,
+    Redirect,
+    withRouter
+} from "react-router-dom";
 
 class Header extends Component{
     constructor(props){
         super(props);
         this.state = {};
     }
+    back(){
+        this.props.history.goBack();
+    }
     render(){
+        let {back} = this.props;
         return (
             <NavBar
                 style={{background:'#222222'}}
                 mode="dark"
-                // leftContent="Back"
+                leftContent={back ? <i onClick={this.back.bind(this)} className="fa fa-angle-left fa-2x pl15 pr15" style={{marginLeft:-15}}/> : null}
                 /*rightContent={
                  <Popover
                  overlayClassName="index-page"
@@ -46,4 +59,17 @@ class Header extends Component{
     }
 }
 
-export default Header;
+Header.propTypes = {
+    title:PropTypes.string,
+    back: PropTypes.bool,
+    // back: PropTypes.oneOfType([
+    //     PropTypes.bool,
+    //     PropTypes.element
+    // ]),
+};
+Header.defaultProps = {
+    title:'记忆大师',
+    back:false
+};
+
+export default withRouter(Header);

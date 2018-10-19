@@ -1,7 +1,7 @@
 // @flow Created by 陈其丰 on 2018/9/30.
 
 import React,{Component} from 'react';
-import {Badge,Checkbox,Flex} from 'antd-mobile';
+import {Badge,Checkbox,Flex,Pagination} from 'antd-mobile';
 import PropTypes from 'prop-types';
 import WordItem from '../wordItem/index';
 import './index.scss'
@@ -16,27 +16,39 @@ class WordList extends Component{
         };
     }
     render(){
+        let len = this.props.items.length;
+        let count = this.props.count || len;
+        let over = this.props.over || !!count;
+        if(!over){
+            return null;
+        }
+        if(count === 0 && over){
+            //TODO 暂无数据
+            return <div>暂无数据</div>
+        }
+        let {date,pagination,pageCount,onChange,page} = this.props;
+        let {contentBlur,phoneticBlur,explainsBlur} = this.state;
         return (
             <div className="word-list">
                 <div className="word-list-header">
                     <span className="word-list-text">单词数</span>
                     <span className="word-list-badge">
-                        <Badge hot text={String(this.props.count || this.props.items.length)}/>
+                        <Badge hot text={String(count)}/>
                     </span>
                 </div>
                 <Flex className="word-list-check border-b">
                     <Flex.Item>
-                        <CheckboxItem checked={this.state.contentBlur} onChange={() => this.setState(prevState=>({contentBlur:!prevState.contentBlur}))}>
+                        <CheckboxItem checked={contentBlur} onChange={() => this.setState(prevState=>({contentBlur:!prevState.contentBlur}))}>
                             模糊单词
                         </CheckboxItem>
                     </Flex.Item>
                     <Flex.Item>
-                        <CheckboxItem checked={this.state.phoneticBlur} onChange={() => this.setState(prevState=>({phoneticBlur:!prevState.phoneticBlur}))}>
+                        <CheckboxItem checked={phoneticBlur} onChange={() => this.setState(prevState=>({phoneticBlur:!prevState.phoneticBlur}))}>
                             模糊音标
                         </CheckboxItem>
                     </Flex.Item>
                     <Flex.Item>
-                        <CheckboxItem checked={this.state.explainsBlur} onChange={() => this.setState(prevState=>({explainsBlur:!prevState.explainsBlur}))}>
+                        <CheckboxItem checked={explainsBlur} onChange={() => this.setState(prevState=>({explainsBlur:!prevState.explainsBlur}))}>
                             模糊释义
                         </CheckboxItem>
                     </Flex.Item>
@@ -44,14 +56,27 @@ class WordList extends Component{
                 {
                     this.props.items.map((item)=>{
                         return <WordItem
-                            contentBlur={this.state.contentBlur}
-                            phoneticBlur={this.state.phoneticBlur}
-                            explainsBlur={this.state.explainsBlur}
-                            date={this.props.date}
+                            contentBlur={contentBlur}
+                            phoneticBlur={phoneticBlur}
+                            explainsBlur={explainsBlur}
+                            date={date}
                             key={item.id}
                             wordInfo={item}
                         />
                     })
+                }
+                {
+                    pagination && pageCount && onChange && page?
+                        <div className="word-list-pagination">
+                            <Pagination
+                                onChange={onChange}
+                                total={Math.ceil(count/pageCount)}
+                                current={page}
+                                locale={{prevText: 'Prev',nextText: 'Next',}}
+                            />
+                        </div>
+                        :
+                        null
                 }
             </div>
         )
@@ -59,19 +84,27 @@ class WordList extends Component{
 }
 
 WordList.propTypes = {
-    date:PropTypes.bool,
-    contentBlur:PropTypes.bool,
-    phoneticBlur:PropTypes.bool,
-    explainsBlur:PropTypes.bool,
-    items:PropTypes.Array,
-    count:PropTypes.number
+    pagination:PropTypes.bool,// 是否有分页
+    pageCount:PropTypes.number,//分页，每页多少条
+    onChange:PropTypes.func,//切换分页回调函数
+    page:PropTypes.number,//当前第几页
+    over:PropTypes.bool,//请求是否完成
+    date:PropTypes.bool,// 是否显示日期
+    contentBlur:PropTypes.bool,// 模糊 单词
+    phoneticBlur:PropTypes.bool,// 模糊 音标
+    explainsBlur:PropTypes.bool,// 模糊 解释
+    items:PropTypes.array,// 数据
+    count:PropTypes.number // 总条数
 };
 WordList.defaultProps = {
-    date:true,
+    over:false,
+    date:true, // 是否显示日期
+    items:[], // 数据
+    count:0, // 总条数
     contentBlur:false, // 模糊 单词
     phoneticBlur:false, // 模糊 音标
     explainsBlur:false, // 模糊 解释
-}
+};
 
 
 

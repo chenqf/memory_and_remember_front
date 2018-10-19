@@ -4,7 +4,9 @@
 
 
 .word-list{
+  padding: 8px 15px 6px;
   position: relative;
+  background: $white;
 }
 
 .word-list-check{
@@ -61,4 +63,9 @@
   flex: 1;
   color:#1d679b;
   text-align: left;
+}
+
+.word-list-pagination{
+  padding:8px 0;
+  color:red;
 }
