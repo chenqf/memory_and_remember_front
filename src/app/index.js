@@ -8,7 +8,7 @@ import {
     withRouter
 } from "react-router-dom";
 import { CookiesProvider } from 'react-cookie';
-import Index from './index/index';
+import Auth from './auth';
 import Login from './user/login/index';
 import ErrorBoundary from './errorBoundary';
 import 'react-fontawesome';
@@ -18,18 +18,18 @@ import '../library/http';
 
 
 const App = () => (
-    <CookiesProvider>
+
         <Router>
             <ErrorBoundary>
                 <Switch>
-                    <Redirect exact from="/" to="/index/study" />
                     <Route exact path="/user/login" component={Login} />
-                    <Route path="/index" component={Index} />
-                    <Route component={Index} />
+                    <Redirect exact from="/" to="/index/study" />
+                    {/*具有登录权限才可进入*/}
+                    <Route path="/" component={Auth} />
                 </Switch>
             </ErrorBoundary>
         </Router>
-    </CookiesProvider>
+
 );
 
 

@@ -1,11 +1,11 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
 import {Card,WhiteSpace,WingBlank,SearchBar} from 'antd-mobile'
-import http from '../../library/http';
+import http from '../../../library/http';
 import './index.scss'
-import WordItem from "../../component/wordItem/index";
-import WordList from "../../component/wordList/index";
-import RemarkWrapper from "../../component/remark/index";
+import WordItem from "../../../component/wordItem/index";
+import WordList from "../../../component/wordList/index";
+import RemarkWrapper from "../../../component/remark/index";
 const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
 let moneyKeyboardWrapProps;
 if (isIPhone) {
@@ -99,7 +99,7 @@ class Study extends Component{
                                 thumb={<i className="blue fa fa-columns fa-lg"/>}
                                 extra={this.state.totalCount}
                             />
-                            <Card.Body style={{minHeight:0}}>
+                            <Card.Body style={{minHeight:0}} className={'p0'}>
                                 <WordList items={this.state.items}/>
                             </Card.Body>
                         </Card>:

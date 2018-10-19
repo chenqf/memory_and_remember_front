@@ -1,9 +1,9 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
 import { Tabs, WhiteSpace ,WingBlank,Toast,SegmentedControl} from 'antd-mobile';
-import http from '../../library/http';
-import WordList from "../../component/wordList/index";
-import RemarkList from "../../component/remarkList/index";
+import http from '../../../library/http';
+import WordList from "../../../component/wordList/index";
+import RemarkList from "../../../component/remarkList/index";
 class Review extends Component {
     constructor(props){
         super(props);
@@ -117,12 +117,17 @@ class Review extends Component {
                 <WhiteSpace />
                 <WingBlank>
                     <Tabs onTabClick={this.changeTabClick.bind(this)} tabs={tabs}  swipeable={false} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
-                        <div style={{ minHeight: '150px', backgroundColor: '#fff' ,paddingLeft:15,paddingRight:15}}>
+                        <div style={{ minHeight: '150px', backgroundColor: '#fff'}}>
                             <WhiteSpace />
                             {
                                 (hasWord || hasRemark) ?
                                     <React.Fragment>
-                                        <SegmentedControl onChange={this.onSelectChange.bind(this)} values={['备注', '单词']} selectedIndex={this.state[this.state.tabType].selectedIndex}/>
+                                        <SegmentedControl
+                                            className={'pl15 pr15'}
+                                            onChange={this.onSelectChange.bind(this)}
+                                            values={['备注', '单词']}
+                                            selectedIndex={this.state[this.state.tabType].selectedIndex
+                                        }/>
                                         <WhiteSpace />
                                         <WhiteSpace />
                                         {isRemark? <RemarkList items={this.state.remark}/> : null}

@@ -92,18 +92,18 @@
 }
 
 /* padding margin px*/
-@for $index from 1 through 30 {
-  .p#{$index} { padding: $index * 1px; }
-  .pt#{$index} { padding-top: $index * 1px; }
-  .pr#{$index} { padding-right: $index * 1px; }
-  .pb#{$index} { padding-bottom: $index * 1px; }
-  .pl#{$index} { padding-left: $index * 1px; }
+@for $index from 0 through 30 {
+  .p#{$index} { padding: $index * 1px!important;}
+  .pt#{$index} { padding-top: $index * 1px!important; }
+  .pr#{$index} { padding-right: $index * 1px !important;}
+  .pb#{$index} { padding-bottom: $index * 1px !important;}
+  .pl#{$index} { padding-left: $index * 1px !important;}
 
-  .m#{$index} { margin: $index * 1px; }
-  .mt#{$index} { margin-top: $index * 1px; }
-  .mr#{$index} { margin-right: $index * 1px; }
-  .mb#{$index} { margin-bottom: $index * 1px; }
-  .ml#{$index} { margin-left: $index * 1px; }
+  .m#{$index} { margin: $index * 1px!important; }
+  .mt#{$index} { margin-top: $index * 1px!important; }
+  .mr#{$index} { margin-right: $index * 1px!important; }
+  .mb#{$index} { margin-bottom: $index * 1px!important; }
+  .ml#{$index} { margin-left: $index * 1px!important; }
 }
 
 /*字号*/
