@@ -13,9 +13,6 @@ class Login extends Component{
         this.state = {
         };
     }
-    submit(){
-
-    }
     componentDidMount(){
         http.post('/word/queryAllCount').then(({count})=>{
             this.setState({
@@ -47,6 +44,7 @@ class Login extends Component{
                 icon: <span className="mine-icon"><i className="fa fa-star-half-o"/></span>
             },
             {
+                path:'/mine/statistics',
                 text:<span className="mine-title">学习统计</span>,
                 icon: <span className="mine-icon"><i className="fa fa-pie-chart"/></span>
             }
