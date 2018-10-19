@@ -129,4 +129,4 @@ class Index extends Component{
     }
 }
 
-export default withRouter(withCookies(Index));
+export default withRouter(Index);

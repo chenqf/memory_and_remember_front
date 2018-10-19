@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98711638-2f79-4341-9a01-ab031cb34093" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/css/main.202ced99.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/main.e257a1ac.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index/index.js" afterPath="$PROJECT_DIR$/src/app/index/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config/index.js" afterPath="$PROJECT_DIR$/src/config/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,28 +70,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/user/login/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-165">
-              <caret line="54" column="36" lean-forward="false" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/component/header/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="69" column="23" lean-forward="true" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
-              <folding>
-                <element signature="e#39#77#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/mine/word/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
@@ -137,14 +115,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/mine/statistics/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
-              <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding>
                 <element signature="e#39#91#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/index/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="131" column="33" lean-forward="true" selection-start-line="131" selection-start-column="33" selection-end-line="131" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/config/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="3" column="67" lean-forward="false" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -168,7 +166,7 @@
         <entry file="file://$PROJECT_DIR$/src/app/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
-              <caret line="27" column="49" lean-forward="true" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+              <caret line="27" column="49" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -179,8 +177,8 @@
       <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/auth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="61" column="49" lean-forward="true" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
+            <state relative-caret-position="282">
+              <caret line="60" column="49" lean-forward="true" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
               <folding>
                 <element signature="e#39#77#0" expanded="true" />
               </folding>
@@ -201,8 +199,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>h</find>
-      <find>http</find>
       <find>http.</find>
       <find>http.p</find>
       <find>http.pos</find>
@@ -228,9 +224,11 @@
       <find>count</find>
       <find>&lt;WordList</find>
       <find>WingBlank</find>
-      <find>remark-list</find>
       <find>contentBlur</find>
       <find>over</find>
+      <find>remark-list</find>
+      <find>8</find>
+      <find>8000</find>
     </findStrings>
     <replaceStrings>
       <replace>word-item</replace>
@@ -251,7 +249,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/style/_mixin.scss" />
         <option value="$PROJECT_DIR$/src/style/_normalize.scss" />
         <option value="$PROJECT_DIR$/src/style/_global.scss" />
         <option value="$PROJECT_DIR$/src/style/index.scss" />
@@ -286,7 +283,6 @@
         <option value="$PROJECT_DIR$/src/app/demo/index.js" />
         <option value="$PROJECT_DIR$/src/app/index.js" />
         <option value="$PROJECT_DIR$/src/app/index/home.js" />
-        <option value="$PROJECT_DIR$/src/app/index/index.js" />
         <option value="$PROJECT_DIR$/src/app/auth.js" />
         <option value="$PROJECT_DIR$/src/app/index/study/index.js" />
         <option value="$PROJECT_DIR$/src/style/_base.scss" />
@@ -302,6 +298,8 @@
         <option value="$PROJECT_DIR$/src/app/mine/index.js" />
         <option value="$PROJECT_DIR$/src/app/index/mine/index.js" />
         <option value="$PROJECT_DIR$/src/app/mine/statistics/index.js" />
+        <option value="$PROJECT_DIR$/src/app/index/index.js" />
+        <option value="$PROJECT_DIR$/src/config/index.js" />
       </list>
     </option>
   </component>
@@ -371,7 +369,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -385,37 +383,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main.e257a1ac.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="memory_front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="memory_front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -942,14 +914,7 @@
       <workItem from="1539655863549" duration="5499000" />
       <workItem from="1539739585541" duration="15539000" />
       <workItem from="1539827247215" duration="19339000" />
-      <workItem from="1539912916332" duration="15035000" />
-    </task>
-    <task id="LOCAL-00004" summary="add word page">
-      <created>1538216890215</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1538216890215</updated>
+      <workItem from="1539912916332" duration="17077000" />
     </task>
     <task id="LOCAL-00005" summary=" 查询单词页面 + 今日学习列表">
       <created>1538277326984</created>
@@ -1287,14 +1252,22 @@
       <option name="project" value="LOCAL" />
       <updated>1539936416058</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="组件更新">
+      <created>1539936465904</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1539936465904</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207016000" />
+    <option name="totallyTimeSpent" value="209058000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="1918" height="1038" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1317,7 +1290,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42482916" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34396356" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28018224" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24381055" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24381055" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12984055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1397,13 +1370,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/antd-mobile/lib/card/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/errorBoundary.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -1628,16 +1594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2443">
-          <caret line="131" column="15" lean-forward="false" selection-start-line="131" selection-start-column="15" selection-end-line="131" selection-end-column="15" />
-          <folding>
-            <element signature="e#39#77#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/style/_base.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -1693,7 +1649,7 @@
         <state relative-caret-position="364">
           <caret line="101" column="77" lean-forward="false" selection-start-line="101" selection-start-column="61" selection-end-line="101" selection-end-column="77" />
           <folding>
-            <element signature="e#38#76#0" expanded="true" />
+            <element signature="e#38#76#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1719,7 +1675,7 @@
         <state relative-caret-position="264">
           <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
           <folding>
-            <element signature="e#39#91#0" expanded="true" />
+            <element signature="e#39#91#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1775,26 +1731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="27" column="49" lean-forward="true" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="61" column="49" lean-forward="true" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
-          <folding>
-            <element signature="e#39#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/mine/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -1816,10 +1752,46 @@
     <entry file="file://$PROJECT_DIR$/src/app/mine/statistics/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
-          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding>
             <element signature="e#39#91#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="27" column="49" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="60" column="49" lean-forward="true" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
+          <folding>
+            <element signature="e#39#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="131" column="33" lean-forward="true" selection-start-line="131" selection-start-column="33" selection-end-line="131" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="3" column="67" lean-forward="false" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
