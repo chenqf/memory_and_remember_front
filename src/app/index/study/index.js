@@ -1,11 +1,11 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
-import {Card,WhiteSpace,WingBlank,SearchBar} from 'antd-mobile'
-import http from '../../../library/http';
+import {SegmentedControl,WhiteSpace,WingBlank} from 'antd-mobile'
+import RemarkContent from './remark';
+import SearchContent from './search';
+import SentenceContent from './sentence';
+import WordContent from './word';
 import './index.scss'
-import WordItem from "../../../component/wordItem/index";
-import WordList from "../../../component/wordList/index";
-import RemarkWrapper from "../../../component/remark/index";
 const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
 let moneyKeyboardWrapProps;
 if (isIPhone) {
@@ -18,94 +18,32 @@ class Study extends Component{
     constructor(props){
         super(props);
         this.state = {
-            wordInfo:{},
-            items:[],
-            remark:[],
-            totalCount:0
+            selectedIndex:0
         };
     }
-    searchWordHandler(q){
-        http.post('/word/search', {q}).then((data)=> {
-            let oldData = this.state.wordInfo;
-            if(oldData.new){
-                this.state.items.unshift(oldData);
-            }
-            this.setState({
-                wordInfo:data,
-                totalCount:this.state.items.length
-            });
-        })
-    }
-    componentWillMount(){
-        http.post('/word/queryByPreDate',{order:'DESC'}).then((data)=> {
-            this.setState({
-                items:data.items,
-                totalCount:data.totalCount
-            });
-        });
-        http.post('/remark/queryByPreDate',{pre:0}).then(({items})=> {
-            this.setState({
-                remark:items
-            });
+    onChange(e){
+        this.setState({
+            selectedIndex:e.nativeEvent.selectedSegmentIndex
         })
     }
     render(){
-        let wordInfo = this.state.wordInfo;
+        let {selectedIndex} = this.state;
+        let Com = null;
+        if(selectedIndex === 0){
+            Com = SearchContent;
+        }else if(selectedIndex === 1){
+            Com = WordContent;
+        }else if(selectedIndex === 2){
+            Com = SentenceContent;
+        }else {
+            Com = RemarkContent;
+        }
         return (
             <WingBlank size="lg" className="word-search">
                 <WhiteSpace size="lg"/>
-                <Card>
-                    <Card.Header
-                        title={<span className="p5">今日备注</span>}
-                        thumb={<i className="blue fa fa-tags fa-lg"/>}
-                    />
-                    <Card.Body className="study-remark">
-                        <RemarkWrapper items={this.state.remark} add/>
-                    </Card.Body>
-                </Card>
+                <SegmentedControl onChange={this.onChange.bind(this)} selectedIndex={selectedIndex} values={['单词检索', '今日单词', '今日例句','学习备注']} />
                 <WhiteSpace size="lg"/>
-                <Card>
-                    <Card.Header
-                        title={<span className="p5">单词搜索</span>}
-                        thumb={<i className="blue fa fa-search-plus fa-lg"/>}
-                        // extra={<span>this is extra</span>}
-                    />
-                    <Card.Body>
-                        <SearchBar
-                            placeholder="search English word"
-                            onSubmit={this.searchWordHandler.bind(this)}
-                        />
-                    </Card.Body>
-                </Card>
-                {
-                    wordInfo.text ?
-                        <Card style={{marginTop:15}}>
-                            <Card.Header
-                                title={<span className="p5">基本释义</span>}
-                                thumb={<i className="blue fa fa-star-o fa-lg"/>}
-                            />
-                            <Card.Body style={{minHeight:0}}>
-                                <WordItem wordInfo={wordInfo}/>
-                            </Card.Body>
-                        </Card>
-                        :
-                        null
-                }
-                {
-                    this.state.totalCount ?
-                        <Card style={{marginTop:15}}>
-                            <Card.Header
-                                title={<span className="p5">今日成果</span>}
-                                thumb={<i className="blue fa fa-columns fa-lg"/>}
-                                extra={this.state.totalCount}
-                            />
-                            <Card.Body style={{minHeight:0}} className={'p0'}>
-                                <WordList items={this.state.items}/>
-                            </Card.Body>
-                        </Card>:
-                        null
-                }
-
+                <Com/>
             </WingBlank>
         )
     }
