@@ -3,6 +3,7 @@ import './index.scss'
 import { withCookies, Cookies } from 'react-cookie';
 import {Toast} from 'antd-mobile'
 import tools from '../../library/tools';
+import SentenceItem from '../sentenceItem/index';
 
 class SentenceList extends Component {
     constructor(props){
@@ -25,16 +26,8 @@ class SentenceList extends Component {
         return (
             <div className="sentence-list">
                 {
-                    this.props.items.map(({id,content,explain})=>{
-                        return (
-                            <div className="sentence-list-item" key={id}>
-                                <p className="sentence-list-content">
-                                    {content}
-                                    <i onClick={this.playItem.bind(this,{id,content,explain})} className="fa fa-play-circle-o blue font-s14"/>
-                                </p>
-                                <p className="sentence-list-explain">{explain}</p>
-                            </div>
-                        )
+                    this.props.items.map((item)=>{
+                        return <SentenceItem key={item.id} playEvent={this.playItem.bind(this)} item={item}/>
                     })
                 }
             </div>

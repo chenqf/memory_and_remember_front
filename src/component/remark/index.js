@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {  TextareaItem ,Flex,Button } from "antd-mobile";
+import {  TextareaItem ,Flex,Button ,Toast} from "antd-mobile";
 import http from '../../library/http';
 import './index.scss'
 
@@ -7,9 +7,12 @@ class Remark extends Component {
 
     constructor(props){
         super(props);
+        this.state = {
+            content:''
+        }
     }
     submitRemark(){
-        let value = document.getElementById('remark-content').value;
+        let value = this.state.content;
         if(!value){
             return false;
         }
@@ -17,9 +20,17 @@ class Remark extends Component {
             if(typeof id !== 'number'){
                 return false;
             }
-            window.location.reload();
+            this.setState({
+                content:''
+            });
+            Toast.success('添加成功~',1.5)
         });
 
+    }
+    changeRemark(value){
+        this.setState({
+            content:value
+        })
     }
     render() {
         return (
@@ -37,8 +48,9 @@ class Remark extends Component {
                         <Flex align="start" className="border-b">
                             <Flex.Item>
                                 <TextareaItem
+                                    value={this.state.content}
+                                    onChange={this.changeRemark.bind(this)}
                                     className="remark"
-                                    id="remark-content"
                                     placeholder="请输入备注"
                                     autoHeight
                                 />

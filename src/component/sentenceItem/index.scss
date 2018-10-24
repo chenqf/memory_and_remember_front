@@ -1,0 +1,98 @@
+@import "../../style/variable";
+
+
+.sentence-show-item{
+    border-bottom: 1px solid $line-light;
+    font-size: 14px;
+    position: relative;
+    padding-top:16px;
+    margin:0 15px;
+    i{
+        position: relative;
+        top:-8px;
+    }
+    .sentence-content{
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: $black;
+    }
+    .sentence-explain{
+        padding-top:5px;
+        font-size: 12px;
+        line-height: 1.2;
+        color: $grey;
+        letter-spacing: 1px;
+    }
+    .sentence-operation{
+        text-align: right;
+        color: $blue;
+        i{
+            padding: 5px 5px 0;
+        }
+    }
+}
+
+.sentence-edit-item{
+    font-size: 14px;
+    padding:0 0 5px 0;
+    margin:0 15px;
+    position: relative;
+    &:before{
+        content: '';
+        position: absolute;
+        left:0;
+        right:0;
+        top:-2px;
+        height: 4px;
+        background-color: $line-light;
+        z-index: 99999;
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        left:0;
+        right:0;
+        bottom:-2px;
+        height: 4px;
+        background-color: $line-light;
+        z-index: 99999;
+    }
+    &:first-child:before{
+        background-color: transparent;
+    }
+    &:last-child:after{
+        background-color: transparent;
+    }
+    .sentence-text{
+        border-bottom: 1px solid $line-light;
+        position: relative;
+        &>span{
+            line-height: 44px;
+        }
+        textarea{
+            line-height: 1.2;
+            font-size: 14px;
+            color:$grey;
+        }
+    }
+    .sentence-content{
+
+    }
+    .sentence-explain{
+
+    }
+    .sentence-word{
+        &:before{
+            top:-8px;
+            content: '重点词';
+        }
+    }
+    .sentence-operation{
+        margin: 10px 0 5px 0;
+    }
+    .cancel-button{
+        border:1px solid #999!important;
+    }
+}
+

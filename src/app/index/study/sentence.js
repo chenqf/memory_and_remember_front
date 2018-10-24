@@ -3,12 +3,13 @@
 import React,{PureComponent,Component} from 'react';
 import {Card,Flex,TextareaItem,Button,WhiteSpace} from 'antd-mobile';
 import http from '../../../library/http';
-import SentenceList from '../../../component/sentencekList/index';
+import SentenceList from '../../../component/sentenceList/index';
 
 class SentenceContent extends Component{
     constructor(props){
         super(props);
         this.state = {
+            over:false,
             items:[],
             content:'',
             explain:''
@@ -27,6 +28,7 @@ class SentenceContent extends Component{
     componentWillMount(){
         http.post('/sentence/queryByPreDate',{pre:0}).then(({items})=> {
             this.setState({
+                over:true,
                 items
             });
         })
@@ -44,6 +46,9 @@ class SentenceContent extends Component{
 
     }
     render(){
+        if(!this.state.over){
+            return null;
+        }
         return (
             <React.Fragment>
                 {
@@ -54,7 +59,7 @@ class SentenceContent extends Component{
                                     title={<span className="p5">例句展示</span>}
                                     thumb={<i className="blue fa fa-list-ul"/>}
                                 />
-                                <Card.Body className="pt0">
+                                <Card.Body className="pt0 pl0 pr0">
                                     <SentenceList items={this.state.items}/>
                                 </Card.Body>
                             </Card>
@@ -63,7 +68,7 @@ class SentenceContent extends Component{
                         :
                         null
                 }
-                <Card className="sentence-content">
+                <Card className="sentence-add">
                     <Card.Header
                         title={<span className="p5">添加例句</span>}
                         thumb={<i className="blue fa fa-plus-square-o fa-lg pt4"/>}
@@ -71,28 +76,28 @@ class SentenceContent extends Component{
                     />
                     <Card.Body className="pt0">
                         <Flex align="start" className="border-b">
-                        <span className="sentence-content-add-title">
-                            英文
-                        </span>
+                            <span className="sentence-add-title">
+                                英文
+                            </span>
                             <Flex.Item>
                                 <TextareaItem
                                     value={this.state.content}
                                     onChange={this.changeContent.bind(this)}
-                                    className="sentence-content-add-text"
+                                    className="sentence-add-text"
                                     placeholder="请输入英文句式"
                                     autoHeight
                                 />
                             </Flex.Item>
                         </Flex>
                         <Flex align="start" className="border-b">
-                        <span className="sentence-content-add-title">
-                            中文
-                        </span>
+                            <span className="sentence-add-title">
+                                中文
+                            </span>
                             <Flex.Item>
                                 <TextareaItem
                                     value={this.state.explain}
                                     onChange={this.changeExplain.bind(this)}
-                                    className="sentence-content-add-text"
+                                    className="sentence-add-text"
                                     placeholder="请输入中文句式"
                                     autoHeight
                                 />
