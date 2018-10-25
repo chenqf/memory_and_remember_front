@@ -48,42 +48,32 @@ class Footer extends Component{
     render(){
         return (
             <footer className="index-footer">
-                {
-                    nav.map((item)=>{
+                <Route
+                    path="/index/:type"
+                    children={({match}) =>{
                         return (
-                            <Route
-                                key={item.key}
-                                path={item.path}
-                                children={({ match }) =>{
-                                    if(!match){
-                                        return null;
-                                    }
-                                    return (
-                                        <TabBar
-                                            unselectedTintColor="#949494"
-                                            tintColor="#00b500"
-                                            barTintColor="white"
-                                        >
-                                            {
-                                                nav.map((i)=><TabBar.Item
-                                                    icon={i.icon}
-                                                    selectedIcon={i.selectedIcon }
-                                                    title={i.title}
-                                                    key={i.key}
-                                                    selected={i.path === match.path}
-                                                    onPress={() => {
-                                                        this.props.history.replace(i.path)
-                                                    }}
-                                                />)
-                                            }
-                                        </TabBar>
-                                    )
-                                }}
-
-                            />
+                            <TabBar
+                                unselectedTintColor="#949494"
+                                tintColor="#00b500"
+                                barTintColor="white"
+                            >
+                                {
+                                    nav.map((i)=><TabBar.Item
+                                        icon={i.icon}
+                                        selectedIcon={i.selectedIcon }
+                                        title={i.title}
+                                        key={i.key}
+                                        selected={i.path === match.url}
+                                        onPress={() => {
+                                            this.props.history.replace(i.path)
+                                        }}
+                                    />)
+                                }
+                            </TabBar>
                         )
-                    })
-                }
+                    }}
+
+                />
             </footer>
         )
     }

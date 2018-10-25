@@ -1,114 +1,137 @@
 import React from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import {
     BrowserRouter as Router,
+    Switch,
     Route,
     Link,
-    Redirect,
-    withRouter
+    Redirect
 } from "react-router-dom";
+import ReactDOM from 'react-dom';
+import './demo.scss'
+import registerServiceWorker from './registerServiceWorker';
 
-////////////////////////////////////////////////////////////
-// 1. Click the public page
-// 2. Click the protected page
-// 3. Log in
-// 4. Click the back button, note the URL each time
 
-const AuthExample = () => (
+
+const AnimationExample = () => (
     <Router>
-        <div>
-            <AuthButton />
-            <ul>
-                <li>
-                    <Link to="/public">Public Page</Link>
-                </li>
-                <li>
-                    <Link to="/protected">Protected Page</Link>
-                </li>
-            </ul>
-            <Route path="/public" component={Public} />
-            <Route path="/login" component={Login} />
-            <PrivateRoute path="/protected" component={Protected} />
-        </div>
+        <Route
+            render={({ location }) => (
+                <div style={styles.fill}>
+                    <Route
+                        exact
+                        path="/"
+                        render={() => <Redirect to="/hsl/10/90/50" />}
+                    />
+
+                    <ul style={styles.nav}>
+                        <NavLink to="/hsl/10/90/50">Red</NavLink>
+                        <NavLink to="/hsl/120/100/40">Green</NavLink>
+                        <NavLink to="/rgb/33/150/243">Blue</NavLink>
+                        <NavLink to="/rgb/240/98/146">Pink</NavLink>
+                    </ul>
+
+                    <div style={styles.content}>
+                        <TransitionGroup>
+                            {/* no different than other usage of
+                             CSSTransition, just make sure to pass
+                             `location` to `Switch` so it can match
+                             the old location as it animates out
+                             */}
+                            <CSSTransition key={location.key} classNames="fade" timeout={300}>
+                                <Switch location={location}>
+                                    <Route exact path="/hsl/:h/:s/:l" component={HSL} />
+                                    <Route exact path="/rgb/:r/:g/:b" component={RGB} />
+                                    {/* Without this `Route`, we would get errors during
+                                     the initial transition from `/` to `/hsl/10/90/50`
+                                     */}
+                                    <Route render={() => <div>Not Found</div>} />
+                                </Switch>
+                            </CSSTransition>
+                        </TransitionGroup>
+                    </div>
+                </div>
+            )}
+        />
     </Router>
 );
 
-const fakeAuth = {
-    isAuthenticated: false,
-    authenticate(cb) {
-        this.isAuthenticated = true;
-        setTimeout(cb, 100); // fake async
-    },
-    signout(cb) {
-        this.isAuthenticated = false;
-        setTimeout(cb, 100);
-    }
+const NavLink = props => (
+    <li style={styles.navItem}>
+        <Link {...props} style={{ color: "inherit" }} />
+    </li>
+);
+
+const HSL = ({ match: { params } }) => (
+    <div
+        style={{
+            ...styles.fill,
+            ...styles.hsl,
+            background: `hsl(${params.h}, ${params.s}%, ${params.l}%)`
+        }}
+    >
+        hsl({params.h}, {params.s}%, {params.l}%)
+    </div>
+);
+
+const RGB = ({ match: { params } }) => (
+    <div
+        style={{
+            ...styles.fill,
+            ...styles.rgb,
+            background: `rgb(${params.r}, ${params.g}, ${params.b})`
+        }}
+    >
+        rgb({params.r}, {params.g}, {params.b})
+    </div>
+);
+
+const styles = {};
+
+styles.fill = {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0
 };
 
-const AuthButton = withRouter(
-    ({ history }) =>
-        fakeAuth.isAuthenticated ? (
-            <p>
-                Welcome!{" "}
-                <button
-                    onClick={() => {
-                        fakeAuth.signout(() => history.push("/"));
-                    }}
-                >
-                    Sign out
-                </button>
-            </p>
-        ) : (
-            <p>You are not logged in.</p>
-        )
-);
+styles.content = {
+    ...styles.fill,
+    top: "40px",
+    textAlign: "center"
+};
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-        {...rest}
-        render={props =>
-            fakeAuth.isAuthenticated ? (
-                <Component {...props} />
-            ) : (
-                <Redirect
-                    to={{
-                        pathname: "/login",
-                        state: { from: props.location }
-                    }}
-                />
-            )
-        }
-    />
-);
+styles.nav = {
+    padding: 0,
+    margin: 0,
+    position: "absolute",
+    top: 0,
+    height: "40px",
+    width: "100%",
+    display: "flex"
+};
 
-const Public = () => <h3>Public</h3>;
-const Protected = () => <h3>Protected</h3>;
+styles.navItem = {
+    textAlign: "center",
+    flex: 1,
+    listStyleType: "none",
+    padding: "10px"
+};
 
-class Login extends React.Component {
-    state = {
-        redirectToReferrer: false
-    };
+styles.hsl = {
+    ...styles.fill,
+    color: "white",
+    paddingTop: "20px",
+    fontSize: "30px"
+};
 
-    login = () => {
-        fakeAuth.authenticate(() => {
-            this.setState({ redirectToReferrer: true });
-        });
-    };
+styles.rgb = {
+    ...styles.fill,
+    color: "white",
+    paddingTop: "20px",
+    fontSize: "30px"
+};
 
-    render() {
-        const { from } = this.props.location.state || { from: { pathname: "/" } };
-        const { redirectToReferrer } = this.state;
-
-        if (redirectToReferrer) {
-            return <Redirect to={from} />;
-        }
-
-        return (
-            <div>
-                <p>You must log in to view the page at {from.pathname}</p>
-                <button onClick={this.login}>Log in</button>
-            </div>
-        );
-    }
-}
-
-export default AuthExample;
+ReactDOM.render(<AnimationExample />, document.getElementById('root'));
+registerServiceWorker();
