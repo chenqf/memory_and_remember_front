@@ -12,11 +12,28 @@ import {
 } from "react-router-dom";
 import PrivateRoute from '../privateRoute';
 import Header from '../../component/header/index'
+import Footer from './foot';
 import MineIndex from './mine/index'
 import StudyIndex from './study/index'
 import TestIndex from './test/index'
 import ReviewIndex from './review/index'
 import './index.scss'
+
+const OldSchoolMenuLink = ({ label, to, activeOnlyWhenExact }) => (
+    <Route
+        path={to}
+        exact={activeOnlyWhenExact}
+        children={({ match }) => {
+            console.log('match',match);
+            return (
+                <div className={match ? "active" : ""}>
+                    {match ? "> " : ""}
+                    <Link to={to}>{label}</Link>
+                </div>
+            )
+        }}
+    />
+);
 
 class Index extends Component{
     constructor(props){
@@ -52,6 +69,7 @@ class Index extends Component{
     render(){
         return (
             <div>
+                {/*顶部导航*/}
                 <Header title="记忆大师"/>
                 <NoticeBar marqueeProps={{ loop: true, style: { padding: '0 7.5px' } }}>
                     Nothing is impossible to a willing heart
@@ -63,67 +81,7 @@ class Index extends Component{
                     <PrivateRoute path="/index/mine" component={MineIndex} />
                 </div>
 
-                <footer className="index-footer">
-                    <TabBar
-                        unselectedTintColor="#949494"
-                        tintColor="#00b500"
-                        barTintColor="white"
-                    >
-                        <TabBar.Item
-                            title="学习"
-                            key="study"
-                            icon={<i className="fa fa-book fa-2x"/>}
-                            selectedIcon={<i className="fa fa-book fa-2x" style={{color:'#00b500'}}/> }
-                            // badge={1}
-                            selected={this.state.selectedTab === 'study'}
-                            onPress={() => {
-                                this.setState({selectedTab:'study'});
-                                this.props.history.replace('/index/study')
-                            }}
-                            data-seed="logId"
-                        >
-                        </TabBar.Item>
-                        <TabBar.Item
-                            icon={<i className="fa fa-bell-o fa-2x"/>}
-                            selectedIcon={<i className="fa fa-bell fa-2x" style={{color:'#00b500'}}/> }
-                            title="复习"
-                            key="Koubei"
-                            // badge={'new'}
-                            selected={this.state.selectedTab === 'review'}
-                            onPress={() => {
-                                this.setState({selectedTab:'review'});
-                                this.props.history.replace('/index/review')
-                            }}
-                            data-seed="logId1"
-                        >
-                        </TabBar.Item>
-                        <TabBar.Item
-                            icon={<i className="fa fa-pencil-square fa-2x"/>}
-                            selectedIcon={<i className="fa fa-pencil-square fa-2x" style={{color:'#00b500'}}/> }
-                            title="测验"
-                            key="test"
-                            // dot
-                            selected={this.state.selectedTab === 'test'}
-                            onPress={() => {
-                                this.setState({selectedTab:'test'});
-                                this.props.history.replace('/index/test')
-                            }}
-                        >
-                        </TabBar.Item>
-                        <TabBar.Item
-                            icon={<i className="fa fa-user fa-2x"/>}
-                            selectedIcon={<i className="fa fa-user fa-2x" style={{color:'#00b500'}}/> }
-                            title="我"
-                            key="my"
-                            selected={this.state.selectedTab === 'my'}
-                            onPress={() => {
-                                this.setState({selectedTab:'my'});
-                                this.props.history.replace('/index/mine')
-                            }}
-                        >
-                        </TabBar.Item>
-                    </TabBar>
-                </footer>
+                <Footer/>
             </div>
         )
     }
