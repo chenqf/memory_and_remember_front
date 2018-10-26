@@ -7,15 +7,17 @@ import {
     Redirect,
     withRouter
 } from "react-router-dom";
-import { CookiesProvider } from 'react-cookie';
 import Auth from './auth';
 import Login from './user/login/index';
 import ErrorBoundary from './errorBoundary';
+import ScrollToTop from '../component/scrollToTop/index';
 import 'react-fontawesome';
 import '../library/http';
 
 const App = () => (
+
         <Router>
+            <ScrollToTop>
             <ErrorBoundary>
                 <Switch>
                     {/*登录页面*/}
@@ -26,8 +28,8 @@ const App = () => (
                     <Route path="/" component={Auth} />
                 </Switch>
             </ErrorBoundary>
+            </ScrollToTop>
         </Router>
-
 );
 
 
