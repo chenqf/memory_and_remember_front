@@ -4,7 +4,14 @@ import {Card,WhiteSpace,WingBlank} from 'antd-mobile'
 import http from '../../../library/http';
 import './index.scss'
 import WordList from "../../../component/wordList/index";
-
+import {
+    HashRouter as Router,
+    Route,
+    Link,
+    Redirect,
+    Prompt,
+    withRouter
+} from "react-router-dom";
 
 
 class Test extends Component{
@@ -31,6 +38,12 @@ class Test extends Component{
     render(){
         return (
             <WingBlank size="lg" className="word-test">
+                <Prompt
+                    when
+                    message={location =>
+                        `确认您已测验完成，想要离开了吗？`
+                    }
+                />
                 <Card style={{marginTop:15}}>
                     <Card.Header
                         title={<span className="p5">每日随测</span>}
