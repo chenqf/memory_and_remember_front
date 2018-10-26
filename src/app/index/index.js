@@ -1,8 +1,7 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 
 import React,{Component} from 'react';
-import {TabBar,NavBar,NoticeBar,Popover} from 'antd-mobile';
-import { withCookies, Cookies } from 'react-cookie';
+import {NoticeBar} from 'antd-mobile';
 import {
     HashRouter as Router,
     Route,
@@ -10,30 +9,16 @@ import {
     Redirect,
     withRouter
 } from "react-router-dom";
+import AsyncLoad from '../../library/asyncLoad';
 import PrivateRoute from '../privateRoute';
 import Header from '../../component/header/index'
 import Footer from './foot';
-import MineIndex from './mine/index'
-import StudyIndex from './study/index'
-import TestIndex from './test/index'
-import ReviewIndex from './review/index'
 import './index.scss'
 
-const OldSchoolMenuLink = ({ label, to, activeOnlyWhenExact }) => (
-    <Route
-        path={to}
-        exact={activeOnlyWhenExact}
-        children={({ match }) => {
-            console.log('match',match);
-            return (
-                <div className={match ? "active" : ""}>
-                    {match ? "> " : ""}
-                    <Link to={to}>{label}</Link>
-                </div>
-            )
-        }}
-    />
-);
+const StudyIndex = AsyncLoad(() => import("./study/index"));
+const TestIndex = AsyncLoad(() => import("./test/index"));
+const MineIndex = AsyncLoad(() => import("./mine/index"));
+const ReviewIndex = AsyncLoad(() => import("./review/index"));
 
 class Index extends Component{
     constructor(props){

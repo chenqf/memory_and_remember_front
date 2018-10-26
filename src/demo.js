@@ -1,137 +1,81 @@
-import React from "react";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    Redirect
-} from "react-router-dom";
-import ReactDOM from 'react-dom';
-import './demo.scss'
 import registerServiceWorker from './registerServiceWorker';
+import ReactDOM from 'react-dom';
 
 
+import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
-const AnimationExample = () => (
-    <Router>
-        <Route
-            render={({ location }) => (
-                <div style={styles.fill}>
-                    <Route
-                        exact
-                        path="/"
-                        render={() => <Redirect to="/hsl/10/90/50" />}
-                    />
+function ParamsExample({ location }) {
+    let params = new URLSearchParams(location.search);
 
-                    <ul style={styles.nav}>
-                        <NavLink to="/hsl/10/90/50">Red</NavLink>
-                        <NavLink to="/hsl/120/100/40">Green</NavLink>
-                        <NavLink to="/rgb/33/150/243">Blue</NavLink>
-                        <NavLink to="/rgb/240/98/146">Pink</NavLink>
-                    </ul>
+    return (
+        <Router>
+            <p>
+                React Router does not have any opinions about how your parse URL query
+                strings. Some applications use simple key=value query strings, but
+                others embed arrays and objects in the query string. So it's up to you
+                to parse the search string yourself.
+            </p>
+            <p>
+                In modern browsers that support{" "}
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">
+                    the URL API
+                </a>
+                , you can instantiate a <code>URLSearchParams</code> object from{" "}
+                <code>location.search</code> and use that.
+            </p>
+            <p>
+                In{" "}
+                <a href="https://caniuse.com/#feat=url">
+                    browsers that do not support the URL API (read: IE)
+                </a>{" "}
+                you can use a 3rd party library such as{" "}
+                <a href="https://github.com/sindresorhus/query-string">query-string</a>.
+            </p>
+            <div>
+                <h2>Accounts</h2>
+                <ul>
+                    <li>
+                        <Link to={{ pathname: "/account", search: "?name=netflix" }}>
+                            Netflix
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={{ pathname: "/account", search: "?name=zillow-group" }}>
+                            Zillow Group
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={{ pathname: "/account", search: "?name=yahoo" }}>
+                            Yahoo
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={{ pathname: "/account", search: "?name=modus-create" }}>
+                            Modus Create
+                        </Link>
+                    </li>
+                </ul>
 
-                    <div style={styles.content}>
-                        <TransitionGroup>
-                            {/* no different than other usage of
-                             CSSTransition, just make sure to pass
-                             `location` to `Switch` so it can match
-                             the old location as it animates out
-                             */}
-                            <CSSTransition key={location.key} classNames="fade" timeout={300}>
-                                <Switch location={location}>
-                                    <Route exact path="/hsl/:h/:s/:l" component={HSL} />
-                                    <Route exact path="/rgb/:r/:g/:b" component={RGB} />
-                                    {/* Without this `Route`, we would get errors during
-                                     the initial transition from `/` to `/hsl/10/90/50`
-                                     */}
-                                    <Route render={() => <div>Not Found</div>} />
-                                </Switch>
-                            </CSSTransition>
-                        </TransitionGroup>
-                    </div>
-                </div>
+                <Child name={params.get("name")} />
+            </div>
+        </Router>
+    );
+}
+
+function Child({ name }) {
+    return (
+        <div>
+            {name ? (
+                <h3>
+                    The <code>name</code> in the query string is "{name}"
+                </h3>
+            ) : (
+                <h3>There is no name in the query string</h3>
             )}
-        />
-    </Router>
-);
+        </div>
+    );
+}
 
-const NavLink = props => (
-    <li style={styles.navItem}>
-        <Link {...props} style={{ color: "inherit" }} />
-    </li>
-);
-
-const HSL = ({ match: { params } }) => (
-    <div
-        style={{
-            ...styles.fill,
-            ...styles.hsl,
-            background: `hsl(${params.h}, ${params.s}%, ${params.l}%)`
-        }}
-    >
-        hsl({params.h}, {params.s}%, {params.l}%)
-    </div>
-);
-
-const RGB = ({ match: { params } }) => (
-    <div
-        style={{
-            ...styles.fill,
-            ...styles.rgb,
-            background: `rgb(${params.r}, ${params.g}, ${params.b})`
-        }}
-    >
-        rgb({params.r}, {params.g}, {params.b})
-    </div>
-);
-
-const styles = {};
-
-styles.fill = {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0
-};
-
-styles.content = {
-    ...styles.fill,
-    top: "40px",
-    textAlign: "center"
-};
-
-styles.nav = {
-    padding: 0,
-    margin: 0,
-    position: "absolute",
-    top: 0,
-    height: "40px",
-    width: "100%",
-    display: "flex"
-};
-
-styles.navItem = {
-    textAlign: "center",
-    flex: 1,
-    listStyleType: "none",
-    padding: "10px"
-};
-
-styles.hsl = {
-    ...styles.fill,
-    color: "white",
-    paddingTop: "20px",
-    fontSize: "30px"
-};
-
-styles.rgb = {
-    ...styles.fill,
-    color: "white",
-    paddingTop: "20px",
-    fontSize: "30px"
-};
-
-ReactDOM.render(<AnimationExample />, document.getElementById('root'));
+ReactDOM.render(<ParamsExample />, document.getElementById('root'));
 registerServiceWorker();
