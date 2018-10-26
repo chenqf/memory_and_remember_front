@@ -19,4 +19,18 @@ class ScrollToTop extends Component {
         return this.props.children;
     }
 }
-export default withRouter(ScrollToTop);
+
+class ScrollToTopOnMount extends Component {
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
+    render() {
+        return null;
+    }
+}
+
+export default {
+    ScrollToTop:withRouter(ScrollToTop), // 用于全局添加，每次切换页面的时候都会触发
+    ScrollToTopOnMount:ScrollToTopOnMount // 用于单独使用，组合到组件中
+}
