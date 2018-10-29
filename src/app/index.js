@@ -32,7 +32,7 @@ const getConfirmation = (message, callback) => {
 const App = () => (
 
         <Router
-            forceRefresh={true || !supportsHistory}
+            forceRefresh={!supportsHistory}
             getUserConfirmation={getConfirmation} // 切换页面时，提示是否切换
         >
             <Scroll.ScrollToTop>

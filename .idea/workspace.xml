@@ -1,33 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98711638-2f79-4341-9a01-ab031cb34093" name="Default" comment="测验页面，增加离开弹窗提醒">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/css/main.f9a1f56a.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/0.db8037dc.chunk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/0.db8037dc.chunk.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/1.f59873ef.chunk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/1.f59873ef.chunk.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/2.475fe2ed.chunk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/2.475fe2ed.chunk.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/3.326d49f1.chunk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/3.326d49f1.chunk.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/main.ef76e5e6.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/css/main.7c213668.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/0.db782ab7.chunk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/0.db782ab7.chunk.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/1.053d4df2.chunk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/1.053d4df2.chunk.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/2.d4a945ef.chunk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/2.d4a945ef.chunk.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/3.0dfd13a7.chunk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/3.0dfd13a7.chunk.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/main.998029fc.js" afterPath="" />
+    <list default="true" id="98711638-2f79-4341-9a01-ab031cb34093" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/main.9d4133de.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/main.ef76e5e6.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/asset-manifest.json" afterPath="$PROJECT_DIR$/build/asset-manifest.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/index.html" afterPath="$PROJECT_DIR$/build/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/service-worker.js" afterPath="$PROJECT_DIR$/build/service-worker.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index.js" afterPath="$PROJECT_DIR$/src/app/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/demo.js" afterPath="$PROJECT_DIR$/src/demo.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -129,9 +110,11 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-              <folding />
+            <state relative-caret-position="264">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -317,8 +300,8 @@
         <option value="$PROJECT_DIR$/src/app/index/index.js" />
         <option value="$PROJECT_DIR$/src/app/index/study/index.js" />
         <option value="$PROJECT_DIR$/src/app/index/test/index.js" />
-        <option value="$PROJECT_DIR$/src/app/index.js" />
         <option value="$PROJECT_DIR$/src/demo.js" />
+        <option value="$PROJECT_DIR$/src/app/index.js" />
       </list>
     </option>
   </component>
@@ -389,20 +372,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="memory_front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="memory_front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -449,6 +418,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main.f9a1f56a.css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -998,14 +971,7 @@
       <workItem from="1540345116663" duration="18457000" />
       <workItem from="1540429296733" duration="14397000" />
       <workItem from="1540519080706" duration="16561000" />
-      <workItem from="1540774608004" duration="2060000" />
-    </task>
-    <task id="LOCAL-00014" summary=" 查询单词页面 + 今日学习列表">
-      <created>1538992457409</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1538992457409</updated>
+      <workItem from="1540774608004" duration="2137000" />
     </task>
     <task id="LOCAL-00015" summary=" 查询单词页面 + 今日学习列表">
       <created>1538992511448</created>
@@ -1343,11 +1309,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540543793261</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="router 更改为 h5 history api 方式">
+      <created>1540804358849</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1540804358850</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280988000" />
+    <option name="totallyTimeSpent" value="281065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="0" width="1918" height="1040" extended-state="0" />
@@ -1425,7 +1398,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" 查询单词页面 + 今日学习列表" />
     <MESSAGE value="add delete word" />
     <MESSAGE value="add remark" />
     <MESSAGE value="add test" />
@@ -1450,7 +1422,8 @@
     <MESSAGE value="react Code Splitting" />
     <MESSAGE value="新增 切换页面，滚动条自动滚动到顶部" />
     <MESSAGE value="测验页面，增加离开弹窗提醒" />
-    <option name="LAST_COMMIT_MESSAGE" value="测验页面，增加离开弹窗提醒" />
+    <MESSAGE value="router 更改为 h5 history api 方式" />
+    <option name="LAST_COMMIT_MESSAGE" value="router 更改为 h5 history api 方式" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1470,6 +1443,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="25" column="13" lean-forward="true" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <element signature="e#40#92#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1500,6 +1476,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1419">
           <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1616,6 +1593,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1947">
           <caret line="62" column="45" lean-forward="false" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1856,9 +1834,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="264">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
