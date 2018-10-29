@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {
-    // BrowserRouter as Router,
-    HashRouter as Router,
+    BrowserRouter as Router,
+    // HashRouter as Router,
     Route,
     Link,
     Switch,
@@ -16,6 +16,7 @@ import {Modal} from 'antd-mobile';
 import 'react-fontawesome';
 import '../library/http';
 
+const supportsHistory = 'pushState' in window.history
 const getConfirmation = (message, callback) => {
     Modal.alert('提示', message, [
         { text: 'Cancel', onPress: () => {
@@ -31,6 +32,7 @@ const getConfirmation = (message, callback) => {
 const App = () => (
 
         <Router
+            forceRefresh={true || !supportsHistory}
             getUserConfirmation={getConfirmation} // 切换页面时，提示是否切换
         >
             <Scroll.ScrollToTop>

@@ -3,79 +3,95 @@ import ReactDOM from 'react-dom';
 
 
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-
-function ParamsExample({ location }) {
-    let params = new URLSearchParams(location.search);
-
+import { BrowserRouter as Router, Route, Link,MemoryRouter } from "react-router-dom";
+const refCallback = node => {
+    debugger
+    // `node` refers to the mounted DOM element or null when unmounted
+}
+function BasicExample() {
     return (
-        <Router>
-            <p>
-                React Router does not have any opinions about how your parse URL query
-                strings. Some applications use simple key=value query strings, but
-                others embed arrays and objects in the query string. So it's up to you
-                to parse the search string yourself.
-            </p>
-            <p>
-                In modern browsers that support{" "}
-                <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">
-                    the URL API
-                </a>
-                , you can instantiate a <code>URLSearchParams</code> object from{" "}
-                <code>location.search</code> and use that.
-            </p>
-            <p>
-                In{" "}
-                <a href="https://caniuse.com/#feat=url">
-                    browsers that do not support the URL API (read: IE)
-                </a>{" "}
-                you can use a 3rd party library such as{" "}
-                <a href="https://github.com/sindresorhus/query-string">query-string</a>.
-            </p>
+        <MemoryRouter>
             <div>
-                <h2>Accounts</h2>
                 <ul>
                     <li>
-                        <Link to={{ pathname: "/account", search: "?name=netflix" }}>
-                            Netflix
-                        </Link>
+                        <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/account", search: "?name=zillow-group" }}>
-                            Zillow Group
-                        </Link>
+                        <Link to="/about">About</Link>&nbsp;&nbsp;&nbsp;
+                        <Link
+                            to={{
+                                pathname: "/about",
+                                search: "?sort=name",
+                                hash: "#the-hash",
+                                state: { fromDashboard: true }
+                            }}
+                        >About</Link>
                     </li>
                     <li>
-                        <Link to={{ pathname: "/account", search: "?name=yahoo" }}>
-                            Yahoo
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={{ pathname: "/account", search: "?name=modus-create" }}>
-                            Modus Create
-                        </Link>
+                        <Link to="/topics" replace innerRef={refCallback}>Topics</Link>
                     </li>
                 </ul>
 
-                <Child name={params.get("name")} />
+                <hr />
+
+                <Route exact path="/" component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/topics" component={Topics} />
             </div>
-        </Router>
+        </MemoryRouter>
     );
 }
 
-function Child({ name }) {
+function Home() {
     return (
         <div>
-            {name ? (
-                <h3>
-                    The <code>name</code> in the query string is "{name}"
-                </h3>
-            ) : (
-                <h3>There is no name in the query string</h3>
-            )}
+            <h2>Home</h2>
         </div>
     );
 }
 
-ReactDOM.render(<ParamsExample />, document.getElementById('root'));
+function About(props) {
+    console.log(props);
+    return (
+        <div>
+            <h2>About</h2>
+        </div>
+    );
+}
+
+function Topics({ match }) {
+    return (
+        <div>
+            <h2>Topics</h2>
+            <ul>
+                <li>
+                    <Link to={`${match.url}/rendering`}>Rendering with React</Link>
+                </li>
+                <li>
+                    <Link to={`${match.url}/components`}>Components</Link>
+                </li>
+                <li>
+                    <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
+                </li>
+            </ul>
+
+            <Route path={`${match.path}/:topicId`} component={Topic} />
+            <Route
+                exact
+                path={match.path}
+                render={() => <h3>Please select a topic.</h3>}
+            />
+        </div>
+    );
+}
+
+function Topic({ match }) {
+    return (
+        <div>
+            <h3>{match.params.topicId}</h3>
+        </div>
+    );
+}
+
+ReactDOM.render(<BasicExample />, document.getElementById('root'));
 registerServiceWorker();
