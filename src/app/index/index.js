@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import AsyncLoad from '../../library/asyncLoad';
 import PrivateRoute from '../privateRoute';
-import Header from '../../component/header/index'
+import withHeader from '../../hot/withHeader'
 import Footer from './foot';
 import './index.scss'
 
@@ -55,7 +55,6 @@ class Index extends Component{
         return (
             <div>
                 {/*顶部导航*/}
-                <Header title="记忆大师"/>
                 <NoticeBar marqueeProps={{ loop: true, style: { padding: '0 7.5px' } }}>
                     Nothing is impossible to a willing heart
                 </NoticeBar>
@@ -72,4 +71,4 @@ class Index extends Component{
     }
 }
 
-export default withRouter(Index);
+export default withRouter(withHeader()(Index));
