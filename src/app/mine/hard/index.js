@@ -8,7 +8,7 @@ import http from '../../../library/http';
 
 
 @withHeader('重点词汇',true)
-export default class extends Component{
+export default class HardBook extends Component{
     constructor(props){
         super(props);
         this.state = {

@@ -16,7 +16,7 @@ import {
 } from "react-router-dom";
 
 @withHeader('登录')
-export default class extends Component{
+export default class Login extends Component{
     constructor(props){
         super(props);
         let isLogin = auth.isLogin;

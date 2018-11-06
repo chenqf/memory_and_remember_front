@@ -7,7 +7,7 @@ import http from '../../../library/http';
 
 
 @withHeader('学习统计',true)
-export default class extends Component{
+export default class Statistics extends Component{
     constructor(props){
         super(props);
         this.state = {

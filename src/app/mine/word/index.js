@@ -8,7 +8,7 @@ import http from '../../../library/http';
 
 
 @withHeader('单词本',true)
-export default class extends Component{
+export default class WordBook extends Component{
     constructor(props){
         super(props);
         this.state = {

@@ -2,9 +2,13 @@
 import React,{PureComponent,Component} from 'react';
 import Header from '../component/header/index';
 
+function getDisplayName(WrappedComponent) {
+    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+
 export default (title = '记忆大师',back=false)=> {
     return (WrappedComponent)=> {
-        return class extends Component{
+        class WithHeader extends Component{
             render(){
                 return (
                     <React.Fragment>
@@ -14,5 +18,7 @@ export default (title = '记忆大师',back=false)=> {
                 )
             }
         }
+        WithHeader.displayName = `WithHeader(${getDisplayName(WrappedComponent)})`;
+        return WithHeader
     }
 }

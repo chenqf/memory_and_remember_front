@@ -24,7 +24,7 @@ const ReviewIndex = AsyncLoad(() => import("./review/index"));
 
 @withRouter
 @withHeader()
-export default class extends Component{
+export default class Index extends Component{
     constructor(props){
         super(props);
         this.state = {
