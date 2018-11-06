@@ -2,6 +2,7 @@
 import React,{Component} from 'react';
 import {WingBlank,WhiteSpace ,Button,Toast,TabBar,NavBar} from 'antd-mobile';
 import Header from '../../../component/header/index';
+import withHeader from '../../../hot/withHeader';
 import http from '../../../library/http';
 import auth from '../../../library/auth';
 import './index.scss';
@@ -52,7 +53,6 @@ class Login extends Component{
         }
         return (
             <div className="login-page">
-                <Header title="登录"/>
                 <WingBlank>
                     <WhiteSpace/>
                     <WhiteSpace/>
@@ -73,8 +73,7 @@ class Login extends Component{
                     <Button type="primary" className={this.state.name && this.state.password ? '' : 'opacity-5'} onClick={this.submit.bind(this)}>开始旅程</Button>
                 </WingBlank>
             </div>
-
         )
     }
 }
-export default Login;
+export default withHeader('登录')(Login);
