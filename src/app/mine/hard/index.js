@@ -6,7 +6,9 @@ import WordList from '../../../component/wordList/index';
 import http from '../../../library/http';
 
 
-class HardList extends Component{
+
+@withHeader('重点词汇',true)
+export default class extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -45,5 +47,3 @@ class HardList extends Component{
         )
     }
 }
-
-export default withHeader('重点词汇',true)(HardList);

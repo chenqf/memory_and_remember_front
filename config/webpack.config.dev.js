@@ -151,6 +151,7 @@ module.exports = {
               "presets": ["babel-preset-react"],
               "plugins": [
                   "babel-plugin-syntax-dynamic-import",
+                  "transform-decorators-legacy"
                   // [
                   //     "babel-plugin-import-inspector",
                   //     {

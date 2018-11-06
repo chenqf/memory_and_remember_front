@@ -5,7 +5,9 @@ import withHeader from '../../../hot/withHeader';
 import http from '../../../library/http';
 
 
-class Statistics extends Component{
+
+@withHeader('学习统计',true)
+export default class extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -23,6 +25,4 @@ class Statistics extends Component{
             </React.Fragment>
         )
     }
-}
-
-export default withHeader('学习统计',true)(Statistics);
+};

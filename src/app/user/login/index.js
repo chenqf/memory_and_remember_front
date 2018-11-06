@@ -14,7 +14,9 @@ import {
     Redirect,
     withRouter
 } from "react-router-dom";
-class Login extends Component{
+
+@withHeader('登录')
+export default class extends Component{
     constructor(props){
         super(props);
         let isLogin = auth.isLogin;
@@ -74,5 +76,4 @@ class Login extends Component{
             </div>
         )
     }
-}
-export default withHeader('登录')(Login);
+};

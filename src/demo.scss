@@ -1,12 +1,20 @@
 @charset "utf-8";
 
 
-.fade-enter {
-  opacity: 0;
-  z-index: 1;
+.c1,.c2,.c3,.c4{
+  min-height: 50px;
+  padding:10px;
 }
 
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms ease-in;
+.c1{
+  background-color: #df5c5c;
+}
+.c2{
+  background-color: #6464cc;
+}
+.c3{
+  background-color: darkslategray;
+}
+.c4{
+  background-color: grey;
 }

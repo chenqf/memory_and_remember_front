@@ -20,7 +20,11 @@ const TestIndex = AsyncLoad(() => import("./test/index"));
 const MineIndex = AsyncLoad(() => import("./mine/index"));
 const ReviewIndex = AsyncLoad(() => import("./review/index"));
 
-class Index extends Component{
+
+
+@withRouter
+@withHeader()
+export default class extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -69,6 +73,4 @@ class Index extends Component{
             </div>
         )
     }
-}
-
-export default withRouter(withHeader()(Index));
+};
