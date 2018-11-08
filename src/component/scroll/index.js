@@ -12,13 +12,11 @@ import {
 @withRouter
 class ScrollToTop extends Component {
     componentDidUpdate(prevProps) {
-        console.log('scroll componentDidUpdate');
         if (this.props.location !== prevProps.location) {
             window.scrollTo(0, 0);
         }
     }
     render() {
-        console.log('scroll render');
         return this.props.children;
     }
 }

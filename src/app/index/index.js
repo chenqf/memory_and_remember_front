@@ -10,7 +10,6 @@ import {
     withRouter
 } from "react-router-dom";
 import AsyncLoad from '../../library/asyncLoad';
-import PrivateRoute from '../privateRoute';
 import withHeader from '../../hot/withHeader'
 import Footer from './foot';
 import './index.scss'
@@ -63,10 +62,10 @@ export default class Index extends Component{
                     Nothing is impossible to a willing heart
                 </NoticeBar>
                 <div style={{paddingBottom:50}}>
-                    <PrivateRoute path="/index/study" component={StudyIndex} />
-                    <PrivateRoute path="/index/review" component={ReviewIndex} />
-                    <PrivateRoute path="/index/test" component={TestIndex} />
-                    <PrivateRoute path="/index/mine" component={MineIndex} />
+                    <Route path="/index/study" component={StudyIndex} />
+                    <Route path="/index/review" component={ReviewIndex} />
+                    <Route path="/index/test" component={TestIndex} />
+                    <Route path="/index/mine" component={MineIndex} />
                 </div>
 
                 <Footer/>
