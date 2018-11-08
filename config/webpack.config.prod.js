@@ -149,7 +149,16 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              
+                "plugins": [
+                    "babel-plugin-syntax-dynamic-import",
+                    "transform-decorators-legacy"
+                    // [
+                    //     "babel-plugin-import-inspector",
+                    //     {
+                    //         "serverSideRequirePath": true
+                    //     }
+                    // ]
+                ],
               compact: true,
             },
           },
