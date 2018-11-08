@@ -34,6 +34,7 @@ export default class Login extends Component{
         http.post('/user/login',{name,password}).then(()=>{
             Toast.success('登录成功', 2, ()=>{});
             auth.changeLogin(true);
+            auth.changeCheck(true);
             this.setState({ isLogin: true });
         }).catch(()=>{})
     }

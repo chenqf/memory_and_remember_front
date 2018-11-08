@@ -8,6 +8,7 @@ import {
     Redirect,
     withRouter
 } from "react-router-dom";
+import PrivateRoute from './privateRoute';
 import Auth from './auth';
 import Login from './user/login/index';
 import ErrorBoundary from './errorBoundary';
@@ -27,8 +28,6 @@ const getConfirmation = (message, callback) => {
         } },
     ]);
 };
-
-
 const App = () => (
 
         <Router
@@ -40,10 +39,8 @@ const App = () => (
                     <Switch>
                         {/*登录页面*/}
                         <Route exact path="/user/login" component={Login} />
-                        {/*默认首页为学习页面*/}
-                        <Redirect exact from="/" to="/index/study" />
                         {/*具有登录权限才可进入*/}
-                        <Route path="/" component={Auth} />
+                        <PrivateRoute path="/" component={Auth} />
                     </Switch>
                 </ErrorBoundary>
             </ScrollToTop>

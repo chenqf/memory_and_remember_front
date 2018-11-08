@@ -2,14 +2,39 @@
 import React,{Component} from 'react';
 import auth from '../library/auth';
 import { HashRouter as Router, Route, Link,Redirect } from "react-router-dom";
+import http from '../library/http';
 
 class PrivateRoute extends Component{
     constructor(props){
         super(props);
+        this.state = {...auth};
+    }
+    componentDidMount(){
+        if(this.state.isCheck){
+            return ;
+        }
+        http.post('/user/check').then(()=>{
+            auth.changeCheck(true);
+            auth.changeLogin(true);
+            this.setState({
+                isCheck:true,
+                isLogin:true,
+            })
+        }).catch((err)=>{
+            auth.changeCheck(true);
+            auth.changeLogin(false);
+            this.setState({
+                isCheck:true,
+                isLogin:false,
+            })
+        });
     }
     render(){
         let { component: Component, ...rest } = this.props;
-        let {isLogin} = auth;
+        let {isLogin,isCheck} = this.state;
+        if(!isCheck){
+            return null;
+        }
         if(!isLogin){
             return (
                 <Route {...rest}
