@@ -11,12 +11,12 @@ import {
 import Auth from './auth';
 import Login from './user/login/index';
 import ErrorBoundary from './errorBoundary';
-import Scroll from '../component/scroll/index';
+import {ScrollToTop} from '../component/scroll/index';
 import {Modal} from 'antd-mobile';
 import 'react-fontawesome';
 import '../library/http';
 
-const supportsHistory = 'pushState' in window.history
+const supportsHistory = 'pushState' in window.history;
 const getConfirmation = (message, callback) => {
     Modal.alert('提示', message, [
         { text: 'Cancel', onPress: () => {
@@ -35,7 +35,7 @@ const App = () => (
             forceRefresh={!supportsHistory}
             getUserConfirmation={getConfirmation} // 切换页面时，提示是否切换
         >
-            <Scroll.ScrollToTop>
+            <ScrollToTop>
                 <ErrorBoundary>
                     <Switch>
                         {/*登录页面*/}
@@ -46,7 +46,7 @@ const App = () => (
                         <Route path="/" component={Auth} />
                     </Switch>
                 </ErrorBoundary>
-            </Scroll.ScrollToTop>
+            </ScrollToTop>
         </Router>
 );
 
