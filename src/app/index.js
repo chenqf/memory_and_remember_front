@@ -50,7 +50,7 @@ class Container extends Component{
         this.setState({start:Date.now(),now:Date.now()});
         this.everyTimeId = setInterval(()=>{
             this.setState({now:Date.now()})
-        },1000);
+        },10000);
     };
     removeListener = ()=>{
         this.setState((prevState,props)=>{
