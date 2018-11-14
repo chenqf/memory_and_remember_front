@@ -4,7 +4,6 @@ import React,{Component} from 'react';
 import {Flex ,Toast ,Modal,Popover,Icon} from 'antd-mobile'
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import http from '../../library/http';
 import './index.scss'
 const Item = Popover.Item;
 
