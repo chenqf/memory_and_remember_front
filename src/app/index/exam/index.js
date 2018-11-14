@@ -1,63 +1,6 @@
-// @flow Created by 陈其丰 on 2018/9/29.
-import React,{Component} from 'react';
-import {Card,WhiteSpace,WingBlank} from 'antd-mobile'
-import http from '../../../library/http';
-import './index.scss'
-import WordList from "../../../component/wordList/index";
-import {
-    HashRouter as Router,
-    Route,
-    Link,
-    Redirect,
-    Prompt,
-    withRouter
-} from "react-router-dom";
 
+import * as actions from './actions';
+import reducer from './reducer';
+import view from './container';
 
-class Test extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            items:[],
-            count:10
-        };
-    }
-    getData(){
-        http.post('/word/queryRandom',{hold:true,count:this.state.count}).then((data)=> {
-            this.setState({
-                items:data.items
-            });
-        });
-    }
-    refresh(){
-        this.getData();
-    }
-    componentWillMount(){
-        this.getData();
-    }
-    render(){
-        return (
-            <WingBlank size="lg" className="word-test">
-                <Prompt
-                    when
-                    message={location =>
-                        `确认您已测验完成，想要离开了吗？`
-                    }
-                />
-                <Card style={{marginTop:15}}>
-                    <Card.Header
-                        title={<span className="p5">每日随测</span>}
-                        thumb={<i className="blue fa fa-pencil fa-lg"/>}
-                        extra={<i onClick={this.refresh.bind(this)} className="grey fa fa-refresh fa-lg"/>}
-                    />
-                    <Card.Body style={{minHeight:0}} className={'p0'}>
-                        <WordList date={false} contentBlur={true} items={this.state.items}/>
-                    </Card.Body>
-                </Card>
-            </WingBlank>
-        )
-    }
-}
-
-
-export default Test;
+export {actions,reducer,view};

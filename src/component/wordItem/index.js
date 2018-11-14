@@ -32,10 +32,26 @@ class WordItem extends Component{
             showDeleteModal:false,
         };
     }
+    static propTypes = {
+        date:PropTypes.bool,
+        item:PropTypes.object,
+        contentBlur:PropTypes.bool,
+        phoneticBlur:PropTypes.bool,
+        deleteHandler:PropTypes.func,
+        updateLevelHandler:PropTypes.func, // 更新单词级别
+        updateTimeHandler:PropTypes.func, // 更新单词级别
+        explainsBlur:PropTypes.bool,
+    };
+    static defaultProps = {
+        date:true,
+        deleteHandler:()=>{},
+        updateLevelHandler:()=>{},
+        updateTimeHandler:()=>{}
+    };
     playAudio(flg){
         let type = flg ? 2 : 1; // 英 1 false 美 2 true
         let audio = document.createElement("audio");
-        audio.src = `http://dict.youdao.com/dictvoice?audio=${this.props.wordInfo.text}&type=${type}`;//路径
+        audio.src = `http://dict.youdao.com/dictvoice?audio=${this.props.item.text}&type=${type}`;//路径
         audio.onerror = function () {
             Toast.fail('音频播放失败',1.5);
         };
@@ -43,19 +59,16 @@ class WordItem extends Component{
     }
     editTime(){
         this.setState({
-            tempDate:moment(new Date(this.props.wordInfo.createTime)).format('YYYY-MM-DD'),
-            tempDateTime:this.props.wordInfo.createTime,
+            tempDate:moment(new Date(this.props.item.createTime)).format('YYYY-MM-DD'),
+            tempDateTime:this.props.item.createTime,
             showModal:true
         });
     }
     onCloseModal(item){
         let createTime = this.state.tempDateTime;
-        let id = item.userWordId;
-        http.post('/word/updateCreateTime', {id,createTime}).then(()=> {
-            // this.props.createTime = createTime;
-            this.setState({
-                showModal:false
-            })
+        this.props.updateTimeHandler(item,createTime);
+        this.setState({
+            showModal:false
         })
     }
     changeDate(e){
@@ -78,11 +91,10 @@ class WordItem extends Component{
     };
     onDeleteSubmitModal(item){
         let wordId = item.id;
-        http.post('/word/delete', {wordId}).then(()=> {
-            this.setState({
-                showDeleteModal:false
-            })
-        })
+        this.props.deleteHandler(wordId);
+        this.setState({
+            showDeleteModal:false
+        });
     }
     handleVisibleChange = (visible) => {
         this.setState({
@@ -99,38 +111,30 @@ class WordItem extends Component{
                 phoneticFlg: !prevState.phoneticFlg
             }));
         }else if(value === 'date'){
-            this.editTime(this.props.wordInfo)
+            this.editTime(this.props.item)
         }
     };
     changeLevel(){
-        let level = this.props.wordInfo.level === 0 ? 1 : 0;
-        let id = this.props.wordInfo.userWordId;
-        http.post('/word/updateLevel', {level,id}).then(()=> {
-            if(level === 1){
-                Toast.success('标记为疑难词汇~',1.5)
-            }else{
-                Toast.success('标记为普通词汇~',1.5)
-            }
-        })
+        this.props.updateLevelHandler(this.props.item);
     }
     render(){
-        let wordInfo = this.props.wordInfo;
-        let explains = JSON.parse(wordInfo.explains || '[]');
-        let wfs = JSON.parse(wordInfo.wfs || '[]');
+        let item = this.props.item;
+        let explains = JSON.parse(item.explains || '[]');
+        let wfs = JSON.parse(item.wfs || '[]');
         let date = this.props.date;
         return (
             <div className="word-item">
                 <div className="word-text">
                     {/*文本*/}
-                    <span className={`word-content ${this.props.contentBlur ? 'blur':''}`}>{wordInfo.text}</span>
+                    <span className={`word-content ${this.props.contentBlur ? 'blur':''}`}>{item.text}</span>
                     {/*level 小图标*/}
                     <div className="word-level" onClick={this.changeLevel.bind(this)}>
                         {
-                            wordInfo.level === 0
+                            item.level === 0
                                 ?
                                 <i className="fa fa-star-o yellow font-s14 pl15 pr10"/>
                                 :
-                                <i className="fa fa-star yellow font-s14 pl5 pr10"/>
+                                <i className="fa fa-star yellow font-s14 pl15 pr10"/>
                         }
                     </div>
                     {/*提示*/}
@@ -161,7 +165,7 @@ class WordItem extends Component{
                                 }
                                 &nbsp;
                             </span>
-                            <span>[ {this.state.phoneticFlg ? wordInfo.usPhonetic : wordInfo.ukPhonetic} ]</span>
+                            <span>[ {this.state.phoneticFlg ? item.usPhonetic : item.ukPhonetic} ]</span>
                         </span>
                     <i className="fa fa-volume-up blue font-s14 pl5"/>
                 </div>
@@ -191,7 +195,7 @@ class WordItem extends Component{
                         (
                             <span className={`word-time`}>
                                 <span className="p5">
-                                    {moment(new Date(wordInfo.createTime)).format('YYYY-MM-DD')}
+                                    {moment(new Date(item.createTime)).format('YYYY-MM-DD')}
                                 </span>
                             </span>
                         ) :
@@ -204,7 +208,7 @@ class WordItem extends Component{
                     title="请选择时间"
                     footer={[
                         { text: 'Cancel', onPress: ()=>{this.setState({showModal:false})}},
-                        { text: 'Ok', onPress: this.onCloseModal.bind(this,wordInfo)},
+                        { text: 'Ok', onPress: this.onCloseModal.bind(this,item)},
                     ]}
                     wrapProps={{ onTouchStart: this.onWrapTouchStart }}
                 >
@@ -221,7 +225,7 @@ class WordItem extends Component{
                     title="提示"
                     footer={[
                         { text: 'Cancel', onPress: ()=>{this.setState({showDeleteModal:false})}},
-                        { text: 'Ok', onPress: this.onDeleteSubmitModal.bind(this,wordInfo)},
+                        { text: 'Ok', onPress: this.onDeleteSubmitModal.bind(this,item)},
                     ]}
                     wrapProps={{ onTouchStart: this.onWrapTouchStart }}
                 >
@@ -232,18 +236,6 @@ class WordItem extends Component{
         )
     }
 }
-
-WordItem.propTypes = {
-    date:PropTypes.bool,
-    wordInfo:PropTypes.object,
-    contentBlur:PropTypes.bool,
-    phoneticBlur:PropTypes.bool,
-    explainsBlur:PropTypes.bool,
-};
-
-WordItem.defaultProps = {
-    date:true
-};
 
 
 export default WordItem;

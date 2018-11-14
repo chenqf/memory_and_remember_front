@@ -15,7 +15,7 @@ import Footer from './foot';
 import './index.scss'
 
 const StudyIndex = AsyncLoad(() => import("./study/index"));
-const ExamIndex = AsyncLoad(() => import("./exam/index"));
+const ExamIndex = AsyncLoad(() => import("./exam/container"));
 const MineIndex = AsyncLoad(() => import("./mine/index"));
 const ReviewIndex = AsyncLoad(() => import("./review/index"));
 

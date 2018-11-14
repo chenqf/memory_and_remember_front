@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import WordItem from '../wordItem/index';
 import './index.scss'
 const CheckboxItem = Checkbox.CheckboxItem;
-class WordList extends Component{
+export default class WordList extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -15,6 +15,34 @@ class WordList extends Component{
             explainsBlur:this.props.explainsBlur, // 模糊 解释
         };
     }
+    static propTypes = {
+        pagination:PropTypes.bool,// 是否有分页
+        pageCount:PropTypes.number,//分页，每页多少条
+        onChange:PropTypes.func,//切换分页回调函数
+        deleteHandler:PropTypes.func,
+        updateLevelHandler:PropTypes.func,
+        updateTimeHandler:PropTypes.func,
+        page:PropTypes.number,//当前第几页
+        over:PropTypes.bool,//请求是否完成
+        date:PropTypes.bool,// 是否显示日期
+        contentBlur:PropTypes.bool,// 模糊 单词
+        phoneticBlur:PropTypes.bool,// 模糊 音标
+        explainsBlur:PropTypes.bool,// 模糊 解释
+        items:PropTypes.array,// 数据
+        count:PropTypes.number // 总条数
+    };
+    static defaultProps = {
+        over:false,
+        date:true, // 是否显示日期
+        items:[], // 数据
+        count:0, // 总条数
+        contentBlur:false, // 模糊 单词
+        phoneticBlur:false, // 模糊 音标
+        explainsBlur:false, // 模糊 解释
+        deleteHandler:()=>{},
+        updateLevelHandler:()=>{},
+        updateTimeHandler:()=>{},
+    };
     render(){
         let len = this.props.items.length;
         let count = this.props.count || len;
@@ -30,7 +58,7 @@ class WordList extends Component{
                 </div>
             )
         }
-        let {date,pagination,pageCount,onChange,page} = this.props;
+        let {date,pagination,pageCount,onChange,page,deleteHandler,updateLevelHandler,updateTimeHandler} = this.props;
         let {contentBlur,phoneticBlur,explainsBlur} = this.state;
         return (
             <div className="word-list">
@@ -63,9 +91,12 @@ class WordList extends Component{
                             contentBlur={contentBlur}
                             phoneticBlur={phoneticBlur}
                             explainsBlur={explainsBlur}
+                            deleteHandler={deleteHandler}
+                            updateLevelHandler={updateLevelHandler}
+                            updateTimeHandler={updateTimeHandler}
                             date={date}
                             key={item.id}
-                            wordInfo={item}
+                            item={item}
                         />
                     })
                 }
@@ -86,30 +117,3 @@ class WordList extends Component{
         )
     }
 }
-
-WordList.propTypes = {
-    pagination:PropTypes.bool,// 是否有分页
-    pageCount:PropTypes.number,//分页，每页多少条
-    onChange:PropTypes.func,//切换分页回调函数
-    page:PropTypes.number,//当前第几页
-    over:PropTypes.bool,//请求是否完成
-    date:PropTypes.bool,// 是否显示日期
-    contentBlur:PropTypes.bool,// 模糊 单词
-    phoneticBlur:PropTypes.bool,// 模糊 音标
-    explainsBlur:PropTypes.bool,// 模糊 解释
-    items:PropTypes.array,// 数据
-    count:PropTypes.number // 总条数
-};
-WordList.defaultProps = {
-    over:false,
-    date:true, // 是否显示日期
-    items:[], // 数据
-    count:0, // 总条数
-    contentBlur:false, // 模糊 单词
-    phoneticBlur:false, // 模糊 音标
-    explainsBlur:false, // 模糊 解释
-};
-
-
-
-export default WordList;
