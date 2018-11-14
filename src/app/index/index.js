@@ -15,7 +15,7 @@ import Footer from './foot';
 import './index.scss'
 
 const StudyIndex = AsyncLoad(() => import("./study/index"));
-const TestIndex = AsyncLoad(() => import("./test/index"));
+const ExamIndex = AsyncLoad(() => import("./exam/index"));
 const MineIndex = AsyncLoad(() => import("./mine/index"));
 const ReviewIndex = AsyncLoad(() => import("./review/index"));
 
@@ -64,7 +64,7 @@ export default class Index extends Component{
                 <div style={{paddingBottom:50}}>
                     <Route path="/index/study" component={StudyIndex} />
                     <Route path="/index/review" component={ReviewIndex} />
-                    <Route path="/index/test" component={TestIndex} />
+                    <Route path="/index/exam" component={ExamIndex} />
                     <Route path="/index/mine" component={MineIndex} />
                 </div>
 

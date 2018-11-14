@@ -28,7 +28,7 @@ const nav = [
         key:'test',
         icon:<i className="fa fa-pencil-square fa-2x"/>,
         selectedIcon:<i className="fa fa-pencil-square fa-2x" style={{color:'#00b500'}}/>,
-        path:'/index/test'
+        path:'/index/exam'
     },
     {
         title:'我的',
