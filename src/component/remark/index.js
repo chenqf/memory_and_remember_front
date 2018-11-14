@@ -11,7 +11,7 @@ class Remark extends Component {
             content:''
         }
     }
-    submitRemark(){
+    submitRemark = ()=>{
         let value = this.state.content;
         if(!value){
             return false;
@@ -27,7 +27,7 @@ class Remark extends Component {
         });
 
     }
-    changeRemark(value){
+    changeRemark = (value)=>{
         this.setState({
             content:value
         })
@@ -49,13 +49,13 @@ class Remark extends Component {
                             <Flex.Item>
                                 <TextareaItem
                                     value={this.state.content}
-                                    onChange={this.changeRemark.bind(this)}
+                                    onChange={this.changeRemark}
                                     className="remark"
                                     placeholder="请输入备注"
                                     autoHeight
                                 />
                             </Flex.Item>
-                            <Button style={{marginLeft:5,marginTop:8}} type="primary" icon="check" size="small" onClick={this.submitRemark.bind(this)}>添加</Button>
+                            <Button style={{marginLeft:5,marginTop:8}} type="primary" icon="check" size="small" onClick={this.submitRemark}>添加</Button>
                         </Flex>
                         :
                         null

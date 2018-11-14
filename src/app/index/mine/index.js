@@ -25,7 +25,7 @@ class Login extends Component{
             })
         })
     }
-    gridClickEvent(item,index){
+    gridClickEvent = (item,index)=>{
         this.props.history.push(item.path)
     }
     render(){
@@ -59,7 +59,7 @@ class Login extends Component{
                         <span>单词总数：{this.state.count}</span>
                         <span>重点词汇总数：{this.state.hardCount}</span>
                     </div>
-                    <Grid onClick={this.gridClickEvent.bind(this)} data={data} columnNum={3} activeStyle={false} />
+                    <Grid onClick={this.gridClickEvent} data={data} columnNum={3} activeStyle={false} />
                 </WingBlank>
             </React.Fragment>
 

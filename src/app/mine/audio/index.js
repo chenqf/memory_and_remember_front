@@ -12,7 +12,7 @@ class Audio extends Component{
 
         };
     }
-    audioPlay(){
+    audioPlay = ()=>{
         this.audio.play && this.audio.play();
     }
     audioPause(){
@@ -21,7 +21,7 @@ class Audio extends Component{
     componentWillMount(){
 
     }
-    testEvent(){
+    testEvent = ()=>{
         this.audio = btts({
             tex: 't r o u z e r s',
             tok: '24.2b801dbce62183c703a296f69478f7f8.2592000.1542856090.282335-14516358',
@@ -55,8 +55,8 @@ class Audio extends Component{
     render(){
         return (
             <div>
-                <button onClick={this.testEvent.bind(this)}>test</button>
-                <button onClick={this.audioPlay.bind(this)}>play</button>
+                <button onClick={this.testEvent}>test</button>
+                <button onClick={this.audioPlay}>play</button>
             </div>
         )
     }

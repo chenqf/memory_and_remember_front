@@ -21,7 +21,7 @@ class Study extends Component{
             selectedIndex:0
         };
     }
-    onChange(e){
+    onChange = (e)=>{
         this.setState({
             selectedIndex:e.nativeEvent.selectedSegmentIndex
         })
@@ -41,7 +41,7 @@ class Study extends Component{
         return (
             <WingBlank size="lg" className="word-search">
                 <WhiteSpace size="lg"/>
-                <SegmentedControl onChange={this.onChange.bind(this)} selectedIndex={selectedIndex} values={['单词检索', '今日单词', '今日例句','学习备注']} />
+                <SegmentedControl onChange={this.onChange} selectedIndex={selectedIndex} values={['单词检索', '今日单词', '今日例句','学习备注']} />
                 <WhiteSpace size="lg"/>
                 <Com/>
             </WingBlank>

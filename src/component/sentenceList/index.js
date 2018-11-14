@@ -9,7 +9,7 @@ class SentenceList extends Component {
     constructor(props){
         super(props);
     }
-    playItem(item){
+    playItem = (item)=>{
         this.audio && this.audio.pause && this.audio.pause();
         this.audio = document.createElement("audio");
         this.audio.src = tools.getSentenceAudioSrc(item.content);//路径
@@ -27,7 +27,7 @@ class SentenceList extends Component {
             <div className="sentence-list">
                 {
                     this.props.items.map((item)=>{
-                        return <SentenceItem key={item.id} playEvent={this.playItem.bind(this)} item={item}/>
+                        return <SentenceItem key={item.id} playEvent={this.playItem} item={item}/>
                     })
                 }
             </div>

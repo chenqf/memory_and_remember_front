@@ -19,7 +19,7 @@ export default class HardBook extends Component{
             over:false
         };
     }
-    getData(page = 1){
+    getData = (page = 1)=>{
         let pageCount = this.state.pageCount;
         let startNum = (page - 1) * pageCount;
         http.post('/word/queryHard',{startNum,pageCount}).then(({items,count})=>{
@@ -41,7 +41,7 @@ export default class HardBook extends Component{
                 <WhiteSpace/>
                 <WhiteSpace/>
                 <WingBlank size="lg" className="word-test">
-                    <WordList {...this.state} pagination onChange={this.getData.bind(this)}/>
+                    <WordList {...this.state} pagination onChange={this.getData}/>
                 </WingBlank>
             </React.Fragment>
         )

@@ -35,19 +35,20 @@ export default class Exam extends Component{
     constructor(props){
         super(props);
     }
-    getData(){
-        http.post('/word/queryRandom',{hold:true,count:1}).then((data)=> {
+    getData = ()=>{
+        http.post('/word/queryRandom',{hold:true,count:10}).then((data)=> {
             this.props.queryList({
                 items:data.items,
                 count:data.items.length
             });
         });
-    }
-    refresh(){
+    };
+    refresh = ()=>{
         this.getData();
-    }
+    };
     componentDidMount(){
-        this.getData();
+        if(!this.props.items.length)
+            this.getData();
     }
     deleteHandler = (wordId)=>{
         http.post('/word/delete', {wordId}).then(()=> {
@@ -85,7 +86,7 @@ export default class Exam extends Component{
                     <Card.Header
                         title={<span className="p5">每日随测</span>}
                         thumb={<i className="blue fa fa-pencil fa-lg"/>}
-                        extra={<i onClick={this.refresh.bind(this)} className="grey fa fa-refresh fa-lg"/>}
+                        extra={<i onClick={this.refresh} className="grey fa fa-refresh fa-lg"/>}
                     />
                     <Card.Body style={{minHeight:0}} className={'p0'}>
                         <WordList

@@ -50,7 +50,7 @@ class Review extends Component {
             });
         })
     }
-    onSelectChange(e){
+    onSelectChange = (e)=>{
         let index = e.nativeEvent.selectedSegmentIndex;
         this.setState((prevState, props) => {
             return {
@@ -62,7 +62,7 @@ class Review extends Component {
             }
         });
     }
-    changeTabClick(tab){
+    changeTabClick = (tab)=>{
         this.setState({
             items:[],
             remark:[]
@@ -116,7 +116,7 @@ class Review extends Component {
             <div>
                 <WhiteSpace />
                 <WingBlank>
-                    <Tabs onTabClick={this.changeTabClick.bind(this)} tabs={tabs}  swipeable={false} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
+                    <Tabs onTabClick={this.changeTabClick} tabs={tabs}  swipeable={false} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
                         <div style={{ minHeight: '150px', backgroundColor: '#fff'}}>
                             <WhiteSpace />
                             {
@@ -124,7 +124,7 @@ class Review extends Component {
                                     <React.Fragment>
                                         <SegmentedControl
                                             className={'pl15 pr15'}
-                                            onChange={this.onSelectChange.bind(this)}
+                                            onChange={this.onSelectChange}
                                             values={['备注', '单词']}
                                             selectedIndex={this.state[this.state.tabType].selectedIndex
                                         }/>

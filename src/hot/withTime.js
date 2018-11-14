@@ -38,10 +38,8 @@ export default (WrappedComponent)=> {
         onVisibilityChange = ()=>{
             if (!document[this.hiddenProperty]) {
                 this.addListener();
-                console.log('显示',Date.now());
             }else{
                 this.removeListener();
-                console.log('关闭',Date.now());
             }
         };
         componentDidMount(){

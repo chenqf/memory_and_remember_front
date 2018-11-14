@@ -64,14 +64,15 @@ class WordItem extends Component{
             showModal:true
         });
     }
-    onCloseModal(item){
+    onCloseModal = ()=>{
+        let item = this.props.item;
         let createTime = this.state.tempDateTime;
         this.props.updateTimeHandler(item,createTime);
         this.setState({
             showModal:false
         })
     }
-    changeDate(e){
+    changeDate = (e)=>{
         let value = e.target.value;
         this.setState({
             tempDate:value,
@@ -89,7 +90,8 @@ class WordItem extends Component{
             e.preventDefault();
         }
     };
-    onDeleteSubmitModal(item){
+    onDeleteSubmitModal = ()=>{
+        let item = this.props.item;
         let wordId = item.id;
         this.props.deleteHandler(wordId);
         this.setState({
@@ -114,7 +116,7 @@ class WordItem extends Component{
             this.editTime(this.props.item)
         }
     };
-    changeLevel(){
+    changeLevel = ()=>{
         this.props.updateLevelHandler(this.props.item);
     }
     render(){
@@ -128,7 +130,7 @@ class WordItem extends Component{
                     {/*文本*/}
                     <span className={`word-content ${this.props.contentBlur ? 'blur':''}`}>{item.text}</span>
                     {/*level 小图标*/}
-                    <div className="word-level" onClick={this.changeLevel.bind(this)}>
+                    <div className="word-level" onClick={this.changeLevel}>
                         {
                             item.level === 0
                                 ?
@@ -208,12 +210,12 @@ class WordItem extends Component{
                     title="请选择时间"
                     footer={[
                         { text: 'Cancel', onPress: ()=>{this.setState({showModal:false})}},
-                        { text: 'Ok', onPress: this.onCloseModal.bind(this,item)},
+                        { text: 'Ok', onPress: this.onCloseModal},
                     ]}
                     wrapProps={{ onTouchStart: this.onWrapTouchStart }}
                 >
                     <div style={{ height: 100, overflow: 'scroll' }}>
-                        <input type="date" id="wordDate" value={this.state.tempDate} onChange={this.changeDate.bind(this)}/>
+                        <input type="date" id="wordDate" value={this.state.tempDate} onChange={this.changeDate}/>
                     </div>
                 </Modal>
 
@@ -225,7 +227,7 @@ class WordItem extends Component{
                     title="提示"
                     footer={[
                         { text: 'Cancel', onPress: ()=>{this.setState({showDeleteModal:false})}},
-                        { text: 'Ok', onPress: this.onDeleteSubmitModal.bind(this,item)},
+                        { text: 'Ok', onPress: this.onDeleteSubmitModal},
                     ]}
                     wrapProps={{ onTouchStart: this.onWrapTouchStart }}
                 >

@@ -16,19 +16,19 @@ class SentenceItem extends Component {
             content:this.props.item.content
         })
     }
-    editEvent(){
+    editEvent = ()=>{
         this.setState({
             type:1
         });
     }
-    cancelSentence(){
+    cancelSentence = ()=>{
         this.setState({
             explain:this.props.item.explain,
             content:this.props.item.content,
             type:0
         })
     }
-    submitSentence(){
+    submitSentence = ()=>{
         let id = this.props.item.id;
         let {explain,content} = this.state;
         http.post('/sentence/update',{id,explain,content}).then(()=>{
@@ -39,7 +39,7 @@ class SentenceItem extends Component {
             })
         })
     }
-    removeEvent(){
+    removeEvent = ()=>{
         let {id} = this.props.item;
         Modal.alert('提示','确认要删除么？', [
             { text: 'Cancel', onPress: () => {}, style: 'default' },
@@ -50,12 +50,12 @@ class SentenceItem extends Component {
             } },
         ]);
     }
-    changeExplain(value){
+    changeExplain = (value)=>{
         this.setState({
             explain:value
         })
     }
-    changeContent(value){
+    changeContent = (value)=>{
         this.setState({
             content:value
         })
@@ -72,8 +72,8 @@ class SentenceItem extends Component {
                         </p>
                         <p className="sentence-explain">{explain}</p>
                         <p className="sentence-operation">
-                            <i className="fa fa-edit" onClick={this.editEvent.bind(this)}/>
-                            <i className="fa fa-remove" onClick={this.removeEvent.bind(this)}/>
+                            <i className="fa fa-edit" onClick={this.editEvent}/>
+                            <i className="fa fa-remove" onClick={this.removeEvent}/>
                         </p>
                     </Flex.Item>
                 </Flex>
@@ -85,7 +85,7 @@ class SentenceItem extends Component {
                         <span>英文</span>
                         <Flex.Item>
                             <TextareaItem
-                                onChange={this.changeContent.bind(this)}
+                                onChange={this.changeContent}
                                 value={this.state.content}
                                 placeholder="请输入英文例句"
                                 autoHeight
@@ -96,7 +96,7 @@ class SentenceItem extends Component {
                         <span>中文</span>
                         <Flex.Item>
                             <TextareaItem
-                                onChange={this.changeExplain.bind(this)}
+                                onChange={this.changeExplain}
                                 value={this.state.explain}
                                 placeholder="请输入中文解释"
                                 autoHeight
@@ -109,10 +109,10 @@ class SentenceItem extends Component {
                     {/*</div>*/}
                     <Flex className="sentence-operation">
                         <Flex.Item>
-                            <Button className="cancel-button" icon="cross" size="small" onClick={this.cancelSentence.bind(this)}>取消</Button>
+                            <Button className="cancel-button" icon="cross" size="small" onClick={this.cancelSentence}>取消</Button>
                         </Flex.Item>
                         <Flex.Item>
-                            <Button type="primary" icon="check" size="small" onClick={this.submitSentence.bind(this)}>完成</Button>
+                            <Button type="primary" icon="check" size="small" onClick={this.submitSentence}>完成</Button>
                         </Flex.Item>
                     </Flex>
                 </div>

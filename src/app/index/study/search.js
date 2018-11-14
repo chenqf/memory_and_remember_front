@@ -12,7 +12,7 @@ class SearchContent extends Component{
             wordInfo:{}
         };
     }
-    searchWordHandler(q){
+    searchWordHandler = (q)=>{
         http.post('/word/search', {q}).then((data)=> {
             this.setState({
                 wordInfo:data
@@ -32,7 +32,7 @@ class SearchContent extends Component{
                     <Card.Body>
                         <SearchBar
                             placeholder="search English word"
-                            onSubmit={this.searchWordHandler.bind(this)}
+                            onSubmit={this.searchWordHandler}
                         />
                     </Card.Body>
                 </Card>

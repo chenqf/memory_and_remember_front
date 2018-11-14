@@ -16,7 +16,7 @@ class Header extends Component{
         super(props);
         this.state = {};
     }
-    back(){
+    back = ()=>{
         this.props.history.goBack();
     }
     render(){
@@ -25,7 +25,7 @@ class Header extends Component{
             <NavBar
                 style={{background:'#222222'}}
                 mode="dark"
-                leftContent={back ? <i onClick={this.back.bind(this)} className="fa fa-angle-left fa-2x pl15 pr15" style={{marginLeft:-15}}/> : null}
+                leftContent={back ? <i onClick={this.back} className="fa fa-angle-left fa-2x pl15 pr15" style={{marginLeft:-15}}/> : null}
                 /*rightContent={
                  <Popover
                  overlayClassName="index-page"
