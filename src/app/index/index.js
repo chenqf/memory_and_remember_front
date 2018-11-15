@@ -14,7 +14,7 @@ import withHeader from '../../hot/withHeader'
 import Footer from './foot';
 import './index.scss'
 
-const StudyIndex = AsyncLoad(() => import("./study/index"));
+const StudyIndex = AsyncLoad(() => import("./study/container"));
 const ExamIndex = AsyncLoad(() => import("./exam/container"));
 const MineIndex = AsyncLoad(() => import("./mine/index"));
 const ReviewIndex = AsyncLoad(() => import("./review/index"));

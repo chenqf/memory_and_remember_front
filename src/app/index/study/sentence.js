@@ -19,13 +19,13 @@ class SentenceContent extends Component{
         this.setState({
             content:value
         })
-    }
+    };
     changeExplain = (value)=>{
         this.setState({
             explain:value
         })
-    }
-    componentWillMount(){
+    };
+    componentDidMount(){
         http.post('/sentence/queryByPreDate',{pre:0}).then(({items})=> {
             this.setState({
                 over:true,
@@ -44,7 +44,7 @@ class SentenceContent extends Component{
             })
         });
 
-    }
+    };
     render(){
         if(!this.state.over){
             return null;

@@ -23,6 +23,7 @@ export default class WordList extends Component{
         updateLevelHandler:PropTypes.func,
         updateTimeHandler:PropTypes.func,
         page:PropTypes.number,//当前第几页
+        delete:PropTypes.bool,//是否有删除按钮
         over:PropTypes.bool,//请求是否完成
         date:PropTypes.bool,// 是否显示日期
         contentBlur:PropTypes.bool,// 模糊 单词
@@ -33,6 +34,7 @@ export default class WordList extends Component{
     };
     static defaultProps = {
         over:false,
+        delete:true,
         date:true, // 是否显示日期
         items:[], // 数据
         count:0, // 总条数
@@ -89,6 +91,7 @@ export default class WordList extends Component{
                     this.props.items.map((item)=>{
                         return <WordItem
                             contentBlur={contentBlur}
+                            delete={this.props.delete}
                             phoneticBlur={phoneticBlur}
                             explainsBlur={explainsBlur}
                             deleteHandler={deleteHandler}

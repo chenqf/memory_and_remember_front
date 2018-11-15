@@ -1,12 +1,14 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
 import {SegmentedControl,WhiteSpace,WingBlank} from 'antd-mobile'
+
 import RemarkContent from './remark';
-import SearchContent from './search';
 import SentenceContent from './sentence';
-import WordContent from './word';
+import {view as WordContent} from './todayWord/index';
+import {view as SearchContent} from './searchWord/index';
 import './index.scss'
 const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
+
 let moneyKeyboardWrapProps;
 if (isIPhone) {
     moneyKeyboardWrapProps = {

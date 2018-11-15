@@ -10,7 +10,7 @@ const defaultState = {
 export default (state = defaultState,action)=>{
     switch (action.type){
         case QUERY_EXAM_WORD_LIST:{
-            return {...state,items:action.items,count:action.count}
+            return {...state,items:action.items,count:action.count || action.items.length}
         }
         case UPDATE_EXAM_WORD_ITEM:{
             return {...state,items:state.items.map((i)=>i.id === action.item.id ? action.item : i)}

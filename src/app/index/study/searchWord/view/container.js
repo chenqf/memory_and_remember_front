@@ -2,25 +2,40 @@
 
 import React,{PureComponent,Component} from 'react';
 import {Card,SearchBar} from 'antd-mobile';
-import WordItem from '../../../component/wordItem/index'
-import http from '../../../library/http';
+import { connect } from 'react-redux'
+import WordItem from '../../../../../component/wordItem/index'
+import {actions as searchWordActions} from '../index';
+import {actions as todayWordActions} from '../../todayWord/index';
+import http from '../../../../../library/http';
 
-class SearchContent extends Component{
+
+const mapStateToProps = (state, ownProps) => ({
+    item: state.searchWord.item
+});
+
+const mapDispatchToProps = dispatch => ({
+    updateItem: item => dispatch(searchWordActions.updateSearchWord(item)),
+    insertItemToTodayWord: item => dispatch(todayWordActions.insertTodayWordItem(item)),
+});
+
+@connect(
+    mapStateToProps,
+    mapDispatchToProps
+)
+export default class SearchContent extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            item:{}
-        };
     }
     searchWordHandler = (q)=>{
         http.post('/word/search', {q}).then((item)=> {
-            this.setState({
-                item
-            });
+            this.props.updateItem(item);
+            if(item.new){
+                this.props.insertItemToTodayWord(item)
+            }
         })
-    }
+    };
     render(){
-        let {item} = this.state;
+        let {item} = this.props;
         return (
             <React.Fragment>
                 <Card>
@@ -44,7 +59,7 @@ class SearchContent extends Component{
                                 thumb={<i className="blue fa fa-star-o fa-lg"/>}
                             />
                             <Card.Body style={{minHeight:0}}>
-                                <WordItem item={item}/>
+                                <WordItem item={item} delete={false}/>
                             </Card.Body>
                         </Card>
                         :
@@ -54,4 +69,3 @@ class SearchContent extends Component{
         )
     }
 }
-export default SearchContent;

@@ -32,6 +32,7 @@ class WordItem extends Component{
         };
     }
     static propTypes = {
+        delete:PropTypes.bool,
         date:PropTypes.bool,
         item:PropTypes.object,
         contentBlur:PropTypes.bool,
@@ -43,6 +44,7 @@ class WordItem extends Component{
     };
     static defaultProps = {
         date:true,
+        delete:true,
         deleteHandler:()=>{},
         updateLevelHandler:()=>{},
         updateTimeHandler:()=>{}
@@ -70,7 +72,7 @@ class WordItem extends Component{
         this.setState({
             showModal:false
         })
-    }
+    };
     changeDate = (e)=>{
         let value = e.target.value;
         this.setState({
@@ -78,7 +80,7 @@ class WordItem extends Component{
             tempDateTime:new Date(value).getTime(),
             showModal:true
         });
-    }
+    };
     onWrapTouchStart = (e) => {
         // fix touch to scroll background page on iOS
         if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
@@ -96,7 +98,7 @@ class WordItem extends Component{
         this.setState({
             showDeleteModal:false
         });
-    }
+    };
     handleVisibleChange = (visible) => {
         this.setState({
             visible,
@@ -117,12 +119,19 @@ class WordItem extends Component{
     };
     changeLevel = ()=>{
         this.props.updateLevelHandler(this.props.item);
-    }
+    };
     render(){
         let item = this.props.item;
         let explains = JSON.parse(item.explains || '[]');
         let wfs = JSON.parse(item.wfs || '[]');
         let date = this.props.date;
+        let overlay = [
+            (<Item key="1" value="change" icon={<i className="fa fa-exchange"/>} >英美切换</Item>),
+            (<Item key="2" value="date" icon={<i className="fa fa-calendar"/>} >修改时间</Item>),
+        ];
+        if(this.props.delete){
+            overlay.unshift(<Item key="0" value="delete" icon={<i className="fa fa-trash-o"/>} >删除</Item>)
+        }
         return (
             <div className="word-item">
                 <div className="word-text">
@@ -142,11 +151,7 @@ class WordItem extends Component{
                     <div className="flex-1 text-a-r">
                         <Popover
                             visible={this.state.visible}
-                            overlay={[
-                                (<Item key="0" value="delete" icon={<i className="fa fa-trash-o"/>} >删除</Item>),
-                                (<Item key="1" value="change" icon={<i className="fa fa-exchange"/>} >英美切换</Item>),
-                                (<Item key="2" value="date" icon={<i className="fa fa-calendar"/>} >修改时间</Item>),
-                            ]}
+                            overlay={overlay}
                             align={{
                                 offset: [6, 0],
                             }}

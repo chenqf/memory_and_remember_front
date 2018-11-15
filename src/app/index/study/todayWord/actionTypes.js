@@ -1,0 +1,8 @@
+// @flow Created by 陈其丰 on 2018/11/15.
+
+
+/*今日单词*/
+export const QUERY_TODAY_WORD_LIST = 'QUERY_TODAY_WORD_LIST';
+export const DELETE_TODAY_WORD_ITEM = 'DELETE_TODAY_WORD_ITEM';
+export const UPDATE_TODAY_WORD_ITEM = 'UPDATE_TODAY_WORD_ITEM';
+export const INSERT_TODAY_WORD_ITEM = 'INSERT_TODAY_WORD_ITEM';

@@ -4,7 +4,7 @@
 import {QUERY_EXAM_WORD_LIST,UPDATE_EXAM_WORD_ITEM,DELETE_EXAM_WORD_ITEM} from './actionTypes';
 
 
-export const queryExamWordList = ({items,count})=>({
+export const queryExamWordList = (items,count)=>({
     type:QUERY_EXAM_WORD_LIST,
     items,
     count

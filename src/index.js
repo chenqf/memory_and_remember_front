@@ -5,12 +5,16 @@ import './style/cover.scss'
 import App from './app/index';
 import { Provider } from 'react-redux'
 import {createStore,combineReducers} from 'redux';
-import {reducer as examReducer} from './app/index/exam/index';
+import {reducer as examWordReducer} from './app/index/exam/index';
+import {reducer as todayWordReducer} from './app/index/study/todayWord/index';
+import {reducer as searchWordReducer} from './app/index/study/searchWord/index';
 import registerServiceWorker from './registerServiceWorker';
 
 
 const store = createStore(combineReducers({
-    exam:examReducer
+    examWord:examWordReducer,
+    todayWord:todayWordReducer,
+    searchWord:searchWordReducer,
 }));
 
 // 处理url 参数 npm install query-string

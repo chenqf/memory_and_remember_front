@@ -3,7 +3,6 @@ import React,{Component} from 'react';
 import {Card,WhiteSpace,WingBlank,Toast} from 'antd-mobile'
 import { connect } from 'react-redux'
 import http from '../../../library/http';
-import './index.scss'
 import WordList from "../../../component/wordList/index";
 import {queryExamWordList,updateExamWordItem,deleteExamWordItem} from './actions';
 import {
@@ -17,8 +16,8 @@ import {
 
 
 const mapStateToProps = (state, ownProps) => ({
-    count: state.exam.count,
-    items:state.exam.items
+    count: state.examWord.count,
+    items:state.examWord.items
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -37,10 +36,7 @@ export default class Exam extends Component{
     }
     getData = ()=>{
         http.post('/word/queryRandom',{hold:true,count:10}).then((data)=> {
-            this.props.queryList({
-                items:data.items,
-                count:data.items.length
-            });
+            this.props.queryList(data.items);
         });
     };
     refresh = ()=>{
