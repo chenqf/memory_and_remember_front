@@ -9,18 +9,18 @@ class SearchContent extends Component{
     constructor(props){
         super(props);
         this.state = {
-            wordInfo:{}
+            item:{}
         };
     }
     searchWordHandler = (q)=>{
-        http.post('/word/search', {q}).then((data)=> {
+        http.post('/word/search', {q}).then((item)=> {
             this.setState({
-                wordInfo:data
+                item
             });
         })
     }
     render(){
-        let {wordInfo} = this.state;
+        let {item} = this.state;
         return (
             <React.Fragment>
                 <Card>
@@ -37,14 +37,14 @@ class SearchContent extends Component{
                     </Card.Body>
                 </Card>
                 {
-                    wordInfo.text ?
+                    item.text ?
                         <Card style={{marginTop:15}}>
                             <Card.Header
                                 title={<span className="p5">基本释义</span>}
                                 thumb={<i className="blue fa fa-star-o fa-lg"/>}
                             />
                             <Card.Body style={{minHeight:0}}>
-                                <WordItem wordInfo={wordInfo}/>
+                                <WordItem item={item}/>
                             </Card.Body>
                         </Card>
                         :

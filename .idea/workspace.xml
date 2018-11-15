@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98711638-2f79-4341-9a01-ab031cb34093" name="Default" comment="加入redux">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/0.784ff944.chunk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/0.784ff944.chunk.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/1.168e8b9f.chunk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/1.168e8b9f.chunk.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/2.c16d7b2e.chunk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/2.c16d7b2e.chunk.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/main.43bd858f.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/0.f1346871.chunk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/0.f1346871.chunk.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/1.25bfa5e2.chunk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/1.25bfa5e2.chunk.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/2.93b22a28.chunk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/2.93b22a28.chunk.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/main.1b6d6197.js" afterPath="" />
+    <list default="true" id="98711638-2f79-4341-9a01-ab031cb34093" name="Default" comment="更换服务器地址">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/0.93e4b4ab.chunk.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/0.93e4b4ab.chunk.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/static/js/main.4bb7fb9e.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/0.784ff944.chunk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/0.784ff944.chunk.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/static/js/main.43bd858f.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/asset-manifest.json" afterPath="$PROJECT_DIR$/build/asset-manifest.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/index.html" afterPath="$PROJECT_DIR$/build/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/service-worker.js" afterPath="$PROJECT_DIR$/build/service-worker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config/index.js" afterPath="$PROJECT_DIR$/src/config/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index/study/search.js" afterPath="$PROJECT_DIR$/src/app/index/study/search.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -86,36 +78,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/mine/audio/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/mine/hard/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/mine/word/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/user/login/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
@@ -168,7 +130,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/component/wordItem/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="-429">
               <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
               <folding>
                 <element signature="n#!!block;n#constructor#0;n#WordItem#0" expanded="false" />
@@ -187,13 +149,43 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/component/wordList/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+            <state relative-caret-position="231">
+              <caret line="55" column="101" lean-forward="true" selection-start-line="55" selection-start-column="101" selection-end-line="55" selection-end-column="101" />
               <folding>
                 <element signature="e#39#77#0" expanded="true" />
                 <element signature="e#2296#2558#0" expanded="false" />
                 <element signature="e#2575#3491#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/index/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/index/study/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/index/study/search.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="50" column="28" lean-forward="true" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -212,7 +204,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>padding</find>
       <find>Router</find>
       <find>withRouter</find>
       <find>MineIndex</find>
@@ -242,6 +233,7 @@
       <find>onDeleteSubmitModal</find>
       <find>onCloseModal</find>
       <find>45.77.71.18</find>
+      <find>let explains = JSON.parse(item.explains || '[]');</find>
     </findStrings>
     <replaceStrings>
       <replace>word-item</replace>
@@ -304,7 +296,6 @@
         <option value="$PROJECT_DIR$/src/app/index/mine/index.js" />
         <option value="$PROJECT_DIR$/src/app/index/review/index.js" />
         <option value="$PROJECT_DIR$/src/app/index/study/index.js" />
-        <option value="$PROJECT_DIR$/src/app/index/study/search.js" />
         <option value="$PROJECT_DIR$/src/app/index/study/sentence.js" />
         <option value="$PROJECT_DIR$/src/app/mine/audio/index.js" />
         <option value="$PROJECT_DIR$/src/app/mine/hard/index.js" />
@@ -315,6 +306,7 @@
         <option value="$PROJECT_DIR$/src/component/sentenceItem/index.js" />
         <option value="$PROJECT_DIR$/src/component/sentenceList/index.js" />
         <option value="$PROJECT_DIR$/src/component/wordItem/index.js" />
+        <option value="$PROJECT_DIR$/src/app/index/study/search.js" />
       </list>
     </option>
   </component>
@@ -993,14 +985,7 @@
       <workItem from="1541637457459" duration="19442000" />
       <workItem from="1541724937249" duration="13645000" />
       <workItem from="1541984296974" duration="5379000" />
-      <workItem from="1542242841711" duration="1294000" />
-    </task>
-    <task id="LOCAL-00028" summary="引入 sass">
-      <created>1539339822654</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1539339822654</updated>
+      <workItem from="1542242841711" duration="2465000" />
     </task>
     <task id="LOCAL-00029" summary="ui 调整">
       <created>1539415830410</created>
@@ -1338,11 +1323,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542185030497</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="更换服务器地址">
+      <created>1542249093465</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1542249093465</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371983000" />
+    <option name="totallyTimeSpent" value="373154000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -1356,7 +1348,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42482916" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24318182" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33636364" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3556818" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1420,7 +1412,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加权限校验" />
     <MESSAGE value="router 优化" />
     <MESSAGE value="设定仅测验时，模糊单词拼写" />
     <MESSAGE value="登录页面" />
@@ -1445,7 +1436,8 @@
     <MESSAGE value="修改时间引入方式，删除bind" />
     <MESSAGE value="删除文件" />
     <MESSAGE value="加入redux" />
-    <option name="LAST_COMMIT_MESSAGE" value="加入redux" />
+    <MESSAGE value="更换服务器地址" />
+    <option name="LAST_COMMIT_MESSAGE" value="更换服务器地址" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1602,14 +1594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="17" column="60" lean-forward="false" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/index/exam/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1660,6 +1644,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="41" column="38" lean-forward="true" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1688,6 +1673,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
           <caret line="61" column="54" lean-forward="true" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1699,24 +1685,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index/study/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/index/study/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/index/study/sentence.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1785,9 +1758,33 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/sentenceList/index_bak.js" />
-    <entry file="file://$PROJECT_DIR$/src/component/wordItem/index.js">
+    <entry file="file://$PROJECT_DIR$/src/app/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/index/study/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
+          <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/index/study/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="50" column="28" lean-forward="true" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/wordItem/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-429">
           <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding>
             <element signature="n#!!block;n#constructor#0;n#WordItem#0" expanded="false" />
@@ -1804,8 +1801,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/wordList/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+        <state relative-caret-position="231">
+          <caret line="55" column="101" lean-forward="true" selection-start-line="55" selection-start-column="101" selection-end-line="55" selection-end-column="101" />
           <folding>
             <element signature="e#39#77#0" expanded="true" />
             <element signature="e#2296#2558#0" expanded="false" />
