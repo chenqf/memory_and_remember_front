@@ -1,7 +1,7 @@
 // @flow Created by 陈其丰 on 2018/10/23.
 
 import React,{PureComponent,Component} from 'react';
-import {Card,SearchBar} from 'antd-mobile';
+import {Card,SearchBar,Toast} from 'antd-mobile';
 import { connect } from 'react-redux'
 import WordItem from '../../../../../component/wordItem/index'
 import {actions as searchWordActions} from '../index';
@@ -34,6 +34,23 @@ export default class SearchContent extends Component{
             }
         })
     };
+    updateTimeHandler = (item,createTime)=>{
+        http.post('/word/updateCreateTime', {id:item.userWordId,createTime}).then(()=> {
+            this.props.updateItem({...item,createTime})
+        })
+    };
+    updateLevelHandler = (item)=>{
+        let level = item.level === 0 ? 1 : 0;
+        let id = item.userWordId;
+        http.post('/word/updateLevel', {level,id}).then(()=> {
+            if(level === 1){
+                Toast.success('标记为疑难词汇~',1.5)
+            }else{
+                Toast.success('标记为普通词汇~',1.5)
+            }
+            this.props.updateItem({...item,level})
+        })
+    };
     render(){
         let {item} = this.props;
         return (
@@ -59,7 +76,12 @@ export default class SearchContent extends Component{
                                 thumb={<i className="blue fa fa-star-o fa-lg"/>}
                             />
                             <Card.Body style={{minHeight:0}}>
-                                <WordItem item={item} delete={false}/>
+                                <WordItem
+                                    item={item}
+                                    delete={false}
+                                    updateLevelHandler={this.updateLevelHandler}
+                                    updateTimeHandler={this.updateTimeHandler}
+                                />
                             </Card.Body>
                         </Card>
                         :
