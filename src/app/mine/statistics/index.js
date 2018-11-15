@@ -1,8 +1,8 @@
 // @flow Created by 陈其丰 on 2018/10/19.
 import React,{PureComponent,Component} from 'react';
 import {WingBlank,WhiteSpace,Card} from 'antd-mobile'
-import withHeader from '../../../hot/withHeader';
-import http from '../../../library/http';
+import withHeader from '@hot/withHeader';
+import http from '@http';
 
 
 

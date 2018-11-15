@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Modal,Toast,TextareaItem,Button,WhiteSpace,Flex} from 'antd-mobile';
 import './index.scss'
-import http from '../../library/http';
+import http from '@http';
 
 class SentenceItem extends Component {
     constructor(props){

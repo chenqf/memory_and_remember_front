@@ -16,7 +16,7 @@ import {ScrollToTop} from '../component/scroll/index';
 import {Modal} from 'antd-mobile';
 import withTime from '../hot/withTime';
 import 'react-fontawesome';
-import '../library/http';
+import '@http';
 import '../hot/index.scss'
 
 const supportsHistory = 'pushState' in window.history;

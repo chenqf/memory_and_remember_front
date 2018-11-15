@@ -1,9 +1,9 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
 import {WingBlank,WhiteSpace ,Button,Toast,TabBar,NavBar} from 'antd-mobile';
-import withHeader from '../../../hot/withHeader';
-import http from '../../../library/http';
-import auth from '../../../library/auth';
+import withHeader from '@hot/withHeader';
+import http from '@http';
+import auth from '@library/auth';
 import './index.scss';
 
 

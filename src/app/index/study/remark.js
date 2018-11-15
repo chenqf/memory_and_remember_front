@@ -3,7 +3,7 @@
 import React,{PureComponent,Component} from 'react';
 import {Card} from 'antd-mobile';
 import RemarkWrapper from "../../../component/remark/index";
-import http from '../../../library/http';
+import http from '@http';
 
 class RemarkContent extends Component{
     constructor(props){

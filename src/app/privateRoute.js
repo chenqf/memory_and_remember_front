@@ -2,7 +2,7 @@
 import React,{Component} from 'react';
 import auth from '../library/auth';
 import { HashRouter as Router, Route, Link,Redirect } from "react-router-dom";
-import http from '../library/http';
+import http from '@http';
 
 class PrivateRoute extends Component{
     constructor(props){

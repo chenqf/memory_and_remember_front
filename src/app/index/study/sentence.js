@@ -2,7 +2,7 @@
 
 import React,{PureComponent,Component} from 'react';
 import {Card,Flex,TextareaItem,Button,WhiteSpace} from 'antd-mobile';
-import http from '../../../library/http';
+import http from '@http';
 import SentenceList from '../../../component/sentenceList/index';
 
 class SentenceContent extends Component{

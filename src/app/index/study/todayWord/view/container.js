@@ -3,9 +3,9 @@
 import React,{PureComponent,Component} from 'react';
 import {Card,Toast} from 'antd-mobile';
 import { connect } from 'react-redux'
-import http from '../../../../../library/http';
+import http from '@http';
 import {queryTodayWordList,updateTodayWordItem,deleteTodayWordItem,insertTodayWordItem} from '../actions';
-import WordList from '../../../../../component/wordList/index'
+import WordList from '@component/wordList'
 
 
 

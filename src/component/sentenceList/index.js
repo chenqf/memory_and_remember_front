@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import './index.scss'
 import { withCookies, Cookies } from 'react-cookie';
 import {Toast} from 'antd-mobile'
-import tools from '../../library/tools';
+import tools from '@library/tools';
 import SentenceItem from '../sentenceItem/index';
 
 class SentenceList extends Component {

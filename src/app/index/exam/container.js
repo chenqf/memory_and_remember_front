@@ -2,8 +2,8 @@
 import React,{Component} from 'react';
 import {Card,WhiteSpace,WingBlank,Toast} from 'antd-mobile'
 import { connect } from 'react-redux'
-import http from '../../../library/http';
-import WordList from "../../../component/wordList/index";
+import http from '@http';
+import WordList from "@component/wordList";
 import {queryExamWordList,updateExamWordItem,deleteExamWordItem} from './actions';
 import {
     HashRouter as Router,

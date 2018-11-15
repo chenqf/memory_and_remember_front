@@ -9,8 +9,8 @@ import {
     Redirect,
     withRouter
 } from "react-router-dom";
-import AsyncLoad from '../../library/asyncLoad';
-import withHeader from '../../hot/withHeader'
+import AsyncLoad from '@library/asyncLoad';
+import withHeader from '@hot/withHeader'
 import Footer from './foot';
 import './index.scss'
 

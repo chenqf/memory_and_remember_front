@@ -1,7 +1,7 @@
 // @flow Created by 陈其丰 on 2018/10/19.
 import React,{PureComponent,Component} from 'react';
 import {Toast} from 'antd-mobile';
-import btts from '../../../library/btts';
+import btts from '@library/btts';
 
 
 class Audio extends Component{

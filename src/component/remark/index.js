@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {  TextareaItem ,Flex,Button ,Toast} from "antd-mobile";
-import http from '../../library/http';
+import http from '@http';
 import './index.scss'
 
 class Remark extends Component {

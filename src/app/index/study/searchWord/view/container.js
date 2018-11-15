@@ -3,10 +3,10 @@
 import React,{PureComponent,Component} from 'react';
 import {Card,SearchBar,Toast} from 'antd-mobile';
 import { connect } from 'react-redux'
-import WordItem from '../../../../../component/wordItem/index'
+import WordItem from '@component/wordItem'
 import {actions as searchWordActions} from '../index';
 import {actions as todayWordActions} from '../../todayWord/index';
-import http from '../../../../../library/http';
+import http from '@http';
 
 
 const mapStateToProps = (state, ownProps) => ({
