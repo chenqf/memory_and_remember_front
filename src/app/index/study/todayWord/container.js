@@ -4,7 +4,7 @@ import React,{PureComponent,Component} from 'react';
 import {Card,Toast} from 'antd-mobile';
 import { connect } from 'react-redux'
 import http from '@http';
-import {queryTodayWordList,updateTodayWordItem,deleteTodayWordItem,insertTodayWordItem} from './actions';
+import {actions} from './index';
 import WordList from '@component/wordList'
 
 
@@ -16,9 +16,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    queryList: (items,count) => dispatch(queryTodayWordList(items,count)),
-    updateItem: item => dispatch(updateTodayWordItem(item)),
-    deleteItem: id => dispatch(deleteTodayWordItem(id)),
+    queryList: (items,count) => dispatch(actions.queryList(items,count)),
+    updateItem: item => dispatch(actions.updateItem(item)),
+    deleteItem: id => dispatch(actions.deleteItem(id)),
 });
 
 @connect(

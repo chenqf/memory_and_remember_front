@@ -14,8 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    updateItem: item => dispatch(searchWordActions.updateWord(item)),
-    insertItemToTodayWord: item => dispatch(todayWordActions.insertTodayWordItem(item)),
+    updateItem: item => dispatch(searchWordActions.updateItem(item)),
+    insertItemToTodayWord: item => dispatch(todayWordActions.insertItem(item)),
 });
 
 @connect(

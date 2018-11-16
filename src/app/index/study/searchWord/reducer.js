@@ -8,7 +8,7 @@ const defaultState = {
 };
 export default (state = defaultState,action)=>{
     switch (action.type){
-        case actionTypes.UPDATE_WORD:{
+        case actionTypes.UPDATE_ITEM:{
             return {item:action.item}
         }
         default:{

@@ -3,9 +3,9 @@
 import * as actionTypes from './actionTypes';
 
 
-export const updateWord = (item)=>{
+export const updateItem = (item)=>{
     return {
-        type:actionTypes.UPDATE_WORD,
+        type:actionTypes.UPDATE_ITEM,
         item
     }
 };
