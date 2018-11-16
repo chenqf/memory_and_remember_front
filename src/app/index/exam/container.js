@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    queryList: items => dispatch(actions.queryWordList(items)),
+    updateList: items => dispatch(actions.updateWordList(items)),
     updateItem: item => dispatch(actions.updateWordItem(item)),
     deleteItem: id => dispatch(actions.deleteWordItem(id)),
 });
@@ -36,7 +36,7 @@ export default class Exam extends Component{
     }
     getData = ()=>{
         http.post('/word/queryRandom',{hold:true,count:10}).then((data)=> {
-            this.props.queryList(data.items);
+            this.props.updateList(data.items);
         });
     };
     refresh = ()=>{
