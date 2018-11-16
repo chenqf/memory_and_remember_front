@@ -30,7 +30,7 @@ export default class TodayWordList extends Component{
         super(props);
     }
     componentDidMount(){
-        if(!this.props.items.length){
+        if(!this.props.over){
             http.post('/word/queryByPreDate',{order:'DESC'}).then(({items,totalCount})=> {
                 this.props.queryList(items,totalCount);
             });

@@ -21,9 +21,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    queryList: items => dispatch(actions.queryExamWordList(items)),
-    updateItem: item => dispatch(actions.updateExamWordItem(item)),
-    deleteItem: id => dispatch(actions.deleteExamWordItem(id)),
+    queryList: items => dispatch(actions.queryWordList(items)),
+    updateItem: item => dispatch(actions.updateWordItem(item)),
+    deleteItem: id => dispatch(actions.deleteWordItem(id)),
 });
 
 @connect(

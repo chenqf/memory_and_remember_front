@@ -3,18 +3,18 @@
 import * as actionTypes from './actionTypes';
 
 
-export const queryExamWordList = (items,count)=>({
+export const queryWordList = (items,count)=>({
     type:actionTypes.QUERY_WORD_LIST,
     items,
     count
 });
 
-export const updateExamWordItem = (item)=>({
+export const updateWordItem = (item)=>({
     type:actionTypes.UPDATE_WORD_ITEM,
     item
 });
 
-export const deleteExamWordItem = (id)=>({
+export const deleteWordItem = (id)=>({
     type:actionTypes.DELETE_WORD_ITEM,
     id
 });

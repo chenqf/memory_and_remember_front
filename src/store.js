@@ -12,8 +12,6 @@ const logger = createLogger();
 const reducer = combineReducers({
     study:studyReducer, // 首页下 学习
     examWord:examWordReducer, // 首页下 测验
-    // todayWord:todayWordReducer,
-    // searchWord:searchWordReducer,
 });
 const store = createStore(
     reducer,
