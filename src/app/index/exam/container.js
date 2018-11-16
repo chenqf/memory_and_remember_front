@@ -4,7 +4,7 @@ import {Card,WhiteSpace,WingBlank,Toast} from 'antd-mobile'
 import { connect } from 'react-redux'
 import http from '@http';
 import WordList from "@component/wordList";
-import {queryExamWordList,updateExamWordItem,deleteExamWordItem} from './actions';
+import {actions} from './index';
 import {
     HashRouter as Router,
     Route,
@@ -21,9 +21,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    queryList: items => dispatch(queryExamWordList(items)),
-    updateItem: item => dispatch(updateExamWordItem(item)),
-    deleteItem: id => dispatch(deleteExamWordItem(id)),
+    queryList: items => dispatch(actions.queryExamWordList(items)),
+    updateItem: item => dispatch(actions.updateExamWordItem(item)),
+    deleteItem: id => dispatch(actions.deleteExamWordItem(id)),
 });
 
 @connect(
