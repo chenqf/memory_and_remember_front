@@ -1,19 +1,11 @@
 // @flow Created by 陈其丰 on 2018/11/15.
 
-import {
-    //单词检索
-    UPDATE_SEARCH_WORD,
-    DELETE_SEARCH_WORD,
+import * as actionTypes from './actionTypes';
 
-} from './actionTypes';
 
-export const updateSearchWord = (item)=>{
+export const updateWord = (item)=>{
     return {
-        type:UPDATE_SEARCH_WORD,
+        type:actionTypes.UPDATE_WORD,
         item
     }
-};
-
-export const deleteSearchWord = ()=>{
-    return {type:DELETE_SEARCH_WORD}
 };
