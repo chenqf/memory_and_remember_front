@@ -4,15 +4,15 @@ import React,{PureComponent,Component} from 'react';
 import {Card,Toast} from 'antd-mobile';
 import { connect } from 'react-redux'
 import http from '@http';
-import {queryTodayWordList,updateTodayWordItem,deleteTodayWordItem,insertTodayWordItem} from '../actions';
+import {queryTodayWordList,updateTodayWordItem,deleteTodayWordItem,insertTodayWordItem} from './actions';
 import WordList from '@component/wordList'
 
 
 
 const mapStateToProps = (state, ownProps) => ({
-    count: state.todayWord.count,
-    items:state.todayWord.items,
-    over:state.todayWord.over
+    count: state.study.todayWord.count,
+    items:state.study.todayWord.items,
+    over:state.study.todayWord.over
 });
 
 const mapDispatchToProps = dispatch => ({

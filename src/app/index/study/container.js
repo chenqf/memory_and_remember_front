@@ -1,35 +1,43 @@
 // @flow Created by 陈其丰 on 2018/9/29.
 import React,{Component} from 'react';
 import {SegmentedControl,WhiteSpace,WingBlank} from 'antd-mobile'
-
 import RemarkContent from './remark';
 import SentenceContent from './sentence';
+import { connect } from 'react-redux'
 import {view as WordContent} from './todayWord/index';
 import {view as SearchContent} from './searchWord/index';
+import {actions} from './index';
 import './index.scss'
-const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
+// const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
 
-let moneyKeyboardWrapProps;
-if (isIPhone) {
-    moneyKeyboardWrapProps = {
-        onTouchStart: e => e.preventDefault(),
-    };
-}
+// let moneyKeyboardWrapProps;
+// if (isIPhone) {
+//     moneyKeyboardWrapProps = {
+//         onTouchStart: e => e.preventDefault(),
+//     };
+// }
 
-class Study extends Component{
+const mapStateToProps = (state, ownProps) => ({
+    index: state.study.index
+});
+
+const mapDispatchToProps = dispatch => ({
+    changeTab: index => dispatch(actions.changeTab(index))
+});
+
+@connect(
+    mapStateToProps,
+    mapDispatchToProps
+)
+export default class Study extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            selectedIndex:0
-        };
     }
     onChange = (e)=>{
-        this.setState({
-            selectedIndex:e.nativeEvent.selectedSegmentIndex
-        })
-    }
+        this.props.changeTab(e.nativeEvent.selectedSegmentIndex);
+    };
     render(){
-        let {selectedIndex} = this.state;
+        let {index:selectedIndex} = this.props;
         let Com = null;
         if(selectedIndex === 0){
             Com = SearchContent;
@@ -50,6 +58,3 @@ class Study extends Component{
         )
     }
 }
-
-
-export default Study;

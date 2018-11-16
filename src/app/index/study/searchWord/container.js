@@ -4,13 +4,13 @@ import React,{PureComponent,Component} from 'react';
 import {Card,SearchBar,Toast} from 'antd-mobile';
 import { connect } from 'react-redux'
 import WordItem from '@component/wordItem'
-import {actions as searchWordActions} from '../index';
-import {actions as todayWordActions} from '../../todayWord/index';
+import {actions as searchWordActions} from './index';
+import {actions as todayWordActions} from '../todayWord/index';
 import http from '@http';
 
 
 const mapStateToProps = (state, ownProps) => ({
-    item: state.searchWord.item
+    item: state.study.searchWord.item
 });
 
 const mapDispatchToProps = dispatch => ({
