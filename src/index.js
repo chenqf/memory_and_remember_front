@@ -4,7 +4,7 @@ import './style/index.scss'
 import './style/cover.scss'
 import App from './app/index';
 import { Provider } from 'react-redux'
-import store from './store';
+import store from './store/index';
 import registerServiceWorker from './registerServiceWorker';
 
 

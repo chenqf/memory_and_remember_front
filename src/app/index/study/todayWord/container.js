@@ -9,11 +9,13 @@ import WordList from '@component/wordList'
 
 
 
-const mapStateToProps = (state, ownProps) => ({
-    count: state.study.todayWord.count,
-    items:state.study.todayWord.items,
-    over:state.study.todayWord.over
-});
+const mapStateToProps = (state, ownProps) => {
+    return {
+        count: state.study.todayWord.count,
+        items:state.study.todayWord.items,
+        over:state.study.todayWord.over
+    }
+};
 
 const mapDispatchToProps = dispatch => ({
     queryList: (items,count) => dispatch(actions.queryList(items,count)),
