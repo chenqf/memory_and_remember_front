@@ -1,40 +1,39 @@
 // @flow Created by 陈其丰 on 2018/11/14.
 
 import * as actionTypes from './actionTypes';
-import http from '@http';
+import {word as wordApi} from '@api';
 
 
-// export const fetchWordListAsync = (params = {})=>{
-//     return (dispatch,getState)=>{
-//         dispatch(fetchWordListRequest());
-//         http.post('/word/queryRandom',params).then((data)=> {
-//             dispatch(fetchWordListSuccess(data.items));
-//         }).catch((error)=>{
-//             dispatch(fetchWordListFailure(error));
-//         });
-//     }
-// };
-//
-// export const fetchWordListRequest = ()=>{
-//     return {
-//         type:actionTypes.FETCH_WORD_LIST_REQUEST
-//     }
-// };
-//
-// export const fetchWordListSuccess = (items)=>{
-//     return {
-//         type:actionTypes.FETCH_WORD_LIST_SUCCESS,
-//         items,
-//         count:items.length
-//     }
-// };
-//
-// export const fetchWordListFailure = (error)=>{
-//     return {
-//         type:actionTypes.FETCH_WORD_LIST_FAILURE,
-//         error
-//     }
-// };
+/*
+* 获取复习单词
+* */
+export const fetchWordList = (params) => dispatch => {
+    dispatch(fetchWordListRequest());
+    wordApi.queryRandom(params).then(({items = []})=>{
+        dispatch(fetchWordListSuccess(items.map((i)=>i.id)));
+    }).catch((error)=>{
+        dispatch(fetchWordListFailure(error));
+    });
+};
+
+/*发送请求，获取单词列表*/
+export const fetchWordListRequest = () => ({
+    type:actionTypes.FETCH_WORD_LIST_REQUEST
+});
+
+/*发送请求，获取单词列表 -成功*/
+export const fetchWordListSuccess = (ids) => ({
+    type:actionTypes.FETCH_WORD_LIST_SUCCESS,
+    ids
+});
+
+/*发送请求，获取单词列表 -失败*/
+export const fetchWordListFailure = (error) => ({
+    type:actionTypes.FETCH_WORD_LIST_FAILURE,
+    error
+});
+
+
 
 
 export const updateWordList = (items,count)=>({

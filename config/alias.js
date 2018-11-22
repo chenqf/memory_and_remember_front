@@ -8,6 +8,7 @@ module.exports = {
     '@hot':resolve(__dirname, '../src/hot'),
     '@library':resolve(__dirname, '../src/library'),
     '@http':resolve(__dirname, '../src/library/http.js'),
+    '@api':resolve(__dirname, '../src/api/index.js'),
     '@component/wordList':resolve(__dirname, '../src/component/wordList/index.js'),
     '@component/wordItem':resolve(__dirname, '../src/component/wordItem/index.js'),
 };

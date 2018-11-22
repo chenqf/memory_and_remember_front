@@ -21,6 +21,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    queryRandom: count =>dispatch(actions.fetchWordList({count})),
+
     updateList: items => dispatch(actions.updateWordList(items)),
     updateItem: item => dispatch(actions.updateWordItem(item)),
     deleteItem: id => dispatch(actions.deleteWordItem(id)),
