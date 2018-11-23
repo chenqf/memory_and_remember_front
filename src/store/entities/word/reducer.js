@@ -11,7 +11,7 @@ export default (state = defaultState,action)=>{
     let {byId,allIds} = state;
     switch (action.type){
         case actionTypes.ADD:{
-            let item = action.item,
+            let item = action.payload,
                 id = item.id;
             if(!byId.hasOwnProperty(id)){
                 return state;
@@ -19,19 +19,26 @@ export default (state = defaultState,action)=>{
             return {byId:{...byId,[id]:item},allIds:[...allIds,id]};
         }
         case actionTypes.ADD_LIST:{
-           let items = action.items.filter((item)=>allIds.indexOf(item.id)<0);
+           let items = action.payload.filter((item)=>allIds.indexOf(item.id)<0);
            let addById = {};
            let addAllIds = [];
             items.forEach((item)=>{
                 addById[item.id] = item;
-                allIds.push(item.id)
+                addAllIds.push(item.id)
             });
             return {byId:{...byId,...addById},allIds:[...allIds,...addAllIds]};
         }
         case actionTypes.UPDATE:{
-            let item = action.item,
+            let item = action.payload,
                 id = item.id;
             return {...state,byId:{...byId,[id]:item}}
+        }
+        case actionTypes.DELETE:{
+            let {payload:id} = action;
+            let {byId,allIds} = state;
+            delete byId[id];
+            let ids = allIds.filter((i)=>i !== id);
+            return {byId:{...byId},allIds:[...ids]};
         }
         default:{
             return state;

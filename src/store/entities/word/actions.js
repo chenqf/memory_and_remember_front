@@ -2,17 +2,22 @@
 
 import * as actions from './actionTypes';
 
-export const add = (item)=>({
+export const add = (payload)=>({
     type:actions.ADD,
-    item
+    payload
 });
 
-export const addList = (items)=>({
+export const addList = (payload)=>({
     type:actions.ADD_LIST,
-    items
+    payload
 });
 
-export const update = (item)=>({
+export const update = (payload)=>({
     type:actions.UPDATE,
-    item
+    payload
+});
+
+export const deleteItem = (payload)=>({
+    type:actions.DELETE,
+    payload
 });

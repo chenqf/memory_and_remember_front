@@ -6,3 +6,5 @@ export const ADD_LIST = 'ENTITIES/WORD-ADD_LIST';
 
 export const UPDATE = 'ENTITIES/WORD-UPDATE';
 
+export const DELETE = 'ENTITIES/WORD-DELETE';
+

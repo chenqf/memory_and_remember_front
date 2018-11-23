@@ -2,7 +2,6 @@
 import React,{Component} from 'react';
 import {Card,WhiteSpace,WingBlank,Toast} from 'antd-mobile'
 import { connect } from 'react-redux'
-import http from '@http';
 import WordList from "@component/wordList";
 import {actions} from './index';
 import {
@@ -15,17 +14,31 @@ import {
 } from "react-router-dom";
 
 
-const mapStateToProps = (state, ownProps) => ({
-    count: state.examWord.count,
-    items:state.examWord.items
-});
+const mapStateToProps = (state, ownProps) => {
+    let {
+            entities:{
+                word:{byId}
+            }
+        } = state;
+    let {
+        examWord:{
+            wordIds,
+            loadingWord,
+            loadWordError
+        }
+    } = state;
+
+    let items = wordIds.filter(id=>byId.hasOwnProperty(id)).map(id=>byId[id]);
+    return {
+        loading:loadingWord,
+        error:loadWordError,
+        count: items.length,
+        items
+    }
+};
 
 const mapDispatchToProps = dispatch => ({
-    queryRandom: count =>dispatch(actions.fetchWordList({count})),
-
-    updateList: items => dispatch(actions.updateWordList(items)),
-    updateItem: item => dispatch(actions.updateWordItem(item)),
-    deleteItem: id => dispatch(actions.deleteWordItem(id)),
+    queryRandom: count =>dispatch(actions.fetchWordList({count}))
 });
 
 @connect(
@@ -37,41 +50,19 @@ export default class Exam extends Component{
         super(props);
     }
     getData = ()=>{
-        http.post('/word/queryRandom',{hold:true,count:10}).then((data)=> {
-            this.props.updateList(data.items);
-        });
+        this.props.queryRandom(10);
     };
     refresh = ()=>{
         this.getData();
     };
     componentDidMount(){
-        if(!this.props.items.length)
+        if(!this.props.items.length){
             this.getData();
+        }
     }
-    deleteHandler = (wordId)=>{
-        http.post('/word/delete', {wordId}).then(()=> {
-            this.props.deleteItem(wordId);
-        })
-    };
-    updateTimeHandler = (item,createTime)=>{
-        http.post('/word/updateCreateTime', {id:item.userWordId,createTime}).then(()=> {
-            this.props.updateItem({...item,createTime})
-        })
-    };
-    updateLevelHandler = (item)=>{
-        let level = item.level === 0 ? 1 : 0;
-        let id = item.userWordId;
-        http.post('/word/updateLevel', {level,id}).then(()=> {
-            if(level === 1){
-                Toast.success('标记为疑难词汇~',1.5)
-            }else{
-                Toast.success('标记为普通词汇~',1.5)
-            }
-            this.props.updateItem({...item,level})
-        })
-    };
     render(){
         let {items,count} = this.props;
+        console.log('------------------------');
         return (
             <WingBlank size="lg" className="word-test">
                 <Prompt
@@ -90,9 +81,6 @@ export default class Exam extends Component{
                         <WordList
                             date={false}
                             contentBlur={true}
-                            deleteHandler={this.deleteHandler}
-                            updateLevelHandler={this.updateLevelHandler}
-                            updateTimeHandler={this.updateTimeHandler}
                             items={items}
                             count={count}
                         />

@@ -3,7 +3,7 @@
 import React,{Component} from 'react';
 import {Badge,Checkbox,Flex,Pagination} from 'antd-mobile';
 import PropTypes from 'prop-types';
-import WordItem from '@component/wordItem';
+import {view as WordItem} from '@component/wordItem';
 import './index.scss'
 const CheckboxItem = Checkbox.CheckboxItem;
 export default class WordList extends Component{
