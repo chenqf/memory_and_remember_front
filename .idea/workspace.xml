@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98711638-2f79-4341-9a01-ab031cb34093" name="Default" comment="redux 优化">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hot/mapProps.js" />
+    <list default="true" id="98711638-2f79-4341-9a01-ab031cb34093" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/hot/connectPromise.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/hot/mapProps.js" afterPath="$PROJECT_DIR$/src/hot/convertProps.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/index/exam/container.js" afterPath="$PROJECT_DIR$/src/app/index/exam/container.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hot/withHeader.js" afterPath="$PROJECT_DIR$/src/hot/withHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/hot/withTime.js" afterPath="$PROJECT_DIR$/src/hot/withTime.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -118,12 +116,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mapProps.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/hot/mapProps.js">
+      <file leaf-file-name="convertProps.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hot/convertProps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="396">
+              <caret line="18" column="72" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="72" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connectPromise.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/hot/connectPromise.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+              <folding>
+                <element signature="e#788#993#0" expanded="false" />
+                <element signature="e#1102#1341#0" expanded="false" />
+                <element signature="e#1363#1863#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -176,7 +188,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hold</find>
       <find>451667608</find>
       <find>131213902</find>
       <find>asyncLoading</find>
@@ -206,6 +217,7 @@
       <find>WordList</find>
       <find>console.log</find>
       <find>Promise</find>
+      <find>mapStateToProps</find>
     </findStrings>
     <replaceStrings>
       <replace>word-item</replace>
@@ -229,10 +241,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/index/index.js" />
-        <option value="$PROJECT_DIR$/src/app/mine/audio/index.js" />
-        <option value="$PROJECT_DIR$/src/app/mine/statistics/index.js" />
-        <option value="$PROJECT_DIR$/src/app/user/login/index.js" />
         <option value="$PROJECT_DIR$/src/component/sentenceList/index.js" />
         <option value="$PROJECT_DIR$/src/app/index/study/actionTypes.js" />
         <option value="$PROJECT_DIR$/src/app/index/study/actions.js" />
@@ -280,6 +288,10 @@
         <option value="$PROJECT_DIR$/src/hot/withTime.js" />
         <option value="$PROJECT_DIR$/src/hot/withHeader.js" />
         <option value="$PROJECT_DIR$/src/hot/mapProps.js" />
+        <option value="$PROJECT_DIR$/src/hot/withAdapter.js" />
+        <option value="$PROJECT_DIR$/src/hot/connectProps.js" />
+        <option value="$PROJECT_DIR$/src/hot/convertProps.js" />
+        <option value="$PROJECT_DIR$/src/hot/connectPromise.js" />
       </list>
     </option>
   </component>
@@ -934,14 +946,7 @@
       <workItem from="1542688051282" duration="600000" />
       <workItem from="1542762709537" duration="1372000" />
       <workItem from="1542848236745" duration="14996000" />
-      <workItem from="1542935632599" duration="11342000" />
-    </task>
-    <task id="LOCAL-00045" summary="单词，ui调整">
-      <created>1539848104310</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1539848104310</updated>
+      <workItem from="1542935632599" duration="12999000" />
     </task>
     <task id="LOCAL-00046" summary="单词，ui调整">
       <created>1539850699956</created>
@@ -1279,11 +1284,18 @@
       <option name="project" value="LOCAL" />
       <updated>1542942464045</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="高阶函数优化">
+      <created>1542959698817</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1542959698818</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="433359000" />
+    <option name="totallyTimeSpent" value="435016000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -1362,7 +1374,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="文件结构调整" />
     <MESSAGE value="组件更新" />
     <MESSAGE value="修改延时" />
     <MESSAGE value="增加例句功能，以及例句读音" />
@@ -1387,7 +1398,8 @@
     <MESSAGE value="webpack 中使用别名，简化路径书写" />
     <MESSAGE value="引入 redux-log" />
     <MESSAGE value="redux 优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="redux 优化" />
+    <MESSAGE value="高阶函数优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="高阶函数优化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1396,13 +1408,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/index/study/todayWord/actionTypes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="64" lean-forward="true" selection-start-line="7" selection-start-column="64" selection-end-line="7" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/index/study/searchWord/actionTypes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1837,11 +1842,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hot/mapProps.js">
+    <entry file="file://$PROJECT_DIR$/src/hot/convertProps.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="396">
+          <caret line="18" column="72" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="72" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hot/connectPromise.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding>
+            <element signature="e#788#993#0" expanded="false" />
+            <element signature="e#1102#1341#0" expanded="false" />
+            <element signature="e#1363#1863#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
