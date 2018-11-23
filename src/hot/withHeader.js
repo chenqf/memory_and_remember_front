@@ -8,7 +8,8 @@ function getDisplayName(WrappedComponent) {
 
 export default (title = '记忆大师',back=false)=> {
     return (WrappedComponent)=> {
-        class WithHeader extends Component{
+        return class WithHeader extends Component{
+            static displayName = `WithHeader(${getDisplayName(WrappedComponent)})`;
             render(){
                 return (
                     <React.Fragment>
@@ -18,7 +19,5 @@ export default (title = '记忆大师',back=false)=> {
                 )
             }
         }
-        WithHeader.displayName = `WithHeader(${getDisplayName(WrappedComponent)})`;
-        return WithHeader
     }
 }

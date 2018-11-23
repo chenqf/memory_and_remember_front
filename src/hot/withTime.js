@@ -7,7 +7,7 @@ function getDisplayName(WrappedComponent) {
 }
 
 export default (WrappedComponent)=> {
-    class WithTime extends Component{
+    return class WithTime extends Component{
         constructor(props){
             super(props);
             this.everyTimeId = 0;
@@ -23,6 +23,7 @@ export default (WrappedComponent)=> {
                         null;
             this.visibilityChangeEvent = this.hiddenProperty.replace(/hidden/i, 'visibilitychange');
         }
+        static displayName = `WithTime(${getDisplayName(WrappedComponent)})`;
         addListener = ()=>{
             // this.setState({start:Date.now(),now:Date.now()});
             // this.everyTimeId = setInterval(()=>{
@@ -91,6 +92,4 @@ export default (WrappedComponent)=> {
             )
         }
     }
-    WithTime.displayName = `WithTime(${getDisplayName(WrappedComponent)})`;
-    return WithTime
 }

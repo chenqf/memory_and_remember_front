@@ -62,7 +62,6 @@ export default class Exam extends Component{
     }
     render(){
         let {items,count} = this.props;
-        console.log('------------------------');
         return (
             <WingBlank size="lg" className="word-test">
                 <Prompt
