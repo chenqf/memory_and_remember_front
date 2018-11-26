@@ -6,7 +6,7 @@ import http from '@http';
 
 
 
-@withHeader('学习统计',true)
+@withHeader({title:'学习统计',back:true})
 export default class Statistics extends Component{
     constructor(props){
         super(props);

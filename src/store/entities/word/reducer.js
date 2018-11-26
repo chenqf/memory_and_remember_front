@@ -4,41 +4,63 @@ import * as actionTypes from './actionTypes';
 
 const defaultState = {
     byId:{},
-    allIds:[]
+    allIds:[],
+    allNum:0,
+    hardNum:0
 };
 
 export default (state = defaultState,action)=>{
     let {byId,allIds} = state;
     switch (action.type){
         case actionTypes.ADD:{
-            let item = action.payload,
-                id = item.id;
-            if(!byId.hasOwnProperty(id)){
+            let item = action.payload;
+            let id = item.id,
+                newer = item.new;
+            if(byId.hasOwnProperty(id)){
                 return state;
             }
-            return {byId:{...byId,[id]:item},allIds:[...allIds,id]};
+            let {allNum} = state;
+            if(allNum && newer){
+                allNum++
+            }
+            return { ...state,byId:{...byId,[id]:item},allIds:[...allIds,id] ,allNum};
         }
         case actionTypes.ADD_LIST:{
-           let items = action.payload.filter((item)=>allIds.indexOf(item.id)<0);
-           let addById = {};
-           let addAllIds = [];
+            let items = action.payload.filter((item)=>!byId.hasOwnProperty(item.id));
+            let addById = {};
+            let addAllIds = [];
             items.forEach((item)=>{
                 addById[item.id] = item;
                 addAllIds.push(item.id)
             });
-            return {byId:{...byId,...addById},allIds:[...allIds,...addAllIds]};
+            return {...state,byId:{...byId,...addById},allIds:[...allIds,...addAllIds]};
         }
         case actionTypes.UPDATE:{
+            let {hardNum,byId} = state;
             let item = action.payload,
-                id = item.id;
-            return {...state,byId:{...byId,[id]:item}}
+                id = item.id,
+                level = item.level;
+            let oldItem = byId[id],
+                oldLevel = oldItem.level;
+            if(hardNum && oldLevel !== level){
+                hardNum = hardNum + (level ? 1 : -1);
+            }
+            return {...state,byId:{...byId,[id]:item},hardNum}
         }
         case actionTypes.DELETE:{
             let {payload:id} = action;
             let {byId,allIds} = state;
             delete byId[id];
             let ids = allIds.filter((i)=>i !== id);
-            return {byId:{...byId},allIds:[...ids]};
+            return {...state,byId:{...byId},allIds:[...ids]};
+        }
+        case actionTypes.UPDATE_ALL_COUNT:{
+            let {payload} = action;
+            return {...state,allNum:payload}
+        }
+        case actionTypes.UPDATE_HARD_COUNT:{
+            let {payload} = action;
+            return {...state,hardNum:payload}
         }
         default:{
             return state;

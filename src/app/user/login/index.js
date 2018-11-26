@@ -15,7 +15,7 @@ import {
     withRouter
 } from "react-router-dom";
 
-@withHeader('登录')
+@withHeader({title:'登录'})
 export default class Login extends Component{
     constructor(props){
         super(props);

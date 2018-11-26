@@ -7,7 +7,7 @@ import http from '@http';
 
 
 
-@withHeader('单词本',true)
+@withHeader({title:'单词本',back:true})
 export default class WordBook extends Component{
     constructor(props){
         super(props);

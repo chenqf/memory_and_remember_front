@@ -6,7 +6,7 @@ function getDisplayName(WrappedComponent) {
     return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
 
-export default (WrappedComponent)=> {
+export default () => WrappedComponent => {
     return class WithTime extends Component{
         constructor(props){
             super(props);
@@ -25,16 +25,16 @@ export default (WrappedComponent)=> {
         }
         static displayName = `WithTime(${getDisplayName(WrappedComponent)})`;
         addListener = ()=>{
-            // this.setState({start:Date.now(),now:Date.now()});
-            // this.everyTimeId = setInterval(()=>{
-            //     this.setState({now:Date.now()})
-            // },10000);
+            this.setState({start:Date.now(),now:Date.now()});
+            this.everyTimeId = setInterval(()=>{
+                this.setState({now:Date.now()})
+            },10000);
         };
         removeListener = ()=>{
-            // this.setState((prevState,props)=>{
-            //     return {history:prevState.history + prevState.now - prevState.start}
-            // });
-            // window.clearInterval(this.everyTimeId);
+            this.setState((prevState,props)=>{
+                return {history:prevState.history + prevState.now - prevState.start}
+            });
+            window.clearInterval(this.everyTimeId);
         };
         onVisibilityChange = ()=>{
             if (!document[this.hiddenProperty]) {
@@ -52,9 +52,9 @@ export default (WrappedComponent)=> {
             document.removeEventListener(this.visibilityChangeEvent, this.onVisibilityChange);
         }
         change = ()=>{
-            // this.setState((prevState,props)=>{
-            //     return {flg:!prevState.flg}
-            // })
+            this.setState((prevState,props)=>{
+                return {flg:!prevState.flg}
+            })
         };
         getTime = (time)=>{
             let s = 1000,

@@ -16,7 +16,7 @@ import './index.scss'
 
 const StudyIndex = AsyncLoad(() => import("./study/container"));
 const ExamIndex = AsyncLoad(() => import("./exam/container"));
-const MineIndex = AsyncLoad(() => import("./mine/index"));
+const MineIndex = AsyncLoad(() => import("./mine/container"));
 const ReviewIndex = AsyncLoad(() => import("./review/index"));
 
 

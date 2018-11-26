@@ -52,4 +52,4 @@ const App = () => (
 );
 
 
-export default withTime(App);
+export default withTime()(App);

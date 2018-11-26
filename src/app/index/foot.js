@@ -44,7 +44,6 @@ class Footer extends Component{
         super(props);
         this.state = {};
     }
-    // TODO TabBar 组件下不能接收 Route 组件，很蛋疼啊
     render(){
         return (
             <footer className="index-footer">

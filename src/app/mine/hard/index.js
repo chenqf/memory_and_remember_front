@@ -7,7 +7,7 @@ import http from '@http';
 
 
 
-@withHeader('重点词汇',true)
+@withHeader({title:'重点词汇',back:true})
 export default class HardBook extends Component{
     constructor(props){
         super(props);

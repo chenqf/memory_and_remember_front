@@ -8,14 +8,7 @@ import {view as WordContent} from './todayWord/index';
 import {view as SearchContent} from './searchWord/index';
 import {actions} from './index';
 import './index.scss'
-// const isIPhone = new RegExp('\\biPhone\\b|\\biPod\\b', 'i').test(window.navigator.userAgent);
 
-// let moneyKeyboardWrapProps;
-// if (isIPhone) {
-//     moneyKeyboardWrapProps = {
-//         onTouchStart: e => e.preventDefault(),
-//     };
-// }
 
 const mapStateToProps = (state, ownProps) => ({
     index: state.study.index

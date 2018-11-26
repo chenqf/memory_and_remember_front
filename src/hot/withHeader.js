@@ -6,7 +6,13 @@ function getDisplayName(WrappedComponent) {
     return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
 
-export default (title = '记忆大师',back=false)=> {
+const DEFAULT_OPTION = {
+    title:'记忆大师',
+    back:false
+};
+
+export default (options)=> {
+    let {title,back} = {...DEFAULT_OPTION,...options};
     return (WrappedComponent)=> {
         return class WithHeader extends Component{
             static displayName = `WithHeader(${getDisplayName(WrappedComponent)})`;

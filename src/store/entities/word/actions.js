@@ -21,3 +21,13 @@ export const deleteItem = (payload)=>({
     type:actions.DELETE,
     payload
 });
+
+export const updateAllCount = (payload)=>({
+    type:actions.UPDATE_ALL_COUNT,
+    payload
+});
+
+export const updateHandCount = (payload)=>({
+    type:actions.UPDATE_HARD_COUNT,
+    payload
+});
