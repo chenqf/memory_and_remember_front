@@ -28,7 +28,7 @@ export default () => WrappedComponent => {
             this.setState({start:Date.now(),now:Date.now()});
             this.everyTimeId = setInterval(()=>{
                 this.setState({now:Date.now()})
-            },10000);
+            },5000);
         };
         removeListener = ()=>{
             this.setState((prevState,props)=>{

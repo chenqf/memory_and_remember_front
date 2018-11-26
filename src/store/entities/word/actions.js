@@ -27,7 +27,7 @@ export const updateAllCount = (payload)=>({
     payload
 });
 
-export const updateHandCount = (payload)=>({
+export const updateHardCount = (payload)=>({
     type:actions.UPDATE_HARD_COUNT,
     payload
 });

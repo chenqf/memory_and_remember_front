@@ -41,7 +41,7 @@ export const fetchAllCountFailure = (payload) => ({
 export const fetchHardCount = (params) => dispatch => {
     dispatch(fetchHardCountRequest());
     wordApi.queryHardCount(params).then(({count})=>{
-        dispatch(wordAction.updateHandCount(count));
+        dispatch(wordAction.updateHardCount(count));
     }).catch((error)=>{
         dispatch(fetchHardCountFailure(error));
     });
