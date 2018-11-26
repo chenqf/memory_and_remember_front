@@ -7,8 +7,8 @@ import {
     Redirect,
     withRouter
 } from "react-router-dom";
-import Hard from './hard/index'
-import Word from './word/index'
+import {view as Word} from './word/index'
+import {view as Hard} from './hard/index'
 import Statistics from './statistics/index'
 import Audio from './audio/index'
 

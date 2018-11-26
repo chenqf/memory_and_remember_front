@@ -49,10 +49,13 @@ export default (state = defaultState,action)=>{
         }
         case actionTypes.DELETE:{
             let {payload:id} = action;
-            let {byId,allIds} = state;
+            let {byId,allIds,allNum,hardNum} = state;
+            let item = byId[id];
             delete byId[id];
             let ids = allIds.filter((i)=>i !== id);
-            return {...state,byId:{...byId},allIds:[...ids]};
+            allNum && (allNum = allNum - 1);
+            hardNum && item.level === 1 && (hardNum = hardNum - 1);
+            return {...state,byId:{...byId},allIds:[...ids],allNum,hardNum};
         }
         case actionTypes.UPDATE_ALL_COUNT:{
             let {payload} = action;

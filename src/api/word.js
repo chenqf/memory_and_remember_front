@@ -11,6 +11,10 @@ export default {
     updateLevel:(params = {})=>http.post('/word/updateLevel',params),
     //删除单词
     deleteItem:(params = {})=>http.post('/word/delete',params),
+    //查询所有单词
+    queryAll:(params = {})=>http.post('/word/queryAll',params),
+    //查询所有重点单词
+    queryHard:(params = {})=>http.post('/word/queryHard',params),
     //获取所有单词数量
     queryAllCount:(params = {})=>http.post('/word/queryAllCount',params),
     //获取所有难词数量
