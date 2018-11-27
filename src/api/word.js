@@ -3,6 +3,8 @@ import http from '@http'
 
 
 export default {
+    //查询单个单词
+    searchItem:(params = {})=>http.post('/word/search',params),
     //随机获取单词
     queryRandom:(params = {})=>http.post('/word/queryRandom',params),
     //更新单词创建时间

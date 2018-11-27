@@ -10,18 +10,7 @@ export const queryList = (items,count)=>{
         count
     }
 };
-export const deleteItem = (id)=>{
-    return {
-        type:actionTypes.DELETE_ITEM,
-        id
-    }
-};
-export const updateItem = (item)=>{
-    return {
-        type:actionTypes.UPDATE_ITEM,
-        item
-    }
-};
+
 export const insertItem = (item)=>{
     return {
         type:actionTypes.INSERT_ITEM,

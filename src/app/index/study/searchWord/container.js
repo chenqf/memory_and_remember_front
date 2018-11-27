@@ -4,18 +4,18 @@ import React,{PureComponent,Component} from 'react';
 import {Card,SearchBar,Toast} from 'antd-mobile';
 import { connect } from 'react-redux'
 import {view as WordItem} from '@component/wordItem';
-import {actions as searchWordActions} from './index';
-import {actions as todayWordActions} from '../todayWord/index';
-import http from '@http';
+import {actions} from './index';
 
 
-const mapStateToProps = (state, ownProps) => ({
-    item: state.study.searchWord.item
-});
+const mapStateToProps = (state, ownProps) =>{
+    let {study} = state,
+        {searchWord} = study,
+        {item,loading,error} = searchWord;
+    return {item,loading,error}
+};
 
 const mapDispatchToProps = dispatch => ({
-    updateItem: item => dispatch(searchWordActions.updateItem(item)),
-    insertItemToTodayWord: item => dispatch(todayWordActions.insertItem(item)),
+    queryItem: q => dispatch(actions.fetchQueryItem({q}))
 });
 
 @connect(
@@ -27,29 +27,7 @@ export default class SearchContent extends Component{
         super(props);
     }
     searchWordHandler = (q)=>{
-        http.post('/word/search', {q}).then((item)=> {
-            this.props.updateItem(item);
-            if(item.new){
-                this.props.insertItemToTodayWord(item)
-            }
-        })
-    };
-    updateTimeHandler = (item,createTime)=>{
-        http.post('/word/updateCreateTime', {id:item.userWordId,createTime}).then(()=> {
-            this.props.updateItem({...item,createTime})
-        })
-    };
-    updateLevelHandler = (item)=>{
-        let level = item.level === 0 ? 1 : 0;
-        let id = item.userWordId;
-        http.post('/word/updateLevel', {level,id}).then(()=> {
-            if(level === 1){
-                Toast.success('标记为疑难词汇~',1.5)
-            }else{
-                Toast.success('标记为普通词汇~',1.5)
-            }
-            this.props.updateItem({...item,level})
-        })
+        this.props.queryItem(q)
     };
     render(){
         let {item} = this.props;
@@ -79,8 +57,6 @@ export default class SearchContent extends Component{
                                 <WordItem
                                     item={item}
                                     delete={false}
-                                    updateLevelHandler={this.updateLevelHandler}
-                                    updateTimeHandler={this.updateTimeHandler}
                                 />
                             </Card.Body>
                         </Card>

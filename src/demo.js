@@ -5,9 +5,27 @@ import { BrowserRouter as Router, Route, Link,MemoryRouter } from "react-router-
 import './demo.scss'
 
 
+
+function refsHOC(WrappedComponent) {
+    return class RefsHOC extends React.Component {
+        proc(wrappedComponentInstance) {
+            console.log('into ref');
+            wrappedComponentInstance.event()
+        }
+
+        render() {
+            console.log('hoc render');
+            const props = Object.assign({}, this.props, {ref: this.proc.bind(this)})
+            return <WrappedComponent {...props}/>
+        }
+    }
+}
+
+
 class P extends Component{
     constructor(props){
         super(props);
+        console.log();
         this.state = {
             num:Math.random()
         };
@@ -16,37 +34,39 @@ class P extends Component{
         console.log('p','get state from props');
         return null;
     }
-    shouldComponentUpdate(nextProps,nextState){
-        console.log('p','update should component update');
-        return true;
-    }
-    event(){
-        this.setState({num:Math.random()})
-    }
     render(){
         console.log('p','render');
         return (
             <div>
                 {this.state.num}
-                <button onClick={this.event.bind(this)}>test</button>
-                <C1/>
-                {!this.state.a ?<C2/>:null}
             </div>
         )
-    }
-    getSnapshotBeforeUpdate(prevProps,prevState){
-        console.log('p','update snapshot');
-        return {};
-    }
-    componentDidUpdate(prevProps,prevState,snapshot){
-        console.log('p','did update');
     }
     componentDidMount(){
         console.log('p','init render over');
     }
-    componentWillUnmount(){
-        console.log('p','destroy');
+    event(){
+        console.log('com event');
     }
+    // shouldComponentUpdate(nextProps,nextState){
+    //     console.log('p','update should component update');
+    //     return true;
+    // }
+    // event(){
+    //     this.setState({num:Math.random()})
+    // }
+    //
+    // getSnapshotBeforeUpdate(prevProps,prevState){
+    //     console.log('p','update snapshot');
+    //     return {};
+    // }
+    // componentDidUpdate(prevProps,prevState,snapshot){
+    //     console.log('p','did update');
+    // }
+    //
+    // componentWillUnmount(){
+    //     console.log('p','destroy');
+    // }
 }
 class C1 extends Component{
     constructor(props){
@@ -101,9 +121,10 @@ class C2 extends Component{
 
 
 
+let Com = refsHOC(P);
 
 
 ReactDOM.render((
-    <P/>
+    <Com/>
 ), document.getElementById('root'));
 registerServiceWorker();
