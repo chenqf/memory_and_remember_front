@@ -10,9 +10,8 @@ export const fetchQueryItem = (params) => dispatch => {
     wordApi.searchItem(params).then((item)=>{
         dispatch(fetchQueryItemSuccess(item));
         if(item.new){
-            debugger
-            wordAction.add(item)
-            todayActions.insertItem(item.id);
+            dispatch(wordAction.add(item));
+            dispatch(todayActions.insertItem(item.id));
         }
     }).catch((error)=>{
         dispatch(fetchQueryItemFailure(error));

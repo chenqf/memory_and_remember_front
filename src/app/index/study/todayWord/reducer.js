@@ -19,8 +19,7 @@ export default (state = defaultState,action)=>{
             return {...state,loading:false,error:action.payload}
         }
         case actionTypes.INSERT_ITEM:{
-            debugger
-            return {...state,ids:[action.payload,...state.ids]}
+            return {...state,ids:[...state.ids,action.payload]}
         }
         default:{
             return state;
