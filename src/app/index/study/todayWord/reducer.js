@@ -3,23 +3,24 @@
 import * as actionTypes from './actionTypes';
 
 const defaultState = {
-    items:[],
-    count:0,
-    over:false
+    ids:[],
+    loading:false,
+    error:null
 };
 export default (state = defaultState,action)=>{
     switch (action.type){
-        case actionTypes.QUERY_LIST:{
-            return {...state,items:action.items,count:action.count || action.items.length,over:true}
+        case actionTypes.FETCH_QUERY_LIST_REQUEST:{
+            return {...state,loading:true,error:null}
         }
-        case actionTypes.UPDATE_ITEM:{
-            return {...state,items:state.items.map((i)=>i.id === action.item.id ? action.item : i)}
+        case actionTypes.FETCH_QUERY_LIST_SUCCESS:{
+            return {...state,loading:false,ids:action.payload,error:null}
         }
-        case actionTypes.DELETE_ITEM:{
-            return {...state,count:state.count - 1,items:state.items.filter((i)=>i.id !== action.id)}
+        case actionTypes.FETCH_QUERY_LIST_FAILURE:{
+            return {...state,loading:false,error:action.payload}
         }
         case actionTypes.INSERT_ITEM:{
-            return {...state,count:state.count + 1,items:[action.item,...state.items]}
+            debugger
+            return {...state,ids:[action.payload,...state.ids]}
         }
         default:{
             return state;

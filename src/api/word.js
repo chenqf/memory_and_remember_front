@@ -5,6 +5,8 @@ import http from '@http'
 export default {
     //查询单个单词
     searchItem:(params = {})=>http.post('/word/search',params),
+    //查询今日单词
+    queryTodayWordList:(params = {})=>http.post('/word/queryByPreDate',params),
     //随机获取单词
     queryRandom:(params = {})=>http.post('/word/queryRandom',params),
     //更新单词创建时间

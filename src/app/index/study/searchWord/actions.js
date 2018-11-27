@@ -1,12 +1,19 @@
 // @flow Created by 陈其丰 on 2018/11/15.
 
 import * as actionTypes from './actionTypes';
+import {actions as todayActions} from '../todayWord/index';
+import {actions as wordAction } from '../../../../store/entities/word/index';
 import {word as wordApi} from '@api';
 
 export const fetchQueryItem = (params) => dispatch => {
     dispatch(fetchQueryItemRequest());
     wordApi.searchItem(params).then((item)=>{
         dispatch(fetchQueryItemSuccess(item));
+        if(item.new){
+            debugger
+            wordAction.add(item)
+            todayActions.insertItem(item.id);
+        }
     }).catch((error)=>{
         dispatch(fetchQueryItemFailure(error));
     });
