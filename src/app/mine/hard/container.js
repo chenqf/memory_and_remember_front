@@ -33,7 +33,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    queryAll: (params) =>dispatch(actions.fetchWordList(params)),
+    queryAll: (params) =>dispatch(actions.fetchHardWord(params)),
     emptyIds:()=>dispatch(actions.empty())
 });
 
