@@ -13,7 +13,7 @@ export const fetchHardWord = params =>({
         dispatch(wordAction.addList(items));
         dispatch(wordAction.updateHardCount(count));
     },
-    successThunk:({items = [],count})=>items.map((i)=>i.id)
+    pickPayload:({items = [],count})=>items.map((i)=>i.id)
 });
 
 

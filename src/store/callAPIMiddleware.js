@@ -9,7 +9,7 @@ export default ({dispatch,getState})=> next => action =>{
         shouldCallApi = ()=>true,
         beforeDispatchSuccess = ()=>{},
         afterDispatchSuccess = ()=>{},
-        successThunk = (data)=>data
+        pickPayload = (data)=>data
     } = action;
 
     if (!types) {
@@ -38,7 +38,7 @@ export default ({dispatch,getState})=> next => action =>{
         beforeDispatchSuccess(data,dispatch);
         dispatch({
             type:successType,
-            payload:successThunk(data)
+            payload:pickPayload(data)
         });
         afterDispatchSuccess(data,dispatch);
     }).catch((err)=>{
