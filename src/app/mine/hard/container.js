@@ -5,30 +5,28 @@ import withHeader from '@hot/withHeader';
 import WordList from '@component/wordList';
 import {actions} from './index';
 import { connect } from 'react-redux'
+import {getItems} from './selectors'
 
 
 const mapStateToProps = (state, ownProps) => {
     let {
         entities:{
-            word:{byId,hardNum}
+            word:{hardNum}
         }
     } = state;
     let {
         hardWord:{
-            wordIds,
             loadingWord,
             loadWordError
         }
     } = state;
-
-    let items = wordIds.filter(id=>byId.hasOwnProperty(id)).map(id=>byId[id]);
     return {
         pageCount:10,
         page:1,
         loading:loadingWord,
         error:loadWordError,
         count: hardNum,
-        items
+        items:getItems(state)
     }
 };
 
