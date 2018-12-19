@@ -4,35 +4,20 @@ import * as actionTypes from './actionTypes';
 import {word as wordApi} from '@api';
 import {actions as wordAction } from '../../../store/entities/word/index';
 
+
+
 /*
  * 获取所有单词数量
  * */
-export const fetchWordList = (params) => dispatch => {
-    dispatch(fetchWordListRequest());
-    wordApi.queryAll(params).then(({items = [],count})=>{
+export const fetchWordList = params =>({
+    types:[actionTypes.FETCH_WORD_LIST_REQUEST,actionTypes.FETCH_WORD_LIST_SUCCESS,actionTypes.FETCH_WORD_LIST_FAILURE],
+    params,
+    callAPI:wordApi.queryAll,
+    beforeDispatchSuccess:({items = [],count},dispatch)=>{
         dispatch(wordAction.addList(items));
         dispatch(wordAction.updateAllCount(count));
-        dispatch(fetchWordListSuccess(items.map((i)=>i.id)));
-    }).catch((error)=>{
-        dispatch(fetchWordListFailure(error));
-    });
-};
-
-/*发送请求，所有单词数量*/
-export const fetchWordListRequest = () => ({
-    type:actionTypes.FETCH_WORD_LIST_REQUEST
-});
-
-/*发送请求，所有单词数量 -成功*/
-export const fetchWordListSuccess = (payload) => ({
-    type:actionTypes.FETCH_WORD_LIST_SUCCESS,
-    payload
-});
-
-/*发送请求，所有单词数量 -失败*/
-export const fetchWordListFailure = (payload) => ({
-    type:actionTypes.FETCH_WORD_LIST_FAILURE,
-    payload
+    },
+    pickPayload:({items = [],count})=>items.map((i)=>i.id)
 });
 
 /* 清空数据 */
