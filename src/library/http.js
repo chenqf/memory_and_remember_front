@@ -1,6 +1,4 @@
 // @flow Created by 陈其丰 on 2018/9/29.
-
-
 import {Toast} from 'antd-mobile';
 import axios from 'axios';
 import Qs from 'qs';
@@ -40,26 +38,10 @@ axios.interceptors.response.use(function (response) {
 
 export default {
     post(url,params = {}){
-        let hold = params.hold;
-        delete params.hold;
-        let time = Date.now() + 1200;
-        if(hold){
-            Toast.loading('加载中...', 0);
-        }
         return  new Promise((resolve,reject)=>{
             axios.post(url, params).then((data)=>{
-                let now = Date.now();
-                if(now > time || !hold){
-                    resolve(data)
-                    Toast.hide();
-                }else{
-                    setTimeout(()=>{
-                        resolve(data)
-                        Toast.hide();
-                    },time - now);
-                }
+                resolve(data)
             }).catch((error)=>{
-                Toast.fail(error.message,1.5);
                 reject(error);
             })
         })
