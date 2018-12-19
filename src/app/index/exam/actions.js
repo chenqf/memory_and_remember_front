@@ -6,31 +6,12 @@ import {actions as wordAction } from '../../../store/entities/word/index';
 
 
 /*
-* 获取复习单词
-* */
-export const fetchWordList = (params) => dispatch => {
-    dispatch(fetchWordListRequest());
-    wordApi.queryRandom(params).then(({items = []})=>{
-        dispatch(wordAction.addList(items));
-        dispatch(fetchWordListSuccess(items.map((i)=>i.id)));
-    }).catch((error)=>{
-        dispatch(fetchWordListFailure(error));
-    });
-};
-
-/*发送请求，获取单词列表*/
-export const fetchWordListRequest = () => ({
-    type:actionTypes.FETCH_WORD_LIST_REQUEST
-});
-
-/*发送请求，获取单词列表 -成功*/
-export const fetchWordListSuccess = (payload) => ({
-    type:actionTypes.FETCH_WORD_LIST_SUCCESS,
-    payload
-});
-
-/*发送请求，获取单词列表 -失败*/
-export const fetchWordListFailure = (payload) => ({
-    type:actionTypes.FETCH_WORD_LIST_FAILURE,
-    payload
+ * 获取复习单词
+ * */
+export const fetchWordList = params =>({
+    types:[actionTypes.FETCH_WORD_LIST_REQUEST,actionTypes.FETCH_WORD_LIST_SUCCESS,actionTypes.FETCH_WORD_LIST_FAILURE],
+    params,
+    callAPI:wordApi.queryRandom,
+    beforeDispatchSuccess:({items = []},dispatch)=>dispatch(wordAction.addList(items)),
+    pickPayload:({items = []})=>items.map(i=>i.id)
 });
