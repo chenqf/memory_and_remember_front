@@ -62,6 +62,8 @@ class App extends Component{
                             )
                         }
                     </Consumer>
+                </Provider>
+                <Provider value={1111}>
                     <Consumer>
                         {
                             value => (
@@ -69,21 +71,16 @@ class App extends Component{
                             )
                         }
                     </Consumer>
+                </Provider>
+                <Provider value={2222}>
                     <Consumer>
                         {
                             value => (
-                                <Demo2 value={value}/>
+                                <Demo1 value={value}/>
                             )
                         }
                     </Consumer>
                 </Provider>
-                <Consumer>
-                    {
-                        value => (
-                            <Demo2 value={value}/>
-                        )
-                    }
-                </Consumer>
             </React.Fragment>
 
         )
