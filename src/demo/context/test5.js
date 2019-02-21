@@ -2,6 +2,9 @@ import React,{PureComponent,Component} from 'react';
 const Context = React.createContext('defalut value');
 const {Consumer,Provider}  = Context;
 
+const Context1 = React.createContext(1);
+const {Consumer:Consumer1,Provider:Provider1} = Context1;
+
 function Demo1(props){
     return (
         <div>
@@ -12,8 +15,6 @@ function Demo1(props){
         </div>
     );
 }
-
-
 function Demo2(props){
     return (
         <div>
@@ -46,6 +47,64 @@ function Demo4(props){
         </div>
     );
 }
+class Demo5 extends PureComponent{
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
+    static defaultProps = {};
+    static propTypes = {};
+    render(){
+        return (
+            <React.Fragment>
+                <Consumer>
+                    {
+                        value => (
+                            <Demo6/>
+                        )
+                    }
+                </Consumer>
+                <Consumer1>
+                    {
+                        value =>(
+                            <Demo7/>
+                        )
+                    }
+                </Consumer1>
+            </React.Fragment>
+        )
+    }
+}
+
+class Demo6 extends Component{
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
+    static defaultProps = {};
+    static propTypes = {};
+    render(){
+        console.log(6);
+        return (
+            <div>6</div>
+        )
+    }
+}
+class Demo7 extends Component{
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
+    static defaultProps = {};
+    static propTypes = {};
+    render(){
+        console.log(7);
+        return (
+            <div>7</div>
+        )
+    }
+}
+
 
 class App extends Component{
     constructor(props){
@@ -55,6 +114,7 @@ class App extends Component{
         };
     }
     changeValue = () => {
+
         this.setState((prevState,props)=>{
             return {
                 context_value:prevState.context_value + '_'
@@ -66,7 +126,7 @@ class App extends Component{
     render(){
         return (
             <React.Fragment>
-                <Provider value={1111}>
+                <Provider value={'demo 5'}>
                     <Consumer>
                         {
                             value => (
@@ -98,6 +158,7 @@ class App extends Component{
                                         )
                                     }
                                 </Consumer>
+                                <Demo5/>
                             </Provider>
                         </Provider>
                     </Provider>
