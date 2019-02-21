@@ -4,6 +4,6 @@ import ReactDOM from 'react-dom';
 import Demo from './demo/index.js';
 
 ReactDOM.render((
-    <Demo.Context.Test5/>
+    <Demo.Context.Test6/>
 ), document.getElementById('root'));
 registerServiceWorker();
